@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rust Tools</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rust Tools</title>
+<style>
     :root{
       --bg:#14100d;
       --panel:#211914;
@@ -106,37 +107,44 @@
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <header>
-      <span class="badge">🛠 Rust Utility Suite</span>
-      <h1>Rust Tools</h1>
-      <p class="lead">A collection of build, cooking, and upkeep calculators for planning wipes, PvE bases, compounds, utilities, and resource runs.</p>
-    </header>
+<main class="wrap">
+<header>
+<span class="badge">🛠 Rust Utility Suite</span>
+<h1>Rust Tools</h1>
+<p class="lead">A collection of build, cooking, and upkeep calculators for planning wipes, PvE bases, compounds, utilities, and resource runs.</p>
+</header>
+<section aria-label="Rust calculators" class="grid">
+<a class="card" href="build-cost-calc.html">
+<div class="icon">🏗️</div>
+<h2>Build Cost Calc</h2>
+<p>Plan structures, doors, windows, electricity, industrial, farming, upkeep, TC layout, and storage logistics.</p>
+<span class="btn">Open Builder</span>
+</a>
+<a class="card" href="cooking-bench-calc.html">
+<div class="icon">🍳</div>
+<h2>Cooking Bench Calc</h2>
+<p>Calculate teas, pies, recipes, quantities, and total ingredients needed before crafting.</p>
+<span class="btn">Open Cooking</span>
+</a>
+<a class="card" href="upkeep-calc.html">
+<div class="icon">📦</div>
+<h2>Upkeep Calc</h2>
+<p>Estimate daily upkeep, TC fill time, storage boxes, and resource totals for maintaining a base.</p>
+<span class="btn">Open Upkeep</span>
+</a>
+</section>
+<section class="note" style="margin-top:28px;border:1px solid #4a3326;background:linear-gradient(180deg,rgba(44,33,26,.98),rgba(28,21,17,.98));">
+<h2 style="margin-top:0;">💡 Help Improve Rust Web Apps</h2>
+<p>Rust is constantly evolving, and community feedback helps keep these tools accurate, up to date, and useful for everyone.</p>
+<p>If you find a bug, notice an incorrect crafting cost, discover something that changed after a Rust update, or have an idea for a new feature, we'd love to hear from you.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;">
+<a href="https://github.com/ajdrox93/RustWebApps/issues" style="text-decoration:none;padding:12px 18px;border-radius:10px;background:#c66a2c;color:#21120a;font-weight:bold;">🐞 Report a Bug / Suggest a Feature</a>
+<a href="https://github.com/ajdrox93/RustWebApps" style="text-decoration:none;padding:12px 18px;border-radius:10px;border:1px solid #4a3326;color:#f3e4ce;">⭐ View Source on GitHub</a>
+</div>
+<p style="margin-top:16px;color:#b99d7f;"><strong>Current focus:</strong> Improving the Build Planner, adding new calculators, and keeping data accurate after every Rust update.</p>
+</section>
 
-    <section class="grid" aria-label="Rust calculators">
-      <a class="card" href="build-cost-calc.html">
-        <div class="icon">🏗️</div>
-        <h2>Build Cost Calc</h2>
-        <p>Plan structures, doors, windows, electricity, industrial, farming, upkeep, TC layout, and storage logistics.</p>
-        <span class="btn">Open Builder</span>
-      </a>
-
-      <a class="card" href="cooking-bench-calc.html">
-        <div class="icon">🍳</div>
-        <h2>Cooking Bench Calc</h2>
-        <p>Calculate teas, pies, recipes, quantities, and total ingredients needed before crafting.</p>
-        <span class="btn">Open Cooking</span>
-      </a>
-
-      <a class="card" href="upkeep-calc.html">
-        <div class="icon">📦</div>
-        <h2>Upkeep Calc</h2>
-        <p>Estimate daily upkeep, TC fill time, storage boxes, and resource totals for maintaining a base.</p>
-        <span class="btn">Open Upkeep</span>
-      </a>
-    </section>
-
-    <footer>Made for Rust planners, builders, farmers, and loot goblins.</footer>
-  </main>
+<footer>Built by Andrew Dow • Rust Web Apps • Community feedback welcome.</footer>
+</main>
 </body>
 </html>
