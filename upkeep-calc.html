@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rust Upkeep Calc</title>
+  <style>
+    :root {
+      --bg: #313131;
+      --input: #FFF59D;
+      --title: lightyellow;
+      --orange: orange;
+      --magenta: magenta;
+      --red: red;
+      --green: #3cff3c;
+      --yellow: yellow;
+      --white: white;
+      --button: #d9534f;
+      --button-active: #c9302c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--orange);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+
+    .app {
+      width: fit-content;
+      min-width: min(100vw, 900px);
+      margin: 0 auto;
+      padding: 12px 16px 24px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin: 0;
+      color: var(--title);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    h2 { margin-top: 12px; }
+
+    .comment {
+      color: var(--magenta);
+      font-size: 16px;
+      line-height: 1.25;
+      margin: 6px 0 8px;
+    }
+
+    .note {
+      color: var(--red);
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 10px 10px;
+      margin: 0 auto;
+      white-space: nowrap;
+    }
+
+    th {
+      font-weight: 400;
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+
+    .resource { color: var(--orange); text-align: left; }
+    .red { color: var(--red); }
+    .green { color: var(--green); }
+    .yellow { color: var(--yellow); }
+    .orange { color: var(--orange); }
+    .white { color: var(--white); }
+
+    input[type="text"], input[type="number"] {
+      width: 150px;
+      height: 30px;
+      border: 1px solid #222;
+      background: var(--input);
+      color: black;
+      text-align: center;
+      font: 16px Arial, Helvetica, sans-serif;
+      padding: 3px 6px;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #313131;
+    }
+
+    .result {
+      min-width: 95px;
+      color: var(--orange);
+    }
+
+    button {
+      margin: 8px 10px 4px;
+      padding: 7px 14px;
+      border: 3px outset #b54542;
+      background: var(--button);
+      color: black;
+      font: bold 16px Arial, Helvetica, sans-serif;
+      cursor: pointer;
+    }
+
+    button:active {
+      background: var(--button-active);
+      color: white;
+      border-style: inset;
+    }
+
+    .reverse table {
+      border-spacing: 5px 8px;
+    }
+
+    .reverse .resource { min-width: 90px; }
+    .checkbox-cell { min-width: 42px; }
+
+    @media (max-width: 900px) {
+      .app { min-width: 100%; padding: 10px; }
+      table { border-spacing: 8px 8px; }
+      input[type="text"], input[type="number"] { width: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>Rust Upkeep Calc</h1>
+    <div class="comment">
+      Enter the amount of boxes you have for each upkeep item used<br />
+      and your daily upkeep amount to get total time left
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="Rust upkeep calculator">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="red">Total Amount<br />Small Boxes</th>
+            <th class="green">Total Amount<br />Large Boxes</th>
+            <th class="red">Total Partial<br />Box Amount</th>
+            <th class="yellow">Total<br />Quantity's</th>
+            <th class="green">Daily Upkeep</th>
+            <th class="yellow">Total Days<br />Hours &amp; Mins</th>
+          </tr>
+        </thead>
+        <tbody id="mainRows"></tbody>
+      </table>
+    </div>
+
+    <button type="button" id="clearMain">Clear</button>
+
+    <section class="reverse">
+      <h2>Reverse Upkeep Calculator</h2>
+      <div class="comment">Enter days needed and daily upkeep to calculate the boxes required</div>
+      <div class="note">Use the checkboxes to choose large/small boxes separately for each item</div>
+
+      <div class="table-wrap">
+        <table aria-label="Reverse upkeep calculator">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="green">Days Needed</th>
+              <th class="green">Daily Amount</th>
+              <th class="yellow">Total Needed</th>
+              <th class="white">Lg</th>
+              <th class="orange">Lg Boxes</th>
+              <th class="white">Sm</th>
+              <th class="orange">Sm Boxes</th>
+              <th class="orange">Partial</th>
+            </tr>
+          </thead>
+          <tbody id="reverseRows"></tbody>
+        </table>
+      </div>
+
+      <button type="button" id="clearReverse">Clear</button>
+    </section>
+  </main>
+
+  <script>
+    // Hidden Tkinter top values moved directly into code.
+    const BOX = { largeSlots: 48, smallSlots: 18 };
+    const RESOURCES = [
+      { key: "wood", label: "Wood", stack: 1000 },
+      { key: "stone", label: "Stone", stack: 1000 },
+      { key: "frags", label: "Frags", stack: 1000 },
+      { key: "hqm", label: "HQM", stack: 100 }
+    ];
+
+    const fmt = new Intl.NumberFormat("en-US");
+
+    function toInt(value) {
+      const cleaned = String(value ?? "").replace(/,/g, "").trim();
+      const parsed = parseInt(cleaned, 10);
+      return Number.isFinite(parsed) ? parsed : 0;
+    }
+
+    function formatNumber(value) {
+      return fmt.format(Math.max(0, toInt(value)));
+    }
+
+    function normalizeInput(input) {
+      input.value = String(input.value).replace(/,/g, "");
+    }
+
+    function formatInput(input) {
+      input.value = formatNumber(input.value);
+    }
+
+    function makeInput(id) {
+      return `<input id="${id}" type="text" value="0" inputmode="numeric" autocomplete="off" />`;
+    }
+
+    function renderRows() {
+      document.getElementById("mainRows").innerHTML = RESOURCES.map(r => `
+        <tr>
+          <td class="resource">${r.label}</td>
+          <td>${makeInput(`${r.key}_small`)}</td>
+          <td>${makeInput(`${r.key}_large`)}</td>
+          <td>${makeInput(`${r.key}_partial`)}</td>
+          <td class="result" id="${r.key}_total">0</td>
+          <td>${makeInput(`${r.key}_upkeep`)}</td>
+          <td class="result" id="${r.key}_days">0d, 0h, 0m</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("reverseRows").innerHTML = RESOURCES.map(r => `
+        <tr>
+          <td class="resource">${r.label}</td>
+          <td>${makeInput(`rev_${r.key}_days`)}</td>
+          <td>${makeInput(`rev_${r.key}_daily`)}</td>
+          <td class="result" id="rev_${r.key}_total">0</td>
+          <td class="checkbox-cell"><input id="rev_${r.key}_use_large" type="checkbox" checked /></td>
+          <td class="result" id="rev_${r.key}_large">0</td>
+          <td class="checkbox-cell"><input id="rev_${r.key}_use_small" type="checkbox" /></td>
+          <td class="result" id="rev_${r.key}_small">0</td>
+          <td class="result" id="rev_${r.key}_partial">0</td>
+        </tr>
+      `).join("");
+    }
+
+    function updateMain(resource) {
+      const smallBoxes = toInt(document.getElementById(`${resource.key}_small`).value);
+      const largeBoxes = toInt(document.getElementById(`${resource.key}_large`).value);
+      const partial = toInt(document.getElementById(`${resource.key}_partial`).value);
+      const upkeep = toInt(document.getElementById(`${resource.key}_upkeep`).value);
+
+      const total = (smallBoxes * resource.stack * BOX.smallSlots) +
+                    (largeBoxes * resource.stack * BOX.largeSlots) +
+                    partial;
+
+      document.getElementById(`${resource.key}_total`).textContent = fmt.format(total);
+      document.getElementById(`${resource.key}_days`).textContent = calculateTime(total, upkeep);
+    }
+
+    function calculateTime(total, upkeep) {
+      if (upkeep <= 0) return "0d, 0h, 0m";
+
+      let totalDays = total / upkeep;
+      let days = Math.floor(totalDays);
+      let remainingHours = (totalDays - days) * 24;
+      let hours = Math.floor(remainingHours);
+      let minutes = Math.round((remainingHours - hours) * 60);
+
+      if (minutes === 60) {
+        minutes = 0;
+        hours += 1;
+      }
+      if (hours === 24) {
+        hours = 0;
+        days += 1;
+      }
+
+      return `${days}d, ${hours}h, ${minutes}m`;
+    }
+
+    function calculateBoxesNeeded(totalNeeded, stackQty, useLarge, useSmall) {
+      totalNeeded = Math.max(0, toInt(totalNeeded));
+      const largeCapacity = Math.max(1, stackQty * BOX.largeSlots);
+      const smallCapacity = Math.max(1, stackQty * BOX.smallSlots);
+
+      let largeBoxes = 0;
+      let smallBoxes = 0;
+      let partial = totalNeeded;
+
+      if (useLarge && useSmall) {
+        largeBoxes = Math.floor(totalNeeded / largeCapacity);
+        const remaining = totalNeeded % largeCapacity;
+        smallBoxes = Math.floor(remaining / smallCapacity);
+        partial = remaining % smallCapacity;
+      } else if (useLarge) {
+        largeBoxes = Math.floor(totalNeeded / largeCapacity);
+        partial = totalNeeded % largeCapacity;
+      } else if (useSmall) {
+        smallBoxes = Math.floor(totalNeeded / smallCapacity);
+        partial = totalNeeded % smallCapacity;
+      }
+
+      return { largeBoxes, smallBoxes, partial };
+    }
+
+    function updateReverse(resource) {
+      const days = toInt(document.getElementById(`rev_${resource.key}_days`).value);
+      const daily = toInt(document.getElementById(`rev_${resource.key}_daily`).value);
+      const totalNeeded = days * daily;
+      const useLarge = document.getElementById(`rev_${resource.key}_use_large`).checked;
+      const useSmall = document.getElementById(`rev_${resource.key}_use_small`).checked;
+      const boxes = calculateBoxesNeeded(totalNeeded, resource.stack, useLarge, useSmall);
+
+      document.getElementById(`rev_${resource.key}_total`).textContent = fmt.format(totalNeeded);
+      document.getElementById(`rev_${resource.key}_large`).textContent = fmt.format(boxes.largeBoxes);
+      document.getElementById(`rev_${resource.key}_small`).textContent = fmt.format(boxes.smallBoxes);
+      document.getElementById(`rev_${resource.key}_partial`).textContent = fmt.format(boxes.partial);
+    }
+
+    function wireInputs() {
+      document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.addEventListener("click", () => { input.value = ""; });
+        input.addEventListener("focus", () => normalizeInput(input));
+        input.addEventListener("blur", () => formatInput(input));
+        input.addEventListener("input", () => updateAll());
+      });
+
+      document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        input.addEventListener("change", () => updateAll());
+      });
+    }
+
+    function updateAll() {
+      RESOURCES.forEach(resource => {
+        updateMain(resource);
+        updateReverse(resource);
+      });
+    }
+
+    function clearMain() {
+      RESOURCES.forEach(resource => {
+        [`${resource.key}_small`, `${resource.key}_large`, `${resource.key}_partial`, `${resource.key}_upkeep`]
+          .forEach(id => document.getElementById(id).value = "0");
+      });
+      updateAll();
+      document.activeElement.blur();
+    }
+
+    function clearReverse() {
+      RESOURCES.forEach(resource => {
+        document.getElementById(`rev_${resource.key}_days`).value = "0";
+        document.getElementById(`rev_${resource.key}_daily`).value = "0";
+        document.getElementById(`rev_${resource.key}_use_large`).checked = true;
+        document.getElementById(`rev_${resource.key}_use_small`).checked = false;
+      });
+      updateAll();
+      document.activeElement.blur();
+    }
+
+    renderRows();
+    wireInputs();
+    document.getElementById("clearMain").addEventListener("click", clearMain);
+    document.getElementById("clearReverse").addEventListener("click", clearReverse);
+    updateAll();
+  </script>
+</body>
+</html>
