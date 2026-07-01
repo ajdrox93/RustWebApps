@@ -3,201 +3,500 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rust Upkeep Calc</title>
+  <title>Rust Upkeep Calculator</title>
   <style>
     :root {
-      --bg: #313131;
-      --input: #FFF59D;
-      --title: lightyellow;
-      --orange: orange;
-      --magenta: magenta;
-      --red: red;
-      --green: #3cff3c;
-      --yellow: yellow;
-      --white: white;
-      --button: #d9534f;
-      --button-active: #c9302c;
+      --bg: #12100e;
+      --bg2: #1b1713;
+      --card: rgba(31, 26, 21, 0.94);
+      --card2: rgba(44, 36, 28, 0.94);
+      --border: #5b4632;
+      --border2: #8a623d;
+      --text: #f1e3c7;
+      --muted: #b89e7a;
+      --rust: #c46a2b;
+      --rust2: #e28b3e;
+      --danger: #e05d46;
+      --green: #75d67a;
+      --yellow: #f0c85a;
+      --blue: #70b7d8;
+      --input: #fff1b8;
+      --shadow: rgba(0,0,0,.45);
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--orange);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
+      color: var(--text);
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(196,106,43,.24), transparent 34%),
+        radial-gradient(circle at 90% 10%, rgba(108,76,42,.35), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,.035) 25%, transparent 25%) 0 0/18px 18px,
+        linear-gradient(225deg, rgba(255,255,255,.025) 25%, transparent 25%) 0 0/18px 18px,
+        var(--bg);
     }
 
-    .app {
-      width: fit-content;
-      min-width: min(100vw, 900px);
-      margin: 0 auto;
-      padding: 12px 16px 24px;
-      text-align: center;
+    a { color: inherit; text-decoration: none; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      min-height: 100vh;
     }
 
-    h1, h2 {
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 22px 18px;
+      background: linear-gradient(180deg, rgba(28,23,19,.98), rgba(16,14,12,.98));
+      border-right: 1px solid var(--border);
+      box-shadow: 8px 0 28px var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #d87b37, #7d391d);
+      border: 1px solid #f0a15b;
+      box-shadow: inset 0 1px rgba(255,255,255,.25), 0 8px 18px rgba(0,0,0,.35);
+      font-size: 23px;
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      line-height: 1.05;
       margin: 0;
-      color: var(--title);
-      font-size: 24px;
-      font-weight: 400;
+      letter-spacing: .5px;
+      text-transform: uppercase;
     }
 
-    h2 { margin-top: 12px; }
-
-    .comment {
-      color: var(--magenta);
-      font-size: 16px;
-      line-height: 1.25;
-      margin: 6px 0 8px;
+    .brand span {
+      color: var(--muted);
+      font-size: 12px;
+      display: block;
+      margin-top: 3px;
+      text-transform: none;
+      letter-spacing: 0;
     }
 
-    .note {
-      color: var(--red);
-      font-size: 16px;
+    .nav { display: grid; gap: 10px; }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: 12px;
+      color: var(--text);
+      font-weight: 700;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .nav a:hover {
+      transform: translateX(3px);
+      border-color: var(--rust2);
+      background: rgba(196,106,43,.14);
+    }
+
+    .nav .active {
+      border-color: var(--rust2);
+      background: linear-gradient(135deg, rgba(196,106,43,.25), rgba(255,255,255,.04));
+    }
+
+    .main {
+      padding: 26px;
+      max-width: 1350px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      border-radius: 24px;
+      padding: 26px;
+      background:
+        linear-gradient(135deg, rgba(196,106,43,.22), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,.07), transparent),
+        rgba(31,26,21,.92);
+      box-shadow: 0 20px 45px var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(226,139,62,.18), transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero h2 {
       margin: 0 0 8px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: .95;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 16px 0 0;
+    }
+
+    .stat {
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.18);
+    }
+
+    .stat strong { display: block; color: var(--rust2); font-size: 20px; }
+    .stat span { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .7px; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: 0 18px 36px rgba(0,0,0,.26);
+      overflow: hidden;
+    }
+
+    details.card > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+      border-bottom: 1px solid rgba(91,70,50,.55);
+    }
+
+    details.card > summary::-webkit-details-marker { display: none; }
+
+    .summary-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .summary-title b {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .summary-title span { color: var(--muted); font-size: 13px; display: block; margin-top: 2px; }
+
+    .chevron {
+      color: var(--rust2);
+      font-size: 22px;
+      transform: rotate(0deg);
+      transition: transform .2s ease;
+    }
+
+    details[open] .chevron { transform: rotate(90deg); }
+
+    .card-body { padding: 18px; }
+
+    .tip {
+      color: var(--muted);
+      line-height: 1.45;
+      margin: 0 0 14px;
     }
 
     .table-wrap {
       overflow-x: auto;
-      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(91,70,50,.8);
+      background: rgba(0,0,0,.16);
     }
 
     table {
-      border-collapse: separate;
-      border-spacing: 10px 10px;
-      margin: 0 auto;
-      white-space: nowrap;
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 960px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(91,70,50,.55);
+      font-size: 15px;
     }
 
     th {
-      font-weight: 400;
-      font-size: 16px;
-      text-align: center;
-      line-height: 1.15;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      color: var(--text);
+      background: rgba(29,24,20,.98);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .65px;
     }
 
-    td {
-      text-align: center;
-      vertical-align: middle;
-      font-size: 16px;
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: rgba(196,106,43,.08); }
+
+    .resource {
+      text-align: left;
+      font-weight: 800;
+      color: var(--rust2);
+      white-space: nowrap;
     }
 
-    .resource { color: var(--orange); text-align: left; }
-    .red { color: var(--red); }
+    .red { color: var(--danger); }
     .green { color: var(--green); }
     .yellow { color: var(--yellow); }
-    .orange { color: var(--orange); }
-    .white { color: var(--white); }
+    .orange { color: var(--rust2); }
+    .white { color: var(--text); }
 
     input[type="text"], input[type="number"] {
-      width: 150px;
-      height: 30px;
-      border: 1px solid #222;
+      width: 130px;
+      height: 38px;
+      border: 1px solid #705234;
+      border-radius: 10px;
       background: var(--input);
-      color: black;
+      color: #21160e;
       text-align: center;
-      font: 16px Arial, Helvetica, sans-serif;
-      padding: 3px 6px;
+      font: 700 15px "Segoe UI", Arial, sans-serif;
+      padding: 5px 8px;
       outline: none;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,.2);
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: var(--rust2);
+      box-shadow: 0 0 0 3px rgba(226,139,62,.18), inset 0 2px 5px rgba(0,0,0,.2);
     }
 
     input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      accent-color: #313131;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--rust);
     }
 
     .result {
-      min-width: 95px;
-      color: var(--orange);
+      min-width: 110px;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .time-result { color: var(--green); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
     }
 
     button {
-      margin: 8px 10px 4px;
-      padding: 7px 14px;
-      border: 3px outset #b54542;
-      background: var(--button);
-      color: black;
-      font: bold 16px Arial, Helvetica, sans-serif;
+      border: 1px solid #c97735;
+      background: linear-gradient(180deg, #e28b3e, #a44b22);
+      color: #170d08;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font: 900 14px "Segoe UI", Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .5px;
       cursor: pointer;
+      box-shadow: 0 8px 16px rgba(0,0,0,.25), inset 0 1px rgba(255,255,255,.35);
     }
 
-    button:active {
-      background: var(--button-active);
-      color: white;
-      border-style: inset;
+    button:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    button:active { transform: translateY(1px); filter: brightness(.95); }
+
+    .note-box {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(240,200,90,.35);
+      background: rgba(240,200,90,.08);
+      color: var(--muted);
+      line-height: 1.45;
     }
 
-    .reverse table {
-      border-spacing: 5px 8px;
+    .note-box b { color: var(--yellow); }
+
+    .footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 18px 0 4px;
+      font-size: 13px;
     }
 
-    .reverse .resource { min-width: 90px; }
-    .checkbox-cell { min-width: 42px; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .quick-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .main { padding: 16px; }
+    }
 
-    @media (max-width: 900px) {
-      .app { min-width: 100%; padding: 10px; }
-      table { border-spacing: 8px 8px; }
-      input[type="text"], input[type="number"] { width: 130px; }
+    @media (max-width: 560px) {
+      .nav { grid-template-columns: 1fr; }
+      .quick-stats { grid-template-columns: 1fr; }
+      .hero { padding: 20px; }
+      input[type="text"], input[type="number"] { width: 112px; }
     }
   </style>
 </head>
 <body>
-  <main class="app">
-    <h1>Rust Upkeep Calc</h1>
-    <div class="comment">
-      Enter the amount of boxes you have for each upkeep item used<br />
-      and your daily upkeep amount to get total time left
-    </div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">📦</div>
+        <div>
+          <h1>Rust<br />Web Apps</h1>
+          <span>Upkeep Planner</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="App navigation">
+        <a href="index.html">🏠 Home</a>
+        <a href="build-cost-calc.html">🧱 Build Cost Calc</a>
+        <a href="cooking-bench-calc.html">🍳 Cooking Bench Calc</a>
+        <a class="active" href="upkeep-calc.html">📦 Upkeep Calc</a>
+      </nav>
+    </aside>
 
-    <div class="table-wrap">
-      <table aria-label="Rust upkeep calculator">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="red">Total Amount<br />Small Boxes</th>
-            <th class="green">Total Amount<br />Large Boxes</th>
-            <th class="red">Total Partial<br />Box Amount</th>
-            <th class="yellow">Total<br />Quantity's</th>
-            <th class="green">Daily Upkeep</th>
-            <th class="yellow">Total Days<br />Hours &amp; Mins</th>
-          </tr>
-        </thead>
-        <tbody id="mainRows"></tbody>
-      </table>
-    </div>
+    <main class="main">
+      <section class="hero">
+        <h2>Rust Upkeep Calculator</h2>
+        <p>Plan your Tool Cupboard fill, calculate how long your resources will last, and reverse-calculate how many boxes you need for a target number of days.</p>
+        <div class="quick-stats" aria-label="Calculator features">
+          <div class="stat"><strong>4</strong><span>Core resources</span></div>
+          <div class="stat"><strong>48</strong><span>Large box slots</span></div>
+          <div class="stat"><strong>18</strong><span>Small box slots</span></div>
+          <div class="stat"><strong>TC</strong><span>Planning helper</span></div>
+        </div>
+      </section>
 
-    <button type="button" id="clearMain">Clear</button>
+      <div class="section-grid">
+        <details class="card" open>
+          <summary>
+            <div class="summary-title">
+              <div>🧰</div>
+              <div><b>Current TC Fill</b><span>Enter your boxes, partial amounts, and daily upkeep.</span></div>
+            </div>
+            <div class="chevron">›</div>
+          </summary>
+          <div class="card-body">
+            <p class="tip">Use this when you already have resources in boxes and want to know how long the base will last.</p>
+            <div class="table-wrap">
+              <table aria-label="Rust upkeep calculator">
+                <thead>
+                  <tr>
+                    <th>Resource</th>
+                    <th class="red">Small Boxes</th>
+                    <th class="green">Large Boxes</th>
+                    <th class="yellow">Partial Amount</th>
+                    <th class="yellow">Total Quantity</th>
+                    <th class="green">Daily Upkeep</th>
+                    <th class="yellow">Time Left</th>
+                  </tr>
+                </thead>
+                <tbody id="mainRows"></tbody>
+              </table>
+            </div>
+            <div class="actions">
+              <button type="button" id="clearMain">Clear TC Fill</button>
+            </div>
+          </div>
+        </details>
 
-    <section class="reverse">
-      <h2>Reverse Upkeep Calculator</h2>
-      <div class="comment">Enter days needed and daily upkeep to calculate the boxes required</div>
-      <div class="note">Use the checkboxes to choose large/small boxes separately for each item</div>
-
-      <div class="table-wrap">
-        <table aria-label="Reverse upkeep calculator">
-          <thead>
-            <tr>
-              <th></th>
-              <th class="green">Days Needed</th>
-              <th class="green">Daily Amount</th>
-              <th class="yellow">Total Needed</th>
-              <th class="white">Lg</th>
-              <th class="orange">Lg Boxes</th>
-              <th class="white">Sm</th>
-              <th class="orange">Sm Boxes</th>
-              <th class="orange">Partial</th>
-            </tr>
-          </thead>
-          <tbody id="reverseRows"></tbody>
-        </table>
+        <details class="card" open>
+          <summary>
+            <div class="summary-title">
+              <div>🧮</div>
+              <div><b>Reverse Upkeep Calculator</b><span>Pick days needed and get box requirements.</span></div>
+            </div>
+            <div class="chevron">›</div>
+          </summary>
+          <div class="card-body">
+            <p class="tip">Use this when you know your daily upkeep and want to prep enough resources for a specific number of days.</p>
+            <div class="table-wrap">
+              <table aria-label="Reverse upkeep calculator">
+                <thead>
+                  <tr>
+                    <th>Resource</th>
+                    <th class="green">Days Needed</th>
+                    <th class="green">Daily Amount</th>
+                    <th class="yellow">Total Needed</th>
+                    <th class="white">Lg?</th>
+                    <th class="orange">Large Boxes</th>
+                    <th class="white">Sm?</th>
+                    <th class="orange">Small Boxes</th>
+                    <th class="orange">Partial</th>
+                  </tr>
+                </thead>
+                <tbody id="reverseRows"></tbody>
+              </table>
+            </div>
+            <div class="note-box">
+              <div>💡</div>
+              <div><b>Tip:</b> Leave large boxes checked for the cleanest storage plan. Enable small boxes too if you want the calculator to use large boxes first, then small boxes, then a partial amount.</div>
+            </div>
+            <div class="actions">
+              <button type="button" id="clearReverse">Clear Reverse Calc</button>
+            </div>
+          </div>
+        </details>
       </div>
 
-      <button type="button" id="clearReverse">Clear</button>
-    </section>
-  </main>
+      <div class="footer">Rust Web Apps • Upkeep Calc • Single-file HTML</div>
+    </main>
+  </div>
 
   <script>
     // Hidden Tkinter top values moved directly into code.
