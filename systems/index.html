@@ -50,7 +50,6 @@
   <div class="power-callout">⚡ Live power balance updates as quantities and editable outputs change.</div>
 </div>
 <div class="toolbar systems-toolbar">
-<div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, turbine, conveyor, sprinkler, fluorescent..."/>
 <button class="primary" onclick="calculate()">Calculate</button><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
 </div>
@@ -75,6 +74,7 @@
 <aside class="summary" id="summarySection">
 <section class="total-box power-summary"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div><div class="footer">Edit variable output and draw values to match the actual circuit.</div></section>
 <section class="total-box"><div class="label">System materials</div><div class="resource-list" id="grandTotals"></div></section>
+<section class="total-box" id="shoppingSection"><div class="label">System shopping list</div><div class="small">Track the materials gathered for this systems plan. Enter what you already have; remaining amounts update automatically and stay saved in this browser.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copySystemsShoppingList()">Copy List</button><button onclick="clearSystemsOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Material storage</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for all selected system components.</div></section>
 <section class="total-box"><div class="label">Selected components</div><table class="breakdown"><tbody id="breakdown"></tbody></table></section>
 <div hidden><div id="baseSummary"></div><div id="twigTotal"></div><div id="upgradeTotal"></div><div id="upgradeHelp"></div><div id="upkeepTotals"></div></div>
@@ -273,6 +273,7 @@ const navGroups=[
   {id:'section_farming',label:'Farming / Water',icon:'🌱'},
   {id:'section_dlc',label:'Powered DLC',icon:'🎵'},
   {id:'summarySection',label:'Summary',icon:'📌'},
+  {id:'shoppingSection',label:'Shopping List',icon:'🛒'},
   {id:'workbenchSection',label:'Workbench',icon:'🛠'},
   {id:'exportSection',label:'Export',icon:'📋'}
 ];
@@ -327,9 +328,58 @@ function logisticsForResource(amount,r){
   return `${fmt(stacks)} stack${stacks===1?'':'s'}`;
 }
 function storageStacks(amount,r){return Math.ceil(amount/(stackSize[r]||1000));}
+function systemsOwnedStorageKey(resource){return `rustSystemsOwned_${resource}`;}
+function systemsOwnedAmount(resource){return Math.max(0,Number(localStorage.getItem(systemsOwnedStorageKey(resource))||0));}
+function setSystemsOwnedAmount(resource,value){
+  const amount=Math.max(0,Number(value||0));
+  localStorage.setItem(systemsOwnedStorageKey(resource),String(amount));
+  if(window.currentSystemsTotals)renderSystemsShoppingList(window.currentSystemsTotals);
+}
+function renderSystemsShoppingList(totals){
+  const holder=document.getElementById('shoppingList');
+  if(!holder)return;
+  holder.innerHTML='';
+  let rows=0;
+  for(const r of resources){
+    const required=Math.max(0,Number(totals?.[r]||0));
+    if(required<=0)continue;
+    rows++;
+    const owned=systemsOwnedAmount(r);
+    const remaining=Math.max(0,required-owned);
+    const progress=required?Math.min(100,(owned/required)*100):0;
+    const complete=remaining<=0;
+    holder.innerHTML+=`<div class="shopping-row">
+      <div class="shopping-head"><b class="${resourceClass[r]}">${resourceNames[r]}</b><span class="${complete?'good':''}">${complete?'✓ Complete':fmt(remaining)+' remaining'}</span></div>
+      <div class="shopping-progress"><span style="width:${progress}%"></span></div>
+      <label>Owned <input type="number" min="0" step="1" value="${owned}" oninput="setSystemsOwnedAmount('${r}',this.value)"> of ${fmt(required)}</label>
+    </div>`;
+  }
+  if(!rows)holder.innerHTML='<div class="small">Add electrical, industrial, farming, or DLC components to create a shopping list.</div>';
+}
+async function copySystemsShoppingList(){
+  const totals=window.currentSystemsTotals||{};
+  const lines=['RUST SYSTEMS SHOPPING LIST','=========================='];
+  let rows=0;
+  for(const r of resources){
+    const required=Math.max(0,Number(totals[r]||0));
+    if(required<=0)continue;
+    const owned=systemsOwnedAmount(r);
+    const remaining=Math.max(0,required-owned);
+    rows++;
+    lines.push(`- ${resourceNames[r]}: need ${fmt(remaining)} more (${fmt(owned)} / ${fmt(required)} gathered)`);
+  }
+  if(!rows)lines.push('- No systems materials selected.');
+  const text=lines.join('\n');
+  try{await navigator.clipboard.writeText(text);alert('Systems shopping list copied to clipboard.');}
+  catch(e){alert(text);}
+}
+function clearSystemsOwnedResources(){
+  for(const r of resources)localStorage.removeItem(systemsOwnedStorageKey(r));
+  if(window.currentSystemsTotals)renderSystemsShoppingList(window.currentSystemsTotals);
+}
 function renderSmartStorage(totals){
-  const boxType=document.getElementById('storageBoxType').value;
-  const boxSlotsUsed=boxSlots[boxType];
+  const boxType='large';
+  const boxSlotsUsed=boxSlots.large;
   const holder=document.getElementById('storagePlanning');
   holder.innerHTML='';
   let totalStacks=0, rows=0;
@@ -351,19 +401,20 @@ function renderSmartStorage(totals){
 const upkeepItemCats=new Set(['doors','windows']);
 function calculate(){const tier=document.getElementById('tier').value;const daysTarget=Math.max(1,Number(document.getElementById('upkeepDays').value||7));let twig=0,upgrade=0,totalPieces=0,structurePieces=0,deployables=0,powerOut=0,powerUse=0;const structureCostByRes={wood:0,stone:0,frags:0,hqm:0};const upkeepCostByRes={wood:0,stone:0,frags:0,hqm:0};const countsByCat={};const totals=Object.fromEntries(resources.map(r=>[r,0]));const breakdown=document.getElementById('breakdown');breakdown.innerHTML='';for(const p of pieces){const qty=qtyOf(p.key);if(qty<=0){const each=document.getElementById(`each_${p.key}`);if(each&&p.cat==='structure')each.textContent=`${p[tier]} ${tierNames[tier]}`;continue;}countsByCat[p.cat]=(countsByCat[p.cat]||0)+qty;totalPieces+=qty;if(p.cat==='structure'){structurePieces+=qty;const each=document.getElementById(`each_${p.key}`);if(each)each.textContent=`${p[tier]} ${tierNames[tier]}`;const twigCost=qty*p.twig, upCost=qty*p[tier];twig+=twigCost;upgrade+=upCost;totals.wood+=twigCost;totals[tierResource[tier]]+=upCost;structureCostByRes[tierResource[tier]]+=upCost;upkeepCostByRes[tierResource[tier]]+=upCost;addBreakdown(qty,p.name,`${fmt(twigCost)} Wood twig<br><span class="cost-mini">${fmt(upCost)} ${tierNames[tier]} upgrade</span>`)}else{deployables+=qty;addTotals(totals,p.cost,qty);if(upkeepItemCats.has(p.cat)){for(const r of ['wood','stone','frags','hqm'])if(p.cost?.[r])upkeepCostByRes[r]+=p.cost[r]*qty;}if(p.cat==='electric_power')powerOut+=qty*outputOf(p.key,p.powerOut||0);if(p.powerUseMax!=null)powerUse+=qty*drawOf(p.key,p.powerUse||0);else if((p.powerUse||0)>0)powerUse+=qty*p.powerUse;addBreakdown(qty,p.name,costText(Object.fromEntries(resources.map(r=>[r,(p.cost?.[r]||0)*qty]).filter(x=>x[1]))))}}
 document.getElementById('twigTotal').textContent=`${fmt(twig)} wood`;const up=document.getElementById('upgradeTotal');up.textContent=`${fmt(upgrade)} ${tierNames[tier]}`;up.className=`value ${tierClass[tier]}`;document.getElementById('upgradeHelp').textContent=tier==='wood'?'Wood upgrade + twig placement both use wood and are included in grand totals.':'Upgrade cost is separate from twig placement cost, but both are included in grand totals.';const grand=document.getElementById('grandTotals');grand.innerHTML='';for(const r of resources){if(totals[r]>0){const div=document.createElement('div');div.className='resource-line';div.innerHTML=`<span>${resourceNames[r]}</span><b class="${resourceClass[r]}">${fmt(totals[r])}</b>`;grand.appendChild(div)}}if(!grand.innerHTML)grand.innerHTML='<div class="small">No resources selected yet.</div>';
+window.currentSystemsTotals={...totals};renderSystemsShoppingList(totals);
 renderSmartStorage(totals);
-const upkeepRate=autoUpkeepRate(structurePieces);const daily={wood:0,stone:0,frags:0,hqm:0};for(const r of ['wood','stone','frags','hqm'])daily[r]=Math.ceil((upkeepCostByRes[r]||0)*upkeepRate);const upk=document.getElementById('upkeepTotals');upk.innerHTML='';let anyUp=Object.values(daily).some(v=>v>0);if(anyUp){const storageType=document.getElementById('storageBoxType').value;let totalStacks=0;upk.innerHTML+=`<div class="resource-line"><span>Auto upkeep rate</span><b>${Math.round(upkeepRate*100)}%</b></div><div class="resource-line"><span>Upkeep includes</span><b>structures + doors/windows</b></div><div class="resource-line"><span>Target storage time</span><b>${fmt(daysTarget)} day${daysTarget===1?'':'s'}</b></div>`;for(const r of ['wood','stone','frags','hqm']){if(daily[r]>0){const target=daily[r]*daysTarget;const stacks=Math.ceil(target/stackSize[r]);totalStacks+=stacks;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} / 24h</span><b class="${resourceClass[r]}">${fmt(daily[r])}</b></div>`;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} for ${fmt(daysTarget)}d</span><b class="${resourceClass[r]}">${fmt(target)} <span class="cost-mini">(${fmt(stacks)} stacks)</span></b></div>`;}}
+const upkeepRate=autoUpkeepRate(structurePieces);const daily={wood:0,stone:0,frags:0,hqm:0};for(const r of ['wood','stone','frags','hqm'])daily[r]=Math.ceil((upkeepCostByRes[r]||0)*upkeepRate);const upk=document.getElementById('upkeepTotals');upk.innerHTML='';let anyUp=Object.values(daily).some(v=>v>0);if(anyUp){const storageType='large';let totalStacks=0;upk.innerHTML+=`<div class="resource-line"><span>Auto upkeep rate</span><b>${Math.round(upkeepRate*100)}%</b></div><div class="resource-line"><span>Upkeep includes</span><b>structures + doors/windows</b></div><div class="resource-line"><span>Target storage time</span><b>${fmt(daysTarget)} day${daysTarget===1?'':'s'}</b></div>`;for(const r of ['wood','stone','frags','hqm']){if(daily[r]>0){const target=daily[r]*daysTarget;const stacks=Math.ceil(target/stackSize[r]);totalStacks+=stacks;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} / 24h</span><b class="${resourceClass[r]}">${fmt(daily[r])}</b></div>`;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} for ${fmt(daysTarget)}d</span><b class="${resourceClass[r]}">${fmt(target)} <span class="cost-mini">(${fmt(stacks)} stacks)</span></b></div>`;}}
 const boxes=Math.ceil(totalStacks/boxSlots[storageType]);upk.innerHTML+=`<div class="resource-line"><span>Storage needed</span><b>${fmt(boxes)} ${boxNames[storageType]}</b></div>`;const best=bestTcLayout(daily);upk.innerHTML+=`<div class="resource-line"><span>Best TC time</span><b class="good">${best.days?best.days.toFixed(1):0} days</b></div>`;for(const r of ['wood','stone','frags','hqm'])if(best.slots[r]>0)upk.innerHTML+=`<div class="resource-line"><span>TC ${resourceNames[r]}</span><b class="${resourceClass[r]}">${best.slots[r]} slots / ${fmt(best.amounts[r])}</b></div>`;}else upk.innerHTML='<div class="small">Add upgraded structure pieces to estimate TC upkeep.</div>';
 const bal=powerOut-powerUse;const pbal=document.getElementById('powerBalance');pbal.innerHTML=`<div class="resource-line"><span>Total generation</span><b class="good">${fmt(powerOut)} rW</b></div><div class="resource-line"><span>Total draw</span><b class="${powerUse>powerOut?'bad':'scrap'}">${fmt(powerUse)} rW</b></div><div class="resource-line"><span>Power left</span><b class="${bal>=0?'good':'bad'}">${fmt(bal)} rW</b></div>`;document.getElementById('powerMeter').style.width=powerOut?Math.min(100,(powerUse/powerOut)*100)+'%':'0%';document.getElementById('powerMeter').style.background=bal>=0?'linear-gradient(90deg,var(--good),var(--rust2))':'var(--bad)';
 const sum=document.getElementById('baseSummary');sum.innerHTML=`<div class="resource-line"><span>Total system items</span><b>${fmt(totalPieces)}</b></div><div class="resource-line"><span>Power sources</span><b>${fmt(countsByCat.electric_power||0)}</b></div><div class="resource-line"><span>Electrical consumers</span><b>${fmt(countsByCat.electric_load||0)}</b></div><div class="resource-line"><span>Industrial items</span><b>${fmt(countsByCat.industrial||0)}</b></div><div class="resource-line"><span>Farming / water items</span><b>${fmt(countsByCat.farming||0)}</b></div><div class="resource-line"><span>Powered DLC items</span><b>${fmt(countsByCat.dlc||0)}</b></div>`;renderBlueprints();renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces)}
 function renderBlueprints(){const tbody=document.getElementById('bpBreakdown');tbody.innerHTML='';let rows=0;const seen=new Set();for(const p of pieces){const qty=qtyOf(p.key);if(qty<=0||p.cat==='structure'||!p.bp||seen.has(p.key))continue;seen.add(p.key);const tier=String(p.bp.tier||'None');const needs=tier && !['No WB','None'].includes(tier);if(!needs)continue;rows++;const tr=document.createElement('tr');tr.innerHTML=`<td>${p.name}<div class="cost-mini">counted once; qty selected: ${qty}</div></td><td>${tier}</td>`;tbody.appendChild(tr)}if(!rows)tbody.innerHTML='<tr><td colspan="2" class="small">Select items with workbench requirements to see the needed tier.</td></tr>'}
 function addBreakdown(qty,name,total){const tr=document.createElement('tr');tr.innerHTML=`<td>${qty} × ${name}</td><td>${total}</td>`;document.getElementById('breakdown').appendChild(tr)}
-function renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces){const lines=['RUST SYSTEMS PLAN','================','Total selected items: '+fmt(pieces.reduce((sum,p)=>sum+qtyOf(p.key),0)),'','Materials required:'];let totalStacks=0;for(const r of resources)if(totals[r]>0){const stacks=storageStacks(totals[r],r);totalStacks+=stacks;lines.push(`- ${resourceNames[r]}: ${fmt(totals[r])} (${fmt(stacks)} stack${stacks===1?'':'s'})`)}const boxType=document.getElementById('storageBoxType').value;lines.push('','Smart storage planning:');lines.push(`- Storage type: ${boxNames[boxType]}`);lines.push(`- Total build stacks: ${fmt(totalStacks)}`);lines.push(`- Boxes needed: ${fmt(Math.ceil(totalStacks/boxSlots[boxType]))}`);lines.push('','Power:');lines.push(`- Generation: ${fmt(powerOut)} rW`);lines.push(`- Draw: ${fmt(powerUse)} rW`);lines.push(`- Left: ${fmt(powerOut-powerUse)} rW`);lines.push('','Selected items:');for(const p of pieces){const q=qtyOf(p.key);if(q>0){let extra='';if(p.powerUseMax!=null)extra=` (${drawOf(p.key,p.powerUse||0)} rW each)`;else if(p.cat==='electric_power')extra=` (${outputOf(p.key,p.powerOut||0)} rW output each)`;lines.push(`- ${q} x ${p.name}${extra}`)}}document.getElementById('exportText').value=lines.join('\n')}
+function renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces){const lines=['RUST SYSTEMS PLAN','================','Total selected items: '+fmt(pieces.reduce((sum,p)=>sum+qtyOf(p.key),0)),'','Materials required:'];let totalStacks=0;for(const r of resources)if(totals[r]>0){const stacks=storageStacks(totals[r],r);totalStacks+=stacks;lines.push(`- ${resourceNames[r]}: ${fmt(totals[r])} (${fmt(stacks)} stack${stacks===1?'':'s'})`)}const boxType='large';lines.push('','Smart storage planning:');lines.push(`- Storage type: ${boxNames[boxType]}`);lines.push(`- Total build stacks: ${fmt(totalStacks)}`);lines.push(`- Boxes needed: ${fmt(Math.ceil(totalStacks/boxSlots[boxType]))}`);lines.push('','Power:');lines.push(`- Generation: ${fmt(powerOut)} rW`);lines.push(`- Draw: ${fmt(powerUse)} rW`);lines.push(`- Left: ${fmt(powerOut-powerUse)} rW`);lines.push('','Selected items:');for(const p of pieces){const q=qtyOf(p.key);if(q>0){let extra='';if(p.powerUseMax!=null)extra=` (${drawOf(p.key,p.powerUse||0)} rW each)`;else if(p.cat==='electric_power')extra=` (${outputOf(p.key,p.powerOut||0)} rW output each)`;lines.push(`- ${q} x ${p.name}${extra}`)}}document.getElementById('exportText').value=lines.join('\n')}
 async function copyExport(){calculate();const txt=document.getElementById('exportText').value;try{await navigator.clipboard.writeText(txt);alert('Systems plan copied to clipboard.')}catch(e){document.getElementById('exportText').select();alert('Copy failed automatically; the export text is selected so you can copy it manually.')}}
 function clearAll(){for(const p of pieces){localStorage.setItem(`tmp_${p.key}`,0);const el=document.getElementById(`qty_${p.key}`);if(el)el.value=0}calculate()}
 function addPreset(name){const preset=presets[name];for(const [key,val] of Object.entries(preset)){const old=qtyOf(key);localStorage.setItem(`tmp_${key}`,old+val);const input=document.getElementById(`qty_${key}`);if(input)input.value=old+val}calculate()}
-function saveBuild(){const data={tier:document.getElementById('tier').value,upkeepDays:document.getElementById('upkeepDays').value,storageBoxType:document.getElementById('storageBoxType').value,qty:{},outs:{},draws:{}};for(const p of pieces){data.qty[p.key]=qtyOf(p.key);if(p.cat==='electric_power')data.outs[p.key]=outputOf(p.key,p.powerOut||0);if(p.powerUseMax!=null)data.draws[p.key]=drawOf(p.key,p.powerUse||0)}localStorage.setItem('rustSystemsCalcV1',JSON.stringify(data));alert('Systems plan saved in this browser.')} 
-function loadBuild(){const raw=localStorage.getItem('rustSystemsCalcV1');if(!raw)return alert('No saved systems plan found in this browser.');const data=JSON.parse(raw);document.getElementById('tier').value=data.tier||'wood';document.getElementById('upkeepDays').value=data.upkeepDays||7;document.getElementById('storageBoxType').value=data.storageBoxType||'large';for(const p of pieces){const val=data.qty?.[p.key]||0;localStorage.setItem(`tmp_${p.key}`,val);if(data.outs?.[p.key]!=null)localStorage.setItem(`out_${p.key}`,data.outs[p.key]);if(data.draws?.[p.key]!=null)localStorage.setItem(`draw_${p.key}`,data.draws[p.key]);}renderAll()}
+function saveBuild(){const data={tier:document.getElementById('tier').value,upkeepDays:document.getElementById('upkeepDays').value,qty:{},outs:{},draws:{}};for(const p of pieces){data.qty[p.key]=qtyOf(p.key);if(p.cat==='electric_power')data.outs[p.key]=outputOf(p.key,p.powerOut||0);if(p.powerUseMax!=null)data.draws[p.key]=drawOf(p.key,p.powerUse||0)}localStorage.setItem('rustSystemsCalcV1',JSON.stringify(data));alert('Systems plan saved in this browser.')} 
+function loadBuild(){const raw=localStorage.getItem('rustSystemsCalcV1');if(!raw)return alert('No saved systems plan found in this browser.');const data=JSON.parse(raw);document.getElementById('tier').value=data.tier||'wood';document.getElementById('upkeepDays').value=data.upkeepDays||7;for(const p of pieces){const val=data.qty?.[p.key]||0;localStorage.setItem(`tmp_${p.key}`,val);if(data.outs?.[p.key]!=null)localStorage.setItem(`out_${p.key}`,data.outs[p.key]);if(data.draws?.[p.key]!=null)localStorage.setItem(`draw_${p.key}`,data.draws[p.key]);}renderAll()}
 function wireAutoClearInputs(){
   document.addEventListener('focusin',e=>{
     if(e.target.matches('input[type=\"number\"]')){
