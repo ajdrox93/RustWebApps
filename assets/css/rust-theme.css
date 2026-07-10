@@ -1,24 +1,7 @@
-:root {
-  --rust-bg: #12100e;
-  --rust-bg-2: #1b1713;
-  --rust-panel: rgba(31, 26, 21, .94);
-  --rust-panel-2: rgba(44, 36, 28, .94);
-  --rust-border: #5b4632;
-  --rust-border-strong: #8a623d;
-  --rust-text: #f1e3c7;
-  --rust-muted: #b89e7a;
-  --rust-orange: #c46a2b;
-  --rust-orange-light: #e28b3e;
-  --rust-danger: #e05d46;
-  --rust-good: #8fd46e;
-  --rust-shadow: 0 20px 55px rgba(0, 0, 0, .42);
-}
-
-html {
-  color-scheme: dark;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-}
+/* Rust Web Apps design system */
+:root{--bg:#100f0d;--panel:#1d1a16;--panel2:#28231d;--rust:#b7562c;--rust2:#e07a3f;--text:#f3eadc;--muted:#b6aa98;--line:#4b3c2e;--border:var(--line);--border2:#705234;--good:#7bc96f;--danger:#ff7043;--yellow:#f0c85a;--green:#8fcf73;--shadow:0 18px 45px rgba(0,0,0,.35);--radius-sm:10px;--radius-md:16px;--radius-lg:22px}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(183,86,44,.24),transparent 34rem),radial-gradient(circle at bottom right,rgba(214,180,95,.08),transparent 28rem),linear-gradient(135deg,#0b0b0a 0%,var(--bg) 55%,#17130f 100%)}
+/* Shared calculator shell */
+.calculator-page .layout{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}.calculator-page .sidebar{position:sticky;top:0;height:100vh;padding:22px 16px;background:linear-gradient(180deg,rgba(31,25,20,.98),rgba(16,13,10,.98));border-right:1px solid var(--border);box-shadow:var(--shadow);overflow:auto}.calculator-page .brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}.calculator-page .brand-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--rust),#813c1f);box-shadow:0 12px 28px rgba(0,0,0,.35);font-size:24px}.calculator-page .brand h1{margin:0;color:#ffe1bd;font-size:24px;line-height:1.02}.calculator-page .brand span{color:var(--muted);font-size:13px}.calculator-page .nav{display:grid;gap:8px}.calculator-page .nav a{color:var(--text);text-decoration:none;padding:11px 12px;border:1px solid transparent;border-radius:13px;background:rgba(255,255,255,.025);font-weight:800}.calculator-page .nav a:hover,.calculator-page .nav a.active{border-color:var(--border2);background:rgba(196,106,43,.18);color:#ffd9b1}.calculator-page .main{padding:26px;max-width:1400px;width:100%;margin:0 auto}.calculator-page .hero{position:relative;overflow:hidden;border:1px solid var(--border);background:linear-gradient(135deg,rgba(44,36,28,.96),rgba(24,20,16,.96));border-radius:24px;padding:26px;margin-bottom:18px;box-shadow:var(--shadow)}.calculator-page .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(196,106,43,.16),transparent 55%,rgba(226,139,62,.08));pointer-events:none}.calculator-page .hero>*{position:relative}.calculator-page .hero h2{margin:0 0 8px;font-size:clamp(30px,4vw,50px);color:#ffe1bd}.calculator-page .hero p{margin:0;color:var(--muted);max-width:900px;line-height:1.45}.calculator-page .quick-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}.calculator-page .stat{background:rgba(0,0,0,.22);border:1px solid rgba(91,70,50,.7);border-radius:16px;padding:12px}.calculator-page .stat strong{display:block;font-size:22px;color:var(--rust2)}.calculator-page .stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+/* Reusable controls and surfaces */
+.panel,.card,.section-card,.total-box{border:1px solid var(--border);background:linear-gradient(180deg,rgba(38,31,25,.96),rgba(23,19,16,.97));border-radius:var(--radius-md);box-shadow:0 12px 32px rgba(0,0,0,.28)}button,.button,input,select,textarea{border:1px solid var(--border);border-radius:var(--radius-sm)}button,.button{cursor:pointer;font-weight:800;transition:transform .08s ease,filter .15s ease,background .15s ease,border-color .15s ease}.button{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.primary{background:linear-gradient(135deg,var(--rust),#8f3e23);border-color:#d56b3d}.danger{color:#ffd3c6;border-color:#7b382a}button:active,.button:active{transform:translateY(1px)}table{width:100%;border-collapse:collapse}th,td{text-align:left;vertical-align:middle}.badge,.pill{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px}.footer,footer{color:var(--muted)}

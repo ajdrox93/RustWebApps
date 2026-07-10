@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -7,16 +6,16 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Cooking Workbench Calculator</title>
 
-<link href="/assets/css/rust-theme.css" rel="stylesheet"/><link href="/assets/css/common.css" rel="stylesheet"/><link href="/assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="page-cooking">
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/cooking.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/></head>
+<body class="calculator-page cooking-page">
 <div class="layout">
 <aside class="sidebar">
 <div class="brand"><div class="brand-icon">🍳</div><div><h1>Rust<br/>Web Apps</h1><span>Cooking Bench</span></div></div>
 <nav aria-label="Page navigation" class="nav">
-<a href="/">🏠 Home</a>
-<a href="/build/">🧱 Build Cost Calc</a>
-<a class="active" href="/cooking/">🍳 Cooking Bench Calc</a>
-<a href="/upkeep/">📦 Upkeep Calc</a>
+<a href="../">🏠 Home</a>
+<a href="/build">🧱 Build Cost Calc</a>
+<a class="active" href="../cooking/">🍳 Cooking Bench Calc</a>
+<a href="../upkeep/">📦 Upkeep Calc</a>
 </nav>
 </aside>
 <main class="main">
@@ -350,9 +349,10 @@ function initEnhancements() {
   updateSearchResults();
   updateFavoritesUI();
 }
-
+function initTheme() {
+}
 $('category').addEventListener('change', () => { populateRecipes(); saveState(); }); $('recipe').addEventListener('change', () => { loadRecipe(); saveState(); }); $('applyStacks').addEventListener('click', applyStackSettings); $('stackMultiplier').addEventListener('change', applyStackSettings); $('forceStack').addEventListener('input', saveState); $('calcCanMake').addEventListener('click', calculateCanMake); $('calcNeeded').addEventListener('click', calculateNeeded); $('clearInventory').addEventListener('click', clearInventory); $('updateNeeded').addEventListener('click', () => updateNeededPanel(true)); $('targetAmount').addEventListener('input', () => updateNeededPanel(false));
- populateCategory(); initEnhancements(); restoreSavedState();
+initTheme(); populateCategory(); initEnhancements(); restoreSavedState();
 </script>
 </body>
 </html>
