@@ -4,15 +4,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rust Building Cost Calculator</title>
+<title>Rust Electrical, Industrial & Farming Planner</title>
 
 <link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="build-page">
+<body class="build-page systems-page">
 <div class="wrap">
 <header>
-<h1>Rust <span>Building Cost</span> Calculator</h1>
-<p class="subtitle">Plan structures, twig placement, wood/stone/sheet/HQM upgrades, doors, windows, deployables, compounds, upkeep, TC storage, workbench tiers, and a shareable farming list.</p>
-<div class="pill">Focused building planner • PvE-friendly defaults • upgrade tier defaults to Wood • systems moved to their own calculator</div>
+<h1>Rust <span>Systems</span> Planner</h1>
+<p class="subtitle">Plan electrical generation and consumption, industrial automation, farming and water systems, powered DLC items, workbench requirements, storage, and a shareable resource list.</p>
+<div class="pill">Electrical + industrial + farming • editable power output/draw • practical utility planning</div>
 </header>
 <div class="app-layout">
 <nav class="side-nav polished-nav" id="sideNav">
@@ -27,8 +27,8 @@
 <div class="section-label">🌐 SITE</div>
 <div class="nav-links site-links">
 <a class="nav-link site-link" href="../"><span class="nav-icon">🏠</span><span>Home</span></a>
-<a class="nav-link site-link active" href="../build/"><span class="nav-icon">🧱</span><span>Building Cost</span></a>
-<a class="nav-link site-link" href="../systems/"><span class="nav-icon">⚡</span><span>Systems Planner</span></a>
+<a class="nav-link site-link" href="../build/"><span class="nav-icon">🧱</span><span>Building Cost</span></a>
+<a class="nav-link site-link active" href="../systems/"><span class="nav-icon">⚡</span><span>Systems Planner</span></a>
 <a class="nav-link site-link" href="../cooking/"><span class="nav-icon">🍳</span><span>Cooking Bench</span></a>
 <a class="nav-link site-link" href="../upkeep/"><span class="nav-icon">📦</span><span>Upkeep</span></a>
 </div>
@@ -42,15 +42,15 @@
 <main class="main-col">
 <section class="card sticky-mini" id="topControls">
 <div class="toolbar">
-<div class="tool-group"><label for="tier">Upgrade:</label><select id="tier"><option selected="" value="wood">Wood</option><option value="stone">Stone</option><option value="metal">Sheet Metal</option><option value="hqm">Armored / HQM</option></select></div>
-<div class="tool-group"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
+<div class="tool-group utility-hidden"><label for="tier">Upgrade:</label><select id="tier"><option selected="" value="wood">Wood</option><option value="stone">Stone</option><option value="metal">Sheet Metal</option><option value="hqm">Armored / HQM</option></select></div>
+<div class="tool-group utility-hidden"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
 <div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
-<input class="search" id="filter" oninput="renderAll()" placeholder="Search wall, foundation, garage door, window, TC..."/>
+<input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, wind turbine, conveyor, sprinkler, fluorescent..."/>
 <button class="primary" onclick="calculate()">Calculate</button><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
 </div>
-<div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common starter and base layouts.</span></div>
+<div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common electrical, farming, and industrial layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
-<div class="quick-row" style="margin-top:10px"><span class="quick-chip">⭐ Star items to pin them in Favorites</span><span class="quick-chip">📦 Storage planner follows Large/Small box choice</span><span class="quick-chip">⚡ Electrical, industrial, and farming are now in Systems Planner</span><span class="quick-chip">📌 Totals stay visible while scrolling</span></div>
+<div class="quick-row" style="margin-top:10px"><span class="quick-chip">⭐ Star items to pin them in Favorites</span><span class="quick-chip">📦 Storage planner follows Large/Small box choice</span><span class="quick-chip">🧱 Structures and upkeep are in Building Cost</span><span class="quick-chip">📌 Totals stay visible while scrolling</span></div>
 <div class="tabs" id="tabs"></div>
 </section>
 <div id="sections"></div>
@@ -67,16 +67,16 @@
 </main>
 <aside class="summary" id="summarySection">
 <section class="total-box"><div class="label">Base summary</div><div class="resource-list small" id="baseSummary"></div></section>
-<section class="total-box"><div class="label">Twig placement cost</div><div class="value wood" id="twigTotal">0 wood</div></section>
-<section class="total-box"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
+<section class="total-box utility-hidden"><div class="label">Twig placement cost</div><div class="value wood" id="twigTotal">0 wood</div></section>
+<section class="total-box utility-hidden"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
 <section class="total-box"><div class="label">Grand materials</div><div class="resource-list" id="grandTotals"></div></section>
 <section class="total-box"><div class="label">Smart storage planning</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for the total build materials using your Large/Small box selection.</div></section>
-<section class="total-box"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div><div class="footer">Estimates 24h upkeep, target-day storage, and the best 24-slot TC fill layout.</div></section>
-<section class="total-box utility-hidden"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div></section>
+<section class="total-box utility-hidden"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div></section>
+<section class="total-box"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div><div class="footer">For variable sources, edit the “Output each” field. Wind and solar output depends on placement/time.</div></section>
 <section class="total-box"><div class="label">Selected breakdown</div><table class="breakdown"><tbody id="breakdown"></tbody></table></section>
 </aside>
 </div>
-<div class="footer note">Note: Rust item costs and tech-tree paths can change or differ on modded servers. This planner is designed as a practical building and farming estimate, not a server-authoritative database.</div>
+<div class="footer note">Note: Rust item costs, power behavior, and tech-tree paths can change or differ on modded servers. Variable sources and consumers are editable so the plan can match your actual setup.</div>
 </div>
 <script>
 const resources=['wood','stone','frags','hqm','gears','rope','cloth','scrap','metalPipes','lowGrade','fuel','charcoal','leather','tarp','sewingKits','techTrash','targetingComputer','cctv','sheetMetal','metalSpring','rfBroadcaster','rfReceiver','water','fertilizer'];
@@ -252,23 +252,22 @@ let pieces=[
 {cat:"dlc",key:"telephone",name:"Telephone",cost:{wood:50,frags:100,techTrash:1},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"}
 ];
 
-const BUILD_CATEGORY_IDS=new Set(['structure','doors','windows','core','compound']);
-categories=categories.filter(category=>BUILD_CATEGORY_IDS.has(category.id));
-pieces=pieces.filter(piece=>BUILD_CATEGORY_IDS.has(piece.cat));
+const SYSTEM_CATEGORY_IDS=new Set(['electric_power','electric_load','industrial','farming','dlc']);
+categories=categories.filter(category=>SYSTEM_CATEGORY_IDS.has(category.id));
+pieces=pieces.filter(piece=>SYSTEM_CATEGORY_IDS.has(piece.cat));
 const presets={
- '2x1 Starter':{foundation:2,floor:2,wall:6,doorway:2,woodDoor:2,keyLock:2,toolCupboard:1,sleepingBag:1,smallBox:2},
- '2x2 Starter':{foundation:4,floor:4,wall:8,doorway:2,woodDoor:2,keyLock:2,toolCupboard:1,sleepingBag:2,largeBox:2,furnace:1},
- 'Honeycombed 2x2':{foundation:4,floor:4,wall:8,doorway:2,triangleFoundation:8,triangleFloor:8,wallFrame:1,garageDoor:1,sheetDoor:2,codeLock:3},
- 'Loot Room':{wallFrame:1,garageDoor:1,floorFrame:1,floorGrill:1,largeBox:4},
- 'Compound TC':{toolCupboard:1,keyLock:1,foundation:1,triangleFoundation:2,wall:3,doorway:1,woodDoor:1,highStoneWall:6}
+ 'Starter Electric':{solarPanel:2,smallBattery:1,rootCombiner:1,electricalBranch:2,switch:1,ceilingLight:4},
+ 'Turret Pod':{windTurbine:1,largeBattery:1,rootCombiner:1,electricalBranch:2,autoTurret:2,doorController:1,sheetDoor:1,codeLock:1},
+ 'Farm Base Kit':{largePlanter:6,sprinkler:6,waterPump:1,fluidSwitch:1,fluidSplitter:2,waterBarrel:2,composter:1,heater:2,solarPanel:2,mediumBattery:1},
+ 'Industrial Smelter':{engineeringWorkbench:1,electricFurnace:6,industrialConveyor:2,storageAdapter:8,industrialSplitter:1,industrialCombiner:1,largeBattery:1,windTurbine:1}
 };
-let activeCat='structure';
+let activeCat='electric_power';
 const navGroups=[
-  {id:'section_structure',label:'Structures',icon:'🏠'},
-  {id:'section_doors',label:'Doors',icon:'🚪'},
-  {id:'section_windows',label:'Windows',icon:'🪟'},
-  {id:'section_core',label:'Deployables',icon:'📦'},
-  {id:'section_compound',label:'Compound',icon:'🧱'},
+  {id:'section_electric_power',label:'Power Sources',icon:'⚡'},
+  {id:'section_electric_load',label:'Power Draw',icon:'🔌'},
+  {id:'section_industrial',label:'Industrial',icon:'🏭'},
+  {id:'section_farming',label:'Farming / Water',icon:'🌱'},
+  {id:'section_dlc',label:'Powered DLC',icon:'🎵'},
   {id:'summarySection',label:'Summary',icon:'📌'},
   {id:'workbenchSection',label:'Workbench',icon:'🛠'},
   {id:'exportSection',label:'Export',icon:'📋'}
@@ -288,7 +287,7 @@ function renderNav(){const nav=document.getElementById('navLinks');if(!nav)retur
 function togglePresets(){const panel=document.getElementById('presetPanel');const btn=document.getElementById('presetToggle');if(!panel||!btn)return;const open=!panel.classList.contains('open');panel.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'▾ Hide Presets':'▸ Show Presets';}
 function renderPresets(){const holder=document.getElementById('presetButtons');if(!holder)return;holder.innerHTML='';Object.keys(presets).forEach(name=>{const b=document.createElement('button');b.textContent=name;b.onclick=()=>addPreset(name);holder.appendChild(b);});}
 function renderTabs(){/* sidebar replaced tabs */}
-function sectionOpen(catId, hasFilter){return hasFilter || ['structure','doors','windows','core','compound'].includes(catId)}
+function sectionOpen(catId, hasFilter){return hasFilter || ['electric_power','electric_load','industrial','farming','dlc'].includes(catId)}
 function rowHtml(p,prefix=''){const existing=qtyOf(p.key);let third='—';if(p.cat==='structure')third=`${p.twig} wood`;else if(p.cat==='electric_power')third=`<input class="miniInput" id="${prefix}out_${p.key}" type="number" min="0" step="1" value="${outputOf(p.key,p.powerOut||0)}" oninput="localStorage.setItem('out_${p.key}',this.value);calculate()"> rW`;else if(p.powerUseMax!=null)third=`<input class="miniInput" id="${prefix}draw_${p.key}" type="number" min="${p.powerUse||0}" max="${p.powerUseMax}" step="1" value="${drawOf(p.key,p.powerUse||0)}" oninput="localStorage.setItem('draw_${p.key}',this.value);calculate()"> rW <div class="cost-mini">range ${p.powerUse||0}-${p.powerUseMax} rW</div>`;else if((p.powerUse||0)>0)third=`${p.powerUse} rW`;else third='<span class="cost-mini">—</span>';const each=p.cat==='structure'?`<span id="${prefix}each_${p.key}"></span>`:costText(p.cost);return `<tr><td><button class="fav-btn ${isFav(p.key)?'active':''}" title="Favorite" onclick="toggleFavorite('${p.key}')">★</button></td><td>${p.name}${p.note?`<div class="cost-mini">${p.note}</div>`:''}<div class="cost-mini">${p.bp?`WB: ${p.bp.tier}`:''}</div></td><td><input class="qty" id="${prefix}qty_${p.key}" type="number" min="0" step="1" value="${existing}" oninput="localStorage.setItem('tmp_${p.key}',this.value);calculate()"></td><td>${third}</td><td>${each}</td></tr>`;}
 function renderSection(holder,c,list,forceOpen=false){const details=document.createElement('details');details.className='section-card';details.id=`section_${c.id}`;if(forceOpen||sectionOpen(c.id,!!(document.getElementById('filter')?.value.trim())))details.open=true;details.innerHTML=`<summary><div class="section-title"><span>${c.icon||'▫️'}</span><h2>${c.label}</h2><span class="badge">${list.length} rows</span></div><span class="chev">›</span></summary><div class="section-body"><div style="overflow:auto"><table><thead><tr><th>Fav</th><th>Item</th><th>Qty</th><th>${c.id==='structure'?'Twig Wood Each':c.id==='electric_power'?'Output Each':'Power Draw Each'}</th><th>Cost Each</th></tr></thead><tbody></tbody></table></div></div>`;const tbody=details.querySelector('tbody');tbody.innerHTML=list.length?list.map(p=>rowHtml(p)).join(''):'<tr><td colspan="5"><div class="empty-state">No matching items in this section.</div></td></tr>';holder.appendChild(details);}
 function renderFavorites(holder){const favSet=new Set(favorites());const list=pieces.filter(p=>favSet.has(p.key)&&matchesFilter(p));const details=document.createElement('details');details.className='section-card';details.id='section_favorites';details.open=true;details.innerHTML=`<summary><div class="section-title"><span>⭐</span><h2>Favorites</h2><span class="badge">${list.length} pinned</span></div><span class="chev">›</span></summary><div class="section-body"><div style="overflow:auto"><table><thead><tr><th>Fav</th><th>Item</th><th>Qty</th><th>Power / Twig</th><th>Cost Each</th></tr></thead><tbody></tbody></table></div></div>`;const tbody=details.querySelector('tbody');tbody.innerHTML=list.length?list.map(p=>rowHtml(p,'fav_')).join(''):'<tr><td colspan="5"><div class="empty-state">Star frequently used items and they will show up here.</div></td></tr>';holder.appendChild(details);}
@@ -352,15 +351,15 @@ renderSmartStorage(totals);
 const upkeepRate=autoUpkeepRate(structurePieces);const daily={wood:0,stone:0,frags:0,hqm:0};for(const r of ['wood','stone','frags','hqm'])daily[r]=Math.ceil((upkeepCostByRes[r]||0)*upkeepRate);const upk=document.getElementById('upkeepTotals');upk.innerHTML='';let anyUp=Object.values(daily).some(v=>v>0);if(anyUp){const storageType=document.getElementById('storageBoxType').value;let totalStacks=0;upk.innerHTML+=`<div class="resource-line"><span>Auto upkeep rate</span><b>${Math.round(upkeepRate*100)}%</b></div><div class="resource-line"><span>Upkeep includes</span><b>structures + doors/windows</b></div><div class="resource-line"><span>Target storage time</span><b>${fmt(daysTarget)} day${daysTarget===1?'':'s'}</b></div>`;for(const r of ['wood','stone','frags','hqm']){if(daily[r]>0){const target=daily[r]*daysTarget;const stacks=Math.ceil(target/stackSize[r]);totalStacks+=stacks;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} / 24h</span><b class="${resourceClass[r]}">${fmt(daily[r])}</b></div>`;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} for ${fmt(daysTarget)}d</span><b class="${resourceClass[r]}">${fmt(target)} <span class="cost-mini">(${fmt(stacks)} stacks)</span></b></div>`;}}
 const boxes=Math.ceil(totalStacks/boxSlots[storageType]);upk.innerHTML+=`<div class="resource-line"><span>Storage needed</span><b>${fmt(boxes)} ${boxNames[storageType]}</b></div>`;const best=bestTcLayout(daily);upk.innerHTML+=`<div class="resource-line"><span>Best TC time</span><b class="good">${best.days?best.days.toFixed(1):0} days</b></div>`;for(const r of ['wood','stone','frags','hqm'])if(best.slots[r]>0)upk.innerHTML+=`<div class="resource-line"><span>TC ${resourceNames[r]}</span><b class="${resourceClass[r]}">${best.slots[r]} slots / ${fmt(best.amounts[r])}</b></div>`;}else upk.innerHTML='<div class="small">Add upgraded structure pieces to estimate TC upkeep.</div>';
 const bal=powerOut-powerUse;const pbal=document.getElementById('powerBalance');pbal.innerHTML=`<div class="resource-line"><span>Total generation</span><b class="good">${fmt(powerOut)} rW</b></div><div class="resource-line"><span>Total draw</span><b class="${powerUse>powerOut?'bad':'scrap'}">${fmt(powerUse)} rW</b></div><div class="resource-line"><span>Power left</span><b class="${bal>=0?'good':'bad'}">${fmt(bal)} rW</b></div>`;document.getElementById('powerMeter').style.width=powerOut?Math.min(100,(powerUse/powerOut)*100)+'%':'0%';document.getElementById('powerMeter').style.background=bal>=0?'linear-gradient(90deg,var(--good),var(--rust2))':'var(--bad)';
-const sum=document.getElementById('baseSummary');sum.innerHTML=`<div class="resource-line"><span>Total selected rows</span><b>${fmt(totalPieces)}</b></div><div class="resource-line"><span>Structure pieces</span><b>${fmt(structurePieces)}</b></div><div class="resource-line"><span>Building size</span><b>${structurePieces<=15?'Small':structurePieces<=50?'Medium':structurePieces<=125?'Large':'Huge'}</b></div><div class="resource-line"><span>Deployables/items</span><b>${fmt(deployables)}</b></div><div class="resource-line"><span>Main upgrade</span><b class="${tierClass[tier]}">${document.getElementById('tier').selectedOptions[0].text}</b></div><div class="resource-line"><span>Doors/hatches</span><b>${fmt(countsByCat.doors||0)}</b></div><div class="resource-line"><span>Compound / external items</span><b>${fmt(countsByCat.compound||0)}</b></div>`;renderBlueprints();renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces)}
+const sum=document.getElementById('baseSummary');sum.innerHTML=`<div class="resource-line"><span>Total system items</span><b>${fmt(totalPieces)}</b></div><div class="resource-line"><span>Power sources</span><b>${fmt(countsByCat.electric_power||0)}</b></div><div class="resource-line"><span>Electrical consumers</span><b>${fmt(countsByCat.electric_load||0)}</b></div><div class="resource-line"><span>Industrial items</span><b>${fmt(countsByCat.industrial||0)}</b></div><div class="resource-line"><span>Farming / water items</span><b>${fmt(countsByCat.farming||0)}</b></div><div class="resource-line"><span>Powered DLC items</span><b>${fmt(countsByCat.dlc||0)}</b></div>`;renderBlueprints();renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces)}
 function renderBlueprints(){const tbody=document.getElementById('bpBreakdown');tbody.innerHTML='';let rows=0;const seen=new Set();for(const p of pieces){const qty=qtyOf(p.key);if(qty<=0||p.cat==='structure'||!p.bp||seen.has(p.key))continue;seen.add(p.key);const tier=String(p.bp.tier||'None');const needs=tier && !['No WB','None'].includes(tier);if(!needs)continue;rows++;const tr=document.createElement('tr');tr.innerHTML=`<td>${p.name}<div class="cost-mini">counted once; qty selected: ${qty}</div></td><td>${tier}</td>`;tbody.appendChild(tr)}if(!rows)tbody.innerHTML='<tr><td colspan="2" class="small">Select items with workbench requirements to see the needed tier.</td></tr>'}
 function addBreakdown(qty,name,total){const tr=document.createElement('tr');tr.innerHTML=`<td>${qty} × ${name}</td><td>${total}</td>`;document.getElementById('breakdown').appendChild(tr)}
-function renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces){const lines=['RUST BUILDING PLAN','================','Upgrade tier: '+document.getElementById('tier').selectedOptions[0].text,'Structure pieces: '+fmt(structurePieces),'Auto upkeep rate: '+Math.round(upkeepRate*100)+'% / 24h','Upkeep target: '+fmt(daysTarget)+' day(s)','','Materials to build:'];let totalStacks=0;for(const r of resources)if(totals[r]>0){const stacks=storageStacks(totals[r],r);totalStacks+=stacks;lines.push(`- ${resourceNames[r]}: ${fmt(totals[r])} (${fmt(stacks)} stack${stacks===1?'':'s'})`)}const boxType=document.getElementById('storageBoxType').value;lines.push('','Smart storage planning:');lines.push(`- Storage type: ${boxNames[boxType]}`);lines.push(`- Total build stacks: ${fmt(totalStacks)}`);lines.push(`- Boxes needed: ${fmt(Math.ceil(totalStacks/boxSlots[boxType]))}`);lines.push('','Estimated upkeep:');let any=false;for(const r of ['wood','stone','frags','hqm'])if(daily[r]>0){any=true;lines.push(`- ${resourceNames[r]}: ${fmt(daily[r])} / day, ${fmt(daily[r]*daysTarget)} / ${fmt(daysTarget)} days`)}if(!any)lines.push('- none selected');const best=bestTcLayout(daily);if(best.days>0){lines.push('','Best TC layout estimate:');lines.push(`- Longest balanced TC time: ${best.days.toFixed(1)} days`);for(const r of ['wood','stone','frags','hqm'])if(best.slots[r]>0)lines.push(`- ${resourceNames[r]}: ${best.slots[r]} slots / ${fmt(best.amounts[r])}`)}lines.push('','Selected items:');for(const p of pieces){const q=qtyOf(p.key);if(q>0){let extra='';if(p.powerUseMax!=null)extra=` (${drawOf(p.key,p.powerUse||0)} rW each)`;else if(p.cat==='electric_power')extra=` (${outputOf(p.key,p.powerOut||0)} rW output each)`;lines.push(`- ${q} x ${p.name}${extra}`)}}document.getElementById('exportText').value=lines.join('\n')}
-async function copyExport(){calculate();const txt=document.getElementById('exportText').value;try{await navigator.clipboard.writeText(txt);alert('Building plan copied to clipboard.')}catch(e){document.getElementById('exportText').select();alert('Copy failed automatically; the export text is selected so you can copy it manually.')}}
+function renderExport(totals,daily,powerOut,powerUse,upkeepRate,daysTarget,structurePieces){const lines=['RUST SYSTEMS PLAN','================','Total selected items: '+fmt(pieces.reduce((sum,p)=>sum+qtyOf(p.key),0)),'','Materials required:'];let totalStacks=0;for(const r of resources)if(totals[r]>0){const stacks=storageStacks(totals[r],r);totalStacks+=stacks;lines.push(`- ${resourceNames[r]}: ${fmt(totals[r])} (${fmt(stacks)} stack${stacks===1?'':'s'})`)}const boxType=document.getElementById('storageBoxType').value;lines.push('','Smart storage planning:');lines.push(`- Storage type: ${boxNames[boxType]}`);lines.push(`- Total build stacks: ${fmt(totalStacks)}`);lines.push(`- Boxes needed: ${fmt(Math.ceil(totalStacks/boxSlots[boxType]))}`);lines.push('','Power:');lines.push(`- Generation: ${fmt(powerOut)} rW`);lines.push(`- Draw: ${fmt(powerUse)} rW`);lines.push(`- Left: ${fmt(powerOut-powerUse)} rW`);lines.push('','Selected items:');for(const p of pieces){const q=qtyOf(p.key);if(q>0){let extra='';if(p.powerUseMax!=null)extra=` (${drawOf(p.key,p.powerUse||0)} rW each)`;else if(p.cat==='electric_power')extra=` (${outputOf(p.key,p.powerOut||0)} rW output each)`;lines.push(`- ${q} x ${p.name}${extra}`)}}document.getElementById('exportText').value=lines.join('\n')}
+async function copyExport(){calculate();const txt=document.getElementById('exportText').value;try{await navigator.clipboard.writeText(txt);alert('Systems plan copied to clipboard.')}catch(e){document.getElementById('exportText').select();alert('Copy failed automatically; the export text is selected so you can copy it manually.')}}
 function clearAll(){for(const p of pieces){localStorage.setItem(`tmp_${p.key}`,0);const el=document.getElementById(`qty_${p.key}`);if(el)el.value=0}calculate()}
 function addPreset(name){const preset=presets[name];for(const [key,val] of Object.entries(preset)){const old=qtyOf(key);localStorage.setItem(`tmp_${key}`,old+val);const input=document.getElementById(`qty_${key}`);if(input)input.value=old+val}calculate()}
-function saveBuild(){const data={tier:document.getElementById('tier').value,upkeepDays:document.getElementById('upkeepDays').value,storageBoxType:document.getElementById('storageBoxType').value,qty:{},outs:{},draws:{}};for(const p of pieces){data.qty[p.key]=qtyOf(p.key);if(p.cat==='electric_power')data.outs[p.key]=outputOf(p.key,p.powerOut||0);if(p.powerUseMax!=null)data.draws[p.key]=drawOf(p.key,p.powerUse||0)}localStorage.setItem('rustBuildCalcFullV4',JSON.stringify(data));alert('Building plan saved in this browser.')} 
-function loadBuild(){const raw=localStorage.getItem('rustBuildCalcFullV4')||localStorage.getItem('rustBuildCalcFull');if(!raw)return alert('No saved building plan found in this browser.');const data=JSON.parse(raw);document.getElementById('tier').value=data.tier||'wood';document.getElementById('upkeepDays').value=data.upkeepDays||7;document.getElementById('storageBoxType').value=data.storageBoxType||'large';for(const p of pieces){const val=data.qty?.[p.key]||0;localStorage.setItem(`tmp_${p.key}`,val);if(data.outs?.[p.key]!=null)localStorage.setItem(`out_${p.key}`,data.outs[p.key]);if(data.draws?.[p.key]!=null)localStorage.setItem(`draw_${p.key}`,data.draws[p.key]);}renderAll()}
+function saveBuild(){const data={tier:document.getElementById('tier').value,upkeepDays:document.getElementById('upkeepDays').value,storageBoxType:document.getElementById('storageBoxType').value,qty:{},outs:{},draws:{}};for(const p of pieces){data.qty[p.key]=qtyOf(p.key);if(p.cat==='electric_power')data.outs[p.key]=outputOf(p.key,p.powerOut||0);if(p.powerUseMax!=null)data.draws[p.key]=drawOf(p.key,p.powerUse||0)}localStorage.setItem('rustSystemsCalcV1',JSON.stringify(data));alert('Systems plan saved in this browser.')} 
+function loadBuild(){const raw=localStorage.getItem('rustSystemsCalcV1');if(!raw)return alert('No saved systems plan found in this browser.');const data=JSON.parse(raw);document.getElementById('tier').value=data.tier||'wood';document.getElementById('upkeepDays').value=data.upkeepDays||7;document.getElementById('storageBoxType').value=data.storageBoxType||'large';for(const p of pieces){const val=data.qty?.[p.key]||0;localStorage.setItem(`tmp_${p.key}`,val);if(data.outs?.[p.key]!=null)localStorage.setItem(`out_${p.key}`,data.outs[p.key]);if(data.draws?.[p.key]!=null)localStorage.setItem(`draw_${p.key}`,data.draws[p.key]);}renderAll()}
 function wireAutoClearInputs(){
   document.addEventListener('focusin',e=>{
     if(e.target.matches('input[type=\"number\"]')){
