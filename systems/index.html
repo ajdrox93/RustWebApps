@@ -4,10 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rust Electrical, Industrial & Farming Planner</title>
-
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="build-page systems-page">
+<title>Rust Electrical, Industrial &amp; Farming Planner</title>
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js"></script></head>
+<body class="build-page systems-page" data-page="systems">
 <div class="wrap">
 <header>
 <h1>Rust <span>Systems</span> Planner</h1>
@@ -25,13 +24,7 @@
 </div>
 <div class="nav-section">
 <div class="section-label">🌐 SITE</div>
-<div class="nav-links site-links">
-<a class="nav-link site-link" href="../"><span class="nav-icon">🏠</span><span>Home</span></a>
-<a class="nav-link site-link" href="../build/"><span class="nav-icon">🧱</span><span>Building Cost</span></a>
-<a class="nav-link site-link active" href="../systems/"><span class="nav-icon">⚡</span><span>Systems Planner</span></a>
-<a class="nav-link site-link" href="../cooking/"><span class="nav-icon">🍳</span><span>Cooking Bench</span></a>
-<a class="nav-link site-link" href="../upkeep/"><span class="nav-icon">📦</span><span>Upkeep</span></a>
-</div>
+<div class="nav-links site-links" data-site-nav="sidebar"></div>
 </div>
 <div class="nav-divider"></div>
 <div class="nav-section planner-section">
@@ -42,12 +35,12 @@
 <main class="main-col">
 <section class="card sticky-mini systems-controls" id="topControls">
 <div class="systems-intro">
-  <div>
-    <span class="eyebrow">UTILITY PLANNER</span>
-    <h2>Design the systems that run your base</h2>
-    <p class="small">Choose power sources and consumers, then add industrial automation, farming, water, and powered DLC equipment. Building structures and upkeep remain in the Building Cost Calculator.</p>
-  </div>
-  <div><div class="power-callout">⚡ Live power balance updates as quantities and editable outputs change.</div><div class="import-report small" id="fortifySystemsNotice">No Fortify systems import detected in this browser.</div></div>
+<div>
+<span class="eyebrow">UTILITY PLANNER</span>
+<h2>Design the systems that run your base</h2>
+<p class="small">Choose power sources and consumers, then add industrial automation, farming, water, and powered DLC equipment. Building structures and upkeep remain in the Building Cost Calculator.</p>
+</div>
+<div><div class="power-callout">⚡ Live power balance updates as quantities and editable outputs change.</div><div class="import-report small" id="fortifySystemsNotice">No Fortify systems import detected in this browser.</div></div>
 </div>
 <div class="toolbar systems-toolbar">
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, turbine, conveyor, sprinkler, fluorescent..."/>
@@ -77,11 +70,11 @@
 <section class="total-box" id="shoppingSection"><div class="label">System shopping list</div><div class="small">Track the materials gathered for this systems plan. Enter what you already have; remaining amounts update automatically and stay saved in this browser.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copySystemsShoppingList()">Copy List</button><button onclick="clearSystemsOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Material storage</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for all selected system components.</div></section>
 <section class="total-box"><div class="label">Selected components</div><table class="breakdown"><tbody id="breakdown"></tbody></table></section>
-<div hidden><div id="baseSummary"></div><div id="twigTotal"></div><div id="upgradeTotal"></div><div id="upgradeHelp"></div><div id="upkeepTotals"></div></div>
+<div hidden=""><div id="baseSummary"></div><div id="twigTotal"></div><div id="upgradeTotal"></div><div id="upgradeHelp"></div><div id="upkeepTotals"></div></div>
 </aside>
 </div>
 <div class="footer note">Note: Rust item costs, power behavior, and tech-tree paths can change or differ on modded servers. Variable sources and consumers are editable so the plan can match your actual setup.</div>
-</div>
+</div><footer class="site-footer" data-site-footer="standard"></footer>
 <script>
 const resources=['wood','stone','frags','hqm','gears','rope','cloth','scrap','metalPipes','lowGrade','fuel','charcoal','leather','tarp','sewingKits','techTrash','targetingComputer','cctv','sheetMetal','metalSpring','rfBroadcaster','rfReceiver','water','fertilizer'];
 const resourceNames={wood:'Wood',stone:'Stones',frags:'Metal Frags',hqm:'HQM',gears:'Gears',rope:'Rope',cloth:'Cloth',scrap:'Scrap',metalPipes:'Metal Pipes',lowGrade:'Low Grade',fuel:'Fuel',charcoal:'Charcoal',leather:'Leather',tarp:'Tarp',sewingKits:'Sewing Kits',techTrash:'Tech Trash',targetingComputer:'Targeting Computer',cctv:'CCTV Camera',sheetMetal:'Sheet Metal',metalSpring:'Metal Spring',rfBroadcaster:'RF Broadcaster',rfReceiver:'RF Receiver',water:'Water',fertilizer:'Fertilizer'};

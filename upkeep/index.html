@@ -5,9 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Upkeep Calculator</title>
-
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/upkeep.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="calculator-page upkeep-page">
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/upkeep.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js"></script></head>
+<body class="calculator-page upkeep-page" data-page="upkeep">
 <div class="layout">
 <aside class="sidebar">
 <div class="brand">
@@ -17,13 +16,7 @@
 <span>Upkeep Planner</span>
 </div>
 </div>
-<nav aria-label="App navigation" class="nav">
-<a href="../">🏠 Home</a>
-<a href="/build/">🧱 Building Cost</a>
-<a href="/systems/">⚡ Systems Planner</a>
-<a href="/cooking">🍳 Cooking Bench Calc</a>
-<a class="active" href="../upkeep/">📦 Upkeep Calc</a>
-</nav>
+<nav aria-label="App navigation" class="nav" data-site-nav="sidebar"></nav>
 </aside>
 <main class="main">
 <section class="hero">
@@ -106,7 +99,7 @@
 </div>
 </details>
 </div>
-<div class="footer">Rust Web Apps • Upkeep Calc • Single-file HTML</div>
+
 </main>
 </div>
 <script>
@@ -291,5 +284,5 @@
     document.getElementById("clearReverse").addEventListener("click", clearReverse);
     updateAll();
   </script>
-</body>
+<footer class="site-footer" data-site-footer="standard"></footer></body>
 </html>

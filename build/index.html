@@ -5,9 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Building Cost Calculator</title>
-
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="build-page">
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js"></script></head>
+<body class="build-page" data-page="build">
 <div class="wrap">
 <header>
 <h1>Rust <span>Building Cost</span> Calculator</h1>
@@ -25,13 +24,7 @@
 </div>
 <div class="nav-section">
 <div class="section-label">🌐 SITE</div>
-<div class="nav-links site-links">
-<a class="nav-link site-link" href="../"><span class="nav-icon">🏠</span><span>Home</span></a>
-<a class="nav-link site-link active" href="../build/"><span class="nav-icon">🧱</span><span>Building Cost</span></a>
-<a class="nav-link site-link" href="../systems/"><span class="nav-icon">⚡</span><span>Systems Planner</span></a>
-<a class="nav-link site-link" href="../cooking/"><span class="nav-icon">🍳</span><span>Cooking Bench</span></a>
-<a class="nav-link site-link" href="../upkeep/"><span class="nav-icon">📦</span><span>Upkeep</span></a>
-</div>
+<div class="nav-links site-links" data-site-nav="sidebar"></div>
 </div>
 <div class="nav-divider"></div>
 <div class="nav-section planner-section">
@@ -46,7 +39,7 @@
 <div class="tool-group"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
 <div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search wall, foundation, garage door, window, TC..."/>
-<button class="primary" onclick="calculate()">Calculate</button><button onclick="document.getElementById('fortifyFile').click()">Import Fortify</button><input id="fortifyFile" type="file" accept=".fortify,.json,.xml,.txt" hidden onchange="importFortifyFile(this.files[0])"><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
+<button class="primary" onclick="calculate()">Calculate</button><button onclick="document.getElementById('fortifyFile').click()">Import Fortify</button><input accept=".fortify,.json,.xml,.txt" hidden="" id="fortifyFile" onchange="importFortifyFile(this.files[0])" type="file"/><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
 </div>
 <div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common starter and base layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
@@ -54,7 +47,6 @@
 <div class="tabs" id="tabs"></div>
 </section>
 <div id="sections"></div>
-
 <section class="card" id="importSection">
 <h2>🏗️ Import a Fortify Build</h2>
 <p class="small">Upload a Fortify save/export and the planner will fill supported building-piece quantities automatically. Your file stays in your browser and is never uploaded to a server.</p>
@@ -77,7 +69,6 @@
 <section class="total-box"><div class="label">Twig placement cost</div><div class="value wood" id="twigTotal">0 wood</div></section>
 <section class="total-box"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
 <section class="total-box"><div class="label">Grand materials</div><div class="resource-list" id="grandTotals"></div></section>
-
 <section class="total-box" id="shoppingSection"><div class="label">Resource shopping list</div><div class="small">Tracks materials needed to build the selected plan. Enter what you already gathered; remaining amounts update automatically and are saved in this browser. Upkeep reserves are shown separately below.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copyShoppingList()">Copy List</button><button onclick="clearOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Smart storage planning</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for the total build materials using your Large/Small box selection.</div></section>
 <section class="total-box"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div><div class="footer">Estimates 24h upkeep, target-day storage, and the best 24-slot TC fill layout.</div></section>
@@ -86,7 +77,7 @@
 </aside>
 </div>
 <div class="footer note">Note: Rust item costs and tech-tree paths can change or differ on modded servers. This planner is designed as a practical building and farming estimate, not a server-authoritative database.</div>
-</div>
+</div><footer class="site-footer" data-site-footer="standard"></footer>
 <script>
 const resources=['wood','stone','frags','hqm','gears','rope','cloth','scrap','metalPipes','lowGrade','fuel','charcoal','leather','tarp','sewingKits','techTrash','targetingComputer','cctv','sheetMetal','metalSpring','rfBroadcaster','rfReceiver','water','fertilizer'];
 const resourceNames={wood:'Wood',stone:'Stones',frags:'Metal Frags',hqm:'HQM',gears:'Gears',rope:'Rope',cloth:'Cloth',scrap:'Scrap',metalPipes:'Metal Pipes',lowGrade:'Low Grade',fuel:'Fuel',charcoal:'Charcoal',leather:'Leather',tarp:'Tarp',sewingKits:'Sewing Kits',techTrash:'Tech Trash',targetingComputer:'Targeting Computer',cctv:'CCTV Camera',sheetMetal:'Sheet Metal',metalSpring:'Metal Spring',rfBroadcaster:'RF Broadcaster',rfReceiver:'RF Receiver',water:'Water',fertilizer:'Fertilizer'};

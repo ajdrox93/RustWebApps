@@ -5,19 +5,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Cooking Workbench Calculator</title>
-
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/cooking.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="calculator-page cooking-page">
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/cooking.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js"></script></head>
+<body class="calculator-page cooking-page" data-page="cooking">
 <div class="layout">
 <aside class="sidebar">
 <div class="brand"><div class="brand-icon">🍳</div><div><h1>Rust<br/>Web Apps</h1><span>Cooking Bench</span></div></div>
-<nav aria-label="Page navigation" class="nav">
-<a href="../">🏠 Home</a>
-<a href="/build/">🧱 Building Cost</a>
-<a href="/systems/">⚡ Systems Planner</a>
-<a class="active" href="../cooking/">🍳 Cooking Bench Calc</a>
-<a href="../upkeep/">📦 Upkeep Calc</a>
-</nav>
+<nav aria-label="Page navigation" class="nav" data-site-nav="sidebar"></nav>
 </aside>
 <main class="main">
 <section class="hero">
@@ -25,11 +18,9 @@
 <p>Plan teas, pies, ammo, fuel, and cooking/smelting recipes with stack multipliers, favorites, recipe search, and missing-material totals.</p>
 <div class="quick-stats"><div class="stat"><strong>🍵</strong><span>Teas</span></div><div class="stat"><strong>🥧</strong><span>Pies</span></div><div class="stat"><strong>💥</strong><span>Ammo</span></div><div class="stat"><strong>⭐</strong><span>Favorites</span></div></div>
 </section>
-
 <div class="app">
 <div class="title-row">
 <h1>Rust Cooking Workbench Calculator</h1>
-
 </div>
 <div class="panel controls">
 <label for="category">Category:</label>
@@ -39,7 +30,7 @@
 <label for="stackMultiplier">Stack multiplier:</label>
 <select id="stackMultiplier"><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option></select>
 <label for="forceStack">Or force stack size:</label>
-<div style="display:flex; gap:8px;"><input id="forceStack" placeholder=""><button id="applyStacks">Apply Stack Settings</button></input></div>
+<div style="display:flex; gap:8px;"><input id="forceStack" placeholder=""/><button id="applyStacks">Apply Stack Settings</button></div>
 <div class="quick-stack-row">
 <span>Quick stacks:</span>
 <button class="small quick-stack" data-mult="1">Vanilla</button>
@@ -51,12 +42,12 @@
 </div>
 <div class="panel extra-controls">
 <label for="recipeSearch">Recipe Search:</label>
-<input id="recipeSearch" placeholder="Search recipes...">
+<input id="recipeSearch" placeholder="Search recipes..."/>
 <select id="searchResults"><option value="">Search results</option></select>
 <button id="favoriteToggle" type="button">☆ Favorite</button>
 <select id="favoritesList"><option value="">Favorites</option></select>
 <button class="danger" id="clearSavedData" type="button">Clear Saved Data</button>
-</input></div>
+</div>
 <fieldset class="pie" id="piePanel"><legend>Pie Description</legend><div id="pieText"></div></fieldset>
 <div class="info" id="info"></div>
 <fieldset>
@@ -88,7 +79,7 @@
 </fieldset>
 <div class="status" id="status">Select a recipe, enter your inventory, then calculate.</div>
 </div>
-<div class="footer">Rust Web Apps • Cooking Bench Calc • Single-file HTML</div>
+
 </main>
 </div>
 <script>
@@ -355,5 +346,5 @@ function initTheme() {
 $('category').addEventListener('change', () => { populateRecipes(); saveState(); }); $('recipe').addEventListener('change', () => { loadRecipe(); saveState(); }); $('applyStacks').addEventListener('click', applyStackSettings); $('stackMultiplier').addEventListener('change', applyStackSettings); $('forceStack').addEventListener('input', saveState); $('calcCanMake').addEventListener('click', calculateCanMake); $('calcNeeded').addEventListener('click', calculateNeeded); $('clearInventory').addEventListener('click', clearInventory); $('updateNeeded').addEventListener('click', () => updateNeededPanel(true)); $('targetAmount').addEventListener('input', () => updateNeededPanel(false));
 initTheme(); populateCategory(); initEnhancements(); restoreSavedState();
 </script>
-</body>
+<footer class="site-footer" data-site-footer="standard"></footer></body>
 </html>

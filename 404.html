@@ -5,13 +5,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>404 • Rust Apps</title>
-
-<link href="assets/css/common.css" rel="stylesheet"/><link href="assets/css/rust-theme.css" rel="stylesheet"/><link href="assets/css/error.css" rel="stylesheet"/><link href="assets/css/mobile.css" rel="stylesheet"/></head>
-<body class="error-page">
+<link href="assets/css/common.css" rel="stylesheet"/><link href="assets/css/rust-theme.css" rel="stylesheet"/><link href="assets/css/error.css" rel="stylesheet"/><link href="assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js"></script></head>
+<body class="error-page" data-page="error">
 <header class="site-header">
 <div class="nav-wrap">
 <a class="brand" href="/"><span class="brand-mark">🦀</span><span><span class="brand-title">RUST <span>APPS</span></span><span class="brand-sub">Planning tools for Rust players</span></span></a>
-<nav aria-label="Main navigation" class="top-links"><a href="/">🏠 Home</a><a href="/build/">📦 Build Planner</a><a href="/upkeep/">🛢️ Upkeep Calculator</a><a href="/cooking/">🍳 Cooking Bench</a><a href="/about/">ℹ️ About</a></nav>
+<nav aria-label="Main navigation" class="top-links" data-site-nav="top"></nav>
 </div>
 </header>
 <main class="page">
@@ -27,10 +26,7 @@
 </section>
 <section aria-label="Rust tip" class="tip-card"><div class="tip-icon">💡</div><div><h2>Rust Tip</h2><p id="rustTip">Wind Turbines generally perform better when placed at higher elevations.</p></div></section>
 </main>
-<footer>
-<div class="footer-wrap"><div><h3>Rust Apps</h3><p>Community-built planning tools made to remove guesswork from Rust building, upkeep, cooking, electricity, and more.</p></div><div><h3>Quick Links</h3><div class="footer-links"><a href="/">Home</a><a href="/build/">Building Planner</a><a href="/systems/">Systems Planner</a><a href="/upkeep/">Upkeep Calculator</a><a href="/cooking/">Cooking Bench</a><a href="/about/">About</a></div></div><div><h3>Help Improve Rust Apps</h3><p>Found a bug, incorrect cost, or feature idea?</p><div class="footer-links"><a href="https://github.com/ajdrox93/RustWebApps/issues">Open a GitHub Issue</a><a href="https://github.com/ajdrox93/RustWebApps">View Source on GitHub</a></div></div></div>
-<div class="copyright">© 2026 Rust Apps • Built by Andrew Dow • Not affiliated with Facepunch Studios</div>
-</footer>
+<footer data-site-footer="rich"></footer>
 <script>
     const tips=["Wind Turbines generally perform better when placed at higher elevations.","Storage Adaptors use 0 rW when passive and 1 rW when powered for automation.","Fluid Switch & Pump usually draws 1 rW, or 2 rW when the toggle input is used.","Use the Build Planner's variable power fields to match your actual circuit.","Large bases can benefit from planning TC slot allocation before farming upkeep."];
     document.getElementById("rustTip").textContent=tips[Math.floor(Math.random()*tips.length)];
