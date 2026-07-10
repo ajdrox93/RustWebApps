@@ -78,7 +78,7 @@
 <section class="total-box"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
 <section class="total-box"><div class="label">Grand materials</div><div class="resource-list" id="grandTotals"></div></section>
 
-<section class="total-box" id="shoppingSection"><div class="label">Resource shopping list</div><div class="small">Enter what you already have. Remaining amounts update automatically and are saved in this browser.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copyShoppingList()">Copy List</button><button onclick="clearOwnedResources()">Clear Owned</button></div></section>
+<section class="total-box" id="shoppingSection"><div class="label">Resource shopping list</div><div class="small">Tracks materials needed to build the selected plan. Enter what you already gathered; remaining amounts update automatically and are saved in this browser. Upkeep reserves are shown separately below.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copyShoppingList()">Copy List</button><button onclick="clearOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Smart storage planning</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for the total build materials using your Large/Small box selection.</div></section>
 <section class="total-box"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div><div class="footer">Estimates 24h upkeep, target-day storage, and the best 24-slot TC fill layout.</div></section>
 <section class="total-box utility-hidden"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div></section>
@@ -166,6 +166,55 @@ function logisticsForResource(amount,r){
   return `${fmt(stacks)} stack${stacks===1?'':'s'}`;
 }
 function storageStacks(amount,r){return Math.ceil(amount/(stackSize[r]||1000));}
+function ownedStorageKey(resource){return `rustBuildOwned_${resource}`;}
+function ownedAmount(resource){return Math.max(0,Number(localStorage.getItem(ownedStorageKey(resource))||0));}
+function setOwnedAmount(resource,value){
+  const amount=Math.max(0,Number(value||0));
+  localStorage.setItem(ownedStorageKey(resource),String(amount));
+  if(window.currentBuildTotals)renderShoppingList(window.currentBuildTotals);
+}
+function renderShoppingList(totals){
+  const holder=document.getElementById('shoppingList');
+  if(!holder)return;
+  holder.innerHTML='';
+  let rows=0;
+  for(const r of resources){
+    const required=Math.max(0,Number(totals?.[r]||0));
+    if(required<=0)continue;
+    rows++;
+    const owned=ownedAmount(r);
+    const remaining=Math.max(0,required-owned);
+    const progress=required?Math.min(100,(owned/required)*100):0;
+    const complete=remaining<=0;
+    holder.innerHTML+=`<div class="shopping-row">
+      <div class="shopping-head"><b class="${resourceClass[r]}">${resourceNames[r]}</b><span class="${complete?'good':''}">${complete?'✓ Complete':fmt(remaining)+' remaining'}</span></div>
+      <div class="shopping-progress"><span style="width:${progress}%"></span></div>
+      <label>Owned <input type="number" min="0" step="1" value="${owned}" oninput="setOwnedAmount('${r}',this.value)"> of ${fmt(required)}</label>
+    </div>`;
+  }
+  if(!rows)holder.innerHTML='<div class="small">Add building pieces or deployables to create a shopping list.</div>';
+}
+async function copyShoppingList(){
+  const totals=window.currentBuildTotals||{};
+  const lines=['RUST BUILDING SHOPPING LIST','==========================='];
+  let rows=0;
+  for(const r of resources){
+    const required=Math.max(0,Number(totals[r]||0));
+    if(required<=0)continue;
+    const owned=ownedAmount(r);
+    const remaining=Math.max(0,required-owned);
+    rows++;
+    lines.push(`- ${resourceNames[r]}: need ${fmt(remaining)} more (${fmt(owned)} / ${fmt(required)} gathered)`);
+  }
+  if(!rows)lines.push('- No materials selected.');
+  const text=lines.join('\n');
+  try{await navigator.clipboard.writeText(text);alert('Shopping list copied to clipboard.');}
+  catch(e){alert(text);}
+}
+function clearOwnedResources(){
+  for(const r of resources)localStorage.removeItem(ownedStorageKey(r));
+  if(window.currentBuildTotals)renderShoppingList(window.currentBuildTotals);
+}
 function renderSmartStorage(totals){
   const boxType=document.getElementById('storageBoxType').value;
   const boxSlotsUsed=boxSlots[boxType];
