@@ -1,0 +1,988 @@
+{
+  "categories": [
+    {
+      "id": "structure",
+      "label": "Structures",
+      "icon": "\ud83c\udfe0"
+    },
+    {
+      "id": "doors",
+      "label": "Doors / Hatches",
+      "icon": "\ud83d\udeaa"
+    },
+    {
+      "id": "windows",
+      "label": "Windows / Frames",
+      "icon": "\ud83e\ude9f"
+    },
+    {
+      "id": "core",
+      "label": "Core Deployables",
+      "icon": "\ud83d\udce6"
+    },
+    {
+      "id": "compound",
+      "label": "Compound / Externals",
+      "icon": "\ud83e\uddf1"
+    }
+  ],
+  "pieces": [
+    {
+      "cat": "structure",
+      "key": "foundation",
+      "name": "Foundation",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "foundation",
+        "square foundation",
+        "foundation square"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "triangleFoundation",
+      "name": "Triangle Foundation",
+      "twig": 25,
+      "wood": 100,
+      "stone": 150,
+      "metal": 100,
+      "hqm": 13,
+      "fortifyAliases": [
+        "triangle foundation",
+        "foundation triangle"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "wall",
+      "name": "Wall",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "wall",
+        "full wall"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "doorway",
+      "name": "Doorway",
+      "twig": 35,
+      "wood": 140,
+      "stone": 210,
+      "metal": 140,
+      "hqm": 18,
+      "fortifyAliases": [
+        "doorway",
+        "wall doorway",
+        "door frame"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "windowWall",
+      "name": "Window Wall",
+      "twig": 35,
+      "wood": 140,
+      "stone": 210,
+      "metal": 140,
+      "hqm": 18,
+      "fortifyAliases": [
+        "window wall",
+        "wall window",
+        "window"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "halfWall",
+      "name": "Half Wall",
+      "twig": 25,
+      "wood": 100,
+      "stone": 150,
+      "metal": 100,
+      "hqm": 13,
+      "fortifyAliases": [
+        "half wall"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "lowWall",
+      "name": "Low Wall",
+      "twig": 25,
+      "wood": 100,
+      "stone": 150,
+      "metal": 100,
+      "hqm": 13,
+      "fortifyAliases": [
+        "low wall"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "floor",
+      "name": "Floor / Ceiling",
+      "twig": 25,
+      "wood": 100,
+      "stone": 150,
+      "metal": 100,
+      "hqm": 13,
+      "fortifyAliases": [
+        "floor",
+        "square floor",
+        "ceiling",
+        "square ceiling"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "triangleFloor",
+      "name": "Triangle Floor / Ceiling",
+      "twig": 13,
+      "wood": 50,
+      "stone": 75,
+      "metal": 50,
+      "hqm": 7,
+      "fortifyAliases": [
+        "triangle floor",
+        "floor triangle",
+        "triangle ceiling"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "roof",
+      "name": "Roof",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "roof",
+        "roof piece"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "stairsU",
+      "name": "U-Shaped Stairs",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "u shaped stairs",
+        "u stairs",
+        "stairs u"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "stairsL",
+      "name": "L-Shaped Stairs",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "l shaped stairs",
+        "l stairs",
+        "stairs l"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "ramp",
+      "name": "Ramp",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "ramp"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "floorFrame",
+      "name": "Floor Frame",
+      "twig": 25,
+      "wood": 100,
+      "stone": 150,
+      "metal": 100,
+      "hqm": 13,
+      "fortifyAliases": [
+        "floor frame",
+        "square floor frame"
+      ]
+    },
+    {
+      "cat": "structure",
+      "key": "wallFrame",
+      "name": "Wall Frame",
+      "twig": 50,
+      "wood": 200,
+      "stone": 300,
+      "metal": 200,
+      "hqm": 25,
+      "fortifyAliases": [
+        "wall frame"
+      ]
+    },
+    {
+      "cat": "doors",
+      "key": "woodDoor",
+      "name": "Wooden Door",
+      "cost": {
+        "wood": 300
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      },
+      "note": "single door"
+    },
+    {
+      "cat": "doors",
+      "key": "sheetDoor",
+      "name": "Sheet Metal Door",
+      "cost": {
+        "frags": 150
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": 75
+      },
+      "note": "single door"
+    },
+    {
+      "cat": "doors",
+      "key": "armoredDoor",
+      "name": "Armored Door",
+      "cost": {
+        "hqm": 20,
+        "gears": 5
+      },
+      "bp": {
+        "tier": "Workbench 3",
+        "research": 500,
+        "tech": null
+      },
+      "note": "single door"
+    },
+    {
+      "cat": "doors",
+      "key": "woodDoubleDoor",
+      "name": "Wood Double Door",
+      "cost": {
+        "wood": 600
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      },
+      "note": "double door"
+    },
+    {
+      "cat": "doors",
+      "key": "sheetDoubleDoor",
+      "name": "Sheet Metal Double Door",
+      "cost": {
+        "frags": 300
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": 75
+      },
+      "note": "double door"
+    },
+    {
+      "cat": "doors",
+      "key": "armoredDoubleDoor",
+      "name": "Armored Double Door",
+      "cost": {
+        "hqm": 25,
+        "gears": 5
+      },
+      "bp": {
+        "tier": "Workbench 3",
+        "research": 500,
+        "tech": null
+      },
+      "note": "double door"
+    },
+    {
+      "cat": "doors",
+      "key": "garageDoor",
+      "name": "Garage Door",
+      "cost": {
+        "frags": 300,
+        "gears": 2
+      },
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 125,
+        "tech": 515
+      },
+      "note": "wall frame door"
+    },
+    {
+      "cat": "doors",
+      "key": "netting",
+      "name": "Netting",
+      "cost": {
+        "rope": 3
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      },
+      "note": "floor frame/hatch style"
+    },
+    {
+      "cat": "doors",
+      "key": "floorGrill",
+      "name": "Floor Grill",
+      "cost": {
+        "frags": 250
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      },
+      "note": "floor frame"
+    },
+    {
+      "cat": "doors",
+      "key": "floorTriangleGrill",
+      "name": "Triangle Floor Grill",
+      "cost": {
+        "frags": 125
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      },
+      "note": "triangle floor frame"
+    },
+    {
+      "cat": "doors",
+      "key": "ladderHatch",
+      "name": "Ladder Hatch",
+      "cost": {
+        "wood": 300,
+        "frags": 300,
+        "gears": 3
+      },
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 125,
+        "tech": null
+      },
+      "note": "floor frame with ladder"
+    },
+    {
+      "cat": "doors",
+      "key": "triangleLadderHatch",
+      "name": "Triangle Ladder Hatch",
+      "cost": {
+        "wood": 150,
+        "frags": 150,
+        "gears": 2
+      },
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 125,
+        "tech": null
+      },
+      "note": "triangle floor frame"
+    },
+    {
+      "cat": "windows",
+      "key": "woodBars",
+      "name": "Wooden Window Bars",
+      "cost": {
+        "wood": 200
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "metalBars",
+      "name": "Metal Window Bars",
+      "cost": {
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "reinforcedBars",
+      "name": "Reinforced Window Bars",
+      "cost": {
+        "frags": 150
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "embrasure",
+      "name": "Metal Horizontal Embrasure",
+      "cost": {
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "verticalEmbrasure",
+      "name": "Metal Vertical Embrasure",
+      "cost": {
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "shopFront",
+      "name": "Shop Front",
+      "cost": {
+        "wood": 500,
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "metalShopFront",
+      "name": "Metal Shop Front",
+      "cost": {
+        "frags": 500
+      },
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 125,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "chainlinkFence",
+      "name": "Chainlink Fence",
+      "cost": {
+        "frags": 75
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "chainlinkFenceGate",
+      "name": "Chainlink Fence Gate",
+      "cost": {
+        "frags": 75,
+        "gears": 1
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "windows",
+      "key": "glassWindow",
+      "name": "Strengthened Glass Window",
+      "cost": {
+        "frags": 200
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "core",
+      "key": "toolCupboard",
+      "name": "Tool Cupboard",
+      "cost": {
+        "wood": 1000
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      },
+      "note": "base privilege"
+    },
+    {
+      "cat": "core",
+      "key": "keyLock",
+      "name": "Key Lock",
+      "cost": {
+        "wood": 75
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "codeLock",
+      "name": "Code Lock",
+      "cost": {
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "core",
+      "key": "doorCloser",
+      "name": "Door Closer",
+      "cost": {
+        "frags": 50
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "sleepingBag",
+      "name": "Sleeping Bag",
+      "cost": {
+        "cloth": 30
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "bed",
+      "name": "Bed",
+      "cost": {
+        "wood": 100,
+        "cloth": 60
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "smallBox",
+      "name": "Small Wood Box",
+      "cost": {
+        "wood": 100
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "largeBox",
+      "name": "Large Wood Box",
+      "cost": {
+        "wood": 250,
+        "frags": 50
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "dropBox",
+      "name": "Drop Box",
+      "cost": {
+        "wood": 200,
+        "frags": 75
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "core",
+      "key": "furnace",
+      "name": "Furnace",
+      "cost": {
+        "stone": 200,
+        "wood": 100,
+        "frags": 50
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "largeFurnace",
+      "name": "Large Furnace",
+      "cost": {
+        "stone": 500,
+        "wood": 600,
+        "frags": 75
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "refinery",
+      "name": "Small Oil Refinery",
+      "cost": {
+        "wood": 200,
+        "stone": 500,
+        "lowGrade": 250
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "repairBench",
+      "name": "Repair Bench",
+      "cost": {
+        "frags": 125
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "researchTable",
+      "name": "Research Table",
+      "cost": {
+        "frags": 200,
+        "scrap": 75
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "workbench1",
+      "name": "Workbench Level 1",
+      "cost": {
+        "wood": 500,
+        "frags": 100,
+        "scrap": 50
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "workbench2",
+      "name": "Workbench Level 2",
+      "cost": {
+        "frags": 500,
+        "hqm": 20,
+        "scrap": 500
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "workbench3",
+      "name": "Workbench Level 3",
+      "cost": {
+        "frags": 1000,
+        "hqm": 100,
+        "scrap": 1250
+      },
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "mixingTable",
+      "name": "Mixing Table",
+      "cost": {
+        "wood": 200,
+        "frags": 100
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "core",
+      "key": "locker",
+      "name": "Locker",
+      "cost": {
+        "wood": 500,
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "core",
+      "key": "lockerIndustrial",
+      "name": "Industrial Locker Adapter",
+      "cost": {
+        "frags": 100
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 20,
+        "tech": null
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "highWoodWall",
+      "name": "High External Wooden Wall",
+      "cost": {
+        "wood": 1500
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "highWoodGate",
+      "name": "High External Wooden Gate",
+      "cost": {
+        "wood": 3000,
+        "gears": 5
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "highStoneWall",
+      "name": "High External Stone Wall",
+      "cost": {
+        "stone": 1500
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "highStoneGate",
+      "name": "High External Stone Gate",
+      "cost": {
+        "stone": 3000,
+        "gears": 5
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "autoTurret",
+      "name": "Auto Turret",
+      "cost": {
+        "frags": 500,
+        "hqm": 10,
+        "gears": 1,
+        "targetingComputer": 1,
+        "cctv": 1
+      },
+      "powerUse": 10,
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 500,
+        "tech": null
+      },
+      "note": "10 rW power draw"
+    },
+    {
+      "cat": "compound",
+      "key": "flameTurret",
+      "name": "Flame Turret",
+      "cost": {
+        "frags": 250,
+        "lowGrade": 100,
+        "metalPipes": 2
+      },
+      "bp": {
+        "tier": "Workbench 1",
+        "research": 75,
+        "tech": null
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "samSite",
+      "name": "SAM Site",
+      "cost": {
+        "frags": 500,
+        "hqm": 25,
+        "gears": 1
+      },
+      "powerUse": 25,
+      "bp": {
+        "tier": "Workbench 2",
+        "research": 500,
+        "tech": null
+      },
+      "note": "power draw estimate"
+    },
+    {
+      "cat": "compound",
+      "key": "woodSpike",
+      "name": "Wooden Floor Spikes",
+      "cost": {
+        "wood": 300
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "woodBarricade",
+      "name": "Wooden Barricade",
+      "cost": {
+        "wood": 300
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "stoneBarricade",
+      "name": "Stone Barricade",
+      "cost": {
+        "stone": 200
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    },
+    {
+      "cat": "compound",
+      "key": "metalBarricade",
+      "name": "Metal Barricade",
+      "cost": {
+        "frags": 200
+      },
+      "bp": {
+        "tier": "No WB",
+        "research": 0,
+        "tech": 0
+      }
+    }
+  ]
+}

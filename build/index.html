@@ -46,7 +46,7 @@
 <div class="tool-group"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
 <div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search wall, foundation, garage door, window, TC..."/>
-<button class="primary" onclick="calculate()">Calculate</button><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
+<button class="primary" onclick="calculate()">Calculate</button><button onclick="document.getElementById('fortifyFile').click()">Import Fortify</button><input id="fortifyFile" type="file" accept=".fortify,.json,.xml,.txt" hidden onchange="importFortifyFile(this.files[0])"><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
 </div>
 <div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common starter and base layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
@@ -54,6 +54,13 @@
 <div class="tabs" id="tabs"></div>
 </section>
 <div id="sections"></div>
+
+<section class="card" id="importSection">
+<h2>🏗️ Import a Fortify Build</h2>
+<p class="small">Upload a Fortify save/export and the planner will fill supported building-piece quantities automatically. Your file stays in your browser and is never uploaded to a server.</p>
+<div class="import-actions"><button class="primary" onclick="document.getElementById('fortifyFile').click()">Choose Fortify File</button><button onclick="clearImportReport()">Clear Report</button></div>
+<div class="import-report small" id="fortifyReport">No Fortify file imported yet.</div>
+</section>
 <section class="card" id="workbenchSection">
 <h2>🛠 Workbench Tiers</h2>
 <p class="small">Shows each selected item once with the workbench tier needed to craft or unlock it. Scrap unlock costs were removed because website values and paths can vary by update/server.</p>
@@ -70,6 +77,8 @@
 <section class="total-box"><div class="label">Twig placement cost</div><div class="value wood" id="twigTotal">0 wood</div></section>
 <section class="total-box"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
 <section class="total-box"><div class="label">Grand materials</div><div class="resource-list" id="grandTotals"></div></section>
+
+<section class="total-box" id="shoppingSection"><div class="label">Resource shopping list</div><div class="small">Enter what you already have. Remaining amounts update automatically and are saved in this browser.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copyShoppingList()">Copy List</button><button onclick="clearOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Smart storage planning</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for the total build materials using your Large/Small box selection.</div></section>
 <section class="total-box"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div><div class="footer">Estimates 24h upkeep, target-day storage, and the best 24-slot TC fill layout.</div></section>
 <section class="total-box utility-hidden"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div></section>
@@ -84,177 +93,8 @@ const resourceNames={wood:'Wood',stone:'Stones',frags:'Metal Frags',hqm:'HQM',ge
 const resourceClass={wood:'wood',stone:'stone',frags:'frags',hqm:'hqm',gears:'scrap',rope:'wood',cloth:'hqm',scrap:'scrap',metalPipes:'frags',lowGrade:'scrap',fuel:'scrap',charcoal:'stone',leather:'wood',tarp:'hqm',sewingKits:'hqm',techTrash:'scrap',targetingComputer:'scrap',cctv:'scrap',sheetMetal:'frags',metalSpring:'frags',rfBroadcaster:'scrap',rfReceiver:'scrap',water:'frags',fertilizer:'stone'};
 const tierNames={wood:'wood',stone:'stone',metal:'metal fragments',hqm:'HQM'}; const tierResource={wood:'wood',stone:'stone',metal:'frags',hqm:'hqm'}; const tierClass={wood:'wood',stone:'stone',metal:'frags',hqm:'hqm'};
 const stackSize={wood:1000,stone:1000,frags:1000,hqm:100}; const boxSlots={large:48,small:12}; const boxNames={large:'Large Wood Boxes',small:'Small Wood Boxes'};
-let categories=[
-{id:'structure',label:'Structures',icon:'🏠'}, {id:'doors',label:'Doors / Hatches',icon:'🚪'}, {id:'windows',label:'Windows / Frames',icon:'🪟'}, {id:'core',label:'Core Deployables',icon:'📦'}, {id:'compound',label:'Compound / Externals',icon:'🧱'}, {id:'electric_power',label:'Electrical: Power Sources',icon:'⚡'}, {id:'electric_load',label:'Electrical: Power Draw',icon:'🔌'}, {id:'industrial',label:'Industrial',icon:'🏭'}, {id:'farming',label:'Farming / Water',icon:'🌱'}, {id:'dlc',label:'DLC / Fun Items',icon:'🎵'}
-];
-let pieces=[
-// Structure costs: twig placement, then upgrade from twig to selected tier.
-{cat:'structure',key:'foundation',name:'Foundation',twig:50,wood:200,stone:300,metal:200,hqm:25},
-{cat:'structure',key:'triangleFoundation',name:'Triangle Foundation',twig:25,wood:100,stone:150,metal:100,hqm:13},
-{cat:'structure',key:'wall',name:'Wall',twig:50,wood:200,stone:300,metal:200,hqm:25},
-{cat:'structure',key:'doorway',name:'Doorway',twig:35,wood:140,stone:210,metal:140,hqm:18},
-{cat:'structure',key:'windowWall',name:'Window Wall',twig:35,wood:140,stone:210,metal:140,hqm:18},
-{cat:'structure',key:'halfWall',name:'Half Wall',twig:25,wood:100,stone:150,metal:100,hqm:13},
-{cat:'structure',key:'lowWall',name:'Low Wall',twig:25,wood:100,stone:150,metal:100,hqm:13},
-{cat:'structure',key:'floor',name:'Floor / Ceiling',twig:25,wood:100,stone:150,metal:100,hqm:13},
-{cat:'structure',key:'triangleFloor',name:'Triangle Floor / Ceiling',twig:13,wood:50,stone:75,metal:50,hqm:7},
-{cat:'structure',key:'roof',name:'Roof',twig:50,wood:200,stone:300,metal:200,hqm:25},
-{cat:'structure',key:'stairsU',name:'U-Shaped Stairs',twig:50,wood:200,stone:300,metal:200,hqm:25},
-{cat:'structure',key:'stairsL',name:'L-Shaped Stairs',twig:50,wood:200,stone:300,metal:200,hqm:25},
-{cat:'structure',key:'ramp',name:'Ramp',twig:50,wood:200,stone:300,metal:200,hqm:25},
-{cat:'structure',key:'floorFrame',name:'Floor Frame',twig:25,wood:100,stone:150,metal:100,hqm:13},
-{cat:'structure',key:'wallFrame',name:'Wall Frame',twig:50,wood:200,stone:300,metal:200,hqm:25},
-// Doors and hatches
-{cat:'doors',key:'woodDoor',name:'Wooden Door',cost:{wood:300},bp:{tier:'No WB',research:0,tech:0},note:'single door'},
-{cat:'doors',key:'sheetDoor',name:'Sheet Metal Door',cost:{frags:150},bp:{tier:'Workbench 1',research:75,tech:75},note:'single door'},
-{cat:'doors',key:'armoredDoor',name:'Armored Door',cost:{hqm:20,gears:5},bp:{tier:'Workbench 3',research:500,tech:null},note:'single door'},
-{cat:'doors',key:'woodDoubleDoor',name:'Wood Double Door',cost:{wood:600},bp:{tier:'No WB',research:0,tech:0},note:'double door'},
-{cat:'doors',key:'sheetDoubleDoor',name:'Sheet Metal Double Door',cost:{frags:300},bp:{tier:'Workbench 1',research:75,tech:75},note:'double door'},
-{cat:'doors',key:'armoredDoubleDoor',name:'Armored Double Door',cost:{hqm:25,gears:5},bp:{tier:'Workbench 3',research:500,tech:null},note:'double door'},
-{cat:'doors',key:'garageDoor',name:'Garage Door',cost:{frags:300,gears:2},bp:{tier:'Workbench 2',research:125,tech:515},note:'wall frame door'},
-{cat:'doors',key:'netting',name:'Netting',cost:{rope:3},bp:{tier:'No WB',research:0,tech:0},note:'floor frame/hatch style'},
-{cat:'doors',key:'floorGrill',name:'Floor Grill',cost:{frags:250},bp:{tier:'Workbench 1',research:75,tech:null},note:'floor frame'},
-{cat:'doors',key:'floorTriangleGrill',name:'Triangle Floor Grill',cost:{frags:125},bp:{tier:'Workbench 1',research:75,tech:null},note:'triangle floor frame'},
-{cat:'doors',key:'ladderHatch',name:'Ladder Hatch',cost:{wood:300,frags:300,gears:3},bp:{tier:'Workbench 2',research:125,tech:null},note:'floor frame with ladder'},
-{cat:'doors',key:'triangleLadderHatch',name:'Triangle Ladder Hatch',cost:{wood:150,frags:150,gears:2},bp:{tier:'Workbench 2',research:125,tech:null},note:'triangle floor frame'},
-// Windows and frames
-{cat:'windows',key:'woodBars',name:'Wooden Window Bars',cost:{wood:200},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'windows',key:'metalBars',name:'Metal Window Bars',cost:{frags:100},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'reinforcedBars',name:'Reinforced Window Bars',cost:{frags:150},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'embrasure',name:'Metal Horizontal Embrasure',cost:{frags:100},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'verticalEmbrasure',name:'Metal Vertical Embrasure',cost:{frags:100},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'shopFront',name:'Shop Front',cost:{wood:500,frags:100},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'metalShopFront',name:'Metal Shop Front',cost:{frags:500},bp:{tier:'Workbench 2',research:125,tech:null}},
-{cat:'windows',key:'chainlinkFence',name:'Chainlink Fence',cost:{frags:75},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'chainlinkFenceGate',name:'Chainlink Fence Gate',cost:{frags:75,gears:1},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'windows',key:'glassWindow',name:'Strengthened Glass Window',cost:{frags:200},bp:{tier:'Workbench 1',research:75,tech:null}},
-// Core
-{cat:'core',key:'toolCupboard',name:'Tool Cupboard',cost:{wood:1000},bp:{tier:'No WB',research:0,tech:0},note:'base privilege'},
-{cat:'core',key:'keyLock',name:'Key Lock',cost:{wood:75},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'codeLock',name:'Code Lock',cost:{frags:100},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'core',key:'doorCloser',name:'Door Closer',cost:{frags:50},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'sleepingBag',name:'Sleeping Bag',cost:{cloth:30},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'bed',name:'Bed',cost:{wood:100,cloth:60},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'smallBox',name:'Small Wood Box',cost:{wood:100},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'largeBox',name:'Large Wood Box',cost:{wood:250,frags:50},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'dropBox',name:'Drop Box',cost:{wood:200,frags:75},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'core',key:'furnace',name:'Furnace',cost:{stone:200,wood:100,frags:50},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'largeFurnace',name:'Large Furnace',cost:{stone:500,wood:600,frags:75},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'refinery',name:'Small Oil Refinery',cost:{wood:200,stone:500,lowGrade:250},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'repairBench',name:'Repair Bench',cost:{frags:125},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'researchTable',name:'Research Table',cost:{frags:200,scrap:75},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'workbench1',name:'Workbench Level 1',cost:{wood:500,frags:100,scrap:50},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'workbench2',name:'Workbench Level 2',cost:{frags:500,hqm:20,scrap:500},bp:{tier:'Workbench 1',research:0,tech:0}},
-{cat:'core',key:'workbench3',name:'Workbench Level 3',cost:{frags:1000,hqm:100,scrap:1250},bp:{tier:'Workbench 2',research:0,tech:0}},
-{cat:'core',key:'mixingTable',name:'Mixing Table',cost:{wood:200,frags:100},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'core',key:'locker',name:'Locker',cost:{wood:500,frags:100},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'core',key:'lockerIndustrial',name:'Industrial Locker Adapter',cost:{frags:100},bp:{tier:'Workbench 1',research:20,tech:null}},
-// Compound
-{cat:'compound',key:'highWoodWall',name:'High External Wooden Wall',cost:{wood:1500},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'compound',key:'highWoodGate',name:'High External Wooden Gate',cost:{wood:3000,gears:5},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'compound',key:'highStoneWall',name:'High External Stone Wall',cost:{stone:1500},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'compound',key:'highStoneGate',name:'High External Stone Gate',cost:{stone:3000,gears:5},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'compound',key:'autoTurret',name:'Auto Turret',cost:{frags:500,hqm:10,gears:1,targetingComputer:1,cctv:1},powerUse:10,bp:{tier:'Workbench 2',research:500,tech:null},note:'10 rW power draw'},
-{cat:'compound',key:'flameTurret',name:'Flame Turret',cost:{frags:250,lowGrade:100,metalPipes:2},bp:{tier:'Workbench 1',research:75,tech:null}},
-{cat:'compound',key:'samSite',name:'SAM Site',cost:{frags:500,hqm:25,gears:1},powerUse:25,bp:{tier:'Workbench 2',research:500,tech:null},note:'power draw estimate'},
-{cat:'compound',key:'woodSpike',name:'Wooden Floor Spikes',cost:{wood:300},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'compound',key:'woodBarricade',name:'Wooden Barricade',cost:{wood:300},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'compound',key:'stoneBarricade',name:'Stone Barricade',cost:{stone:200},bp:{tier:'No WB',research:0,tech:0}},
-{cat:'compound',key:'metalBarricade',name:'Metal Barricade',cost:{frags:200},bp:{tier:'No WB',research:0,tech:0}},
-// Electrical power sources
-// Electrical, industrial, farming/water, and DLC rows sourced from the uploaded Rust Items list.
-{cat:"electric_power",key:"largeBattery",name:"Large Rechargeable Battery",cost:{hqm:10,techTrash:2},powerOut:100,bp:{tier:"Workbench 2"}},
-{cat:"electric_power",key:"mediumBattery",name:"Medium Rechargeable Battery",cost:{hqm:5,techTrash:1},powerOut:50,bp:{tier:"Workbench 2"}},
-{cat:"electric_power",key:"smallBattery",name:"Small Rechargeable Battery",cost:{hqm:5},powerOut:15,bp:{tier:"Workbench 1"}},
-{cat:"electric_power",key:"testGenerator",name:"Test Generator",cost:{},powerOut:300,bp:{tier:"None"},note:"Not craftable - admin spawn only"},
-{cat:"electric_power",key:"smallGenerator",name:"Small Generator",cost:{hqm:5,gears:2},powerOut:40,bp:{tier:"Workbench 2"}},
-{cat:"electric_power",key:"solarPanel",name:"Solar Panel",cost:{hqm:5,techTrash:1},powerOut:20,bp:{tier:"Workbench 1"}},
-{cat:"electric_power",key:"waterWheel",name:"Water Wheel",cost:{wood:500,gears:2,sheetMetal:1},powerOut:30,bp:{tier:"Workbench 1"}},
-{cat:"electric_power",key:"windTurbine",name:"Wind Turbine",cost:{wood:500,hqm:10,gears:3,sheetMetal:3},powerOut:150,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"elevator",name:"Elevator",cost:{hqm:3,frags:200,gears:1},powerUse:5,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"audioAlarm",name:"Audio Alarm",cost:{frags:75},powerUse:1,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"storageMonitor",name:"Storage Monitor",cost:{hqm:3,techTrash:1},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"button",name:"Button",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"counter",name:"Counter",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"hbhf",name:"HBHF Sensor",cost:{frags:75},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"laserDetector",name:"Laser Detector",cost:{frags:75},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"pressurePad",name:"Pressure Pad",cost:{wood:150,metalSpring:1,gears:1},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"digitalClock",name:"Digital Clock",cost:{frags:100},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"doorController",name:"Door Controller",cost:{frags:75},powerUse:1,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"andSwitch",name:"AND Switch",cost:{frags:100},powerUse:0,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"blocker",name:"Blocker",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"electricalBranch",name:"Electrical Branch",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"rootCombiner",name:"Root Combiner",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"memoryCell",name:"Memory Cell",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"orSwitch",name:"OR Switch",cost:{frags:100},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"randSwitch",name:"RAND Switch",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"xorSwitch",name:"XOR Switch",cost:{frags:100},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"seismicSensor",name:"Seismic Sensor",cost:{hqm:3,techTrash:1},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"switch",name:"Switch",cost:{frags:100},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"splitter",name:"Splitter",cost:{frags:100},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"timer",name:"Timer",cost:{frags:75},powerUse:0,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"ptzCamera",name:"PTZ CCTV Camera",cost:{cctv:1,frags:150},powerUse:3,bp:{tier:"None"}},
-{cat:"electric_load",key:"wireTool",name:"Wire Tool",cost:{hqm:2},bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"miniFridge",name:"Mini Fridge",cost:{frags:50},powerUse:2,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"igniter",name:"Igniter",cost:{frags:75},powerUse:2,bp:{tier:"None"}},
-{cat:"electric_load",key:"flasherLight",name:"Flasher Light",cost:{frags:120},powerUse:1,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"sirenLight",name:"Siren Light",cost:{frags:120},powerUse:1,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"teslaCoil",name:"Tesla Coil",cost:{hqm:3,techTrash:1},powerUse:25,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"ceilingLight",name:"Ceiling Light",cost:{frags:50},powerUse:2,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"computerStation",name:"Computer Station",cost:{hqm:5,targetingComputer:1,rfBroadcaster:1,rfReceiver:1},powerUse:5,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"fridge",name:"Fridge",cost:{frags:150},powerUse:5,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"smartAlarm",name:"Smart Alarm",cost:{hqm:3,techTrash:1},powerUse:1,bp:{tier:"Workbench 2"},note:"1 Power Usage"},
-{cat:"electric_load",key:"smartSwitch",name:"Smart Switch",cost:{hqm:3,techTrash:1},powerUse:0,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"heater",name:"Electric Heater",cost:{frags:200},powerUse:3,bp:{tier:"Workbench 1"}},
-{cat:"electric_load",key:"rfBroadcasterItem",name:"RF Broadcaster",cost:{frags:150},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"rfReceiverItem",name:"RF Receiver",cost:{frags:150},powerUse:1,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"reactiveTarget",name:"Reactive Target",cost:{wood:100,frags:150,gears:1},powerUse:0,bp:{tier:"Workbench 1"},note:"0 Power Usage"},
-{cat:"electric_load",key:"modularCarLift",name:"Modular Car Lift",cost:{frags:200,hqm:5,gears:1},powerUse:5,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"searchLight",name:"Search Light",cost:{wood:500,frags:200},powerUse:10,bp:{tier:"Workbench 2"}},
-{cat:"electric_load",key:"autoTurretElectric",name:"Auto Turret",cost:{targetingComputer:1,cctv:1,hqm:10},powerUse:10,bp:{tier:"Workbench 2"}},
-{cat:"industrial",key:"industrialHopper",name:"Industrial Hopper",cost:{frags:200,gears:1},powerUse:8,bp:{tier:"Workbench 1"}},
-{cat:"industrial",key:"storageAdapter",name:"Storage Adaptor",cost:{frags:100},powerUse:0,powerUseMax:1,bp:{tier:"Workbench 1"},note:"0-1 Power Usage - editable draw"},
-{cat:"industrial",key:"industrialCombiner",name:"Industrial Combiner",cost:{frags:75},bp:{tier:"Workbench 1"}},
-{cat:"industrial",key:"industrialConveyor",name:"Industrial Conveyor",cost:{frags:75},powerUse:1,powerUseMax:2,bp:{tier:"Workbench 1"},note:"1-2 Power Draw - edit if extra connection is used"},
-{cat:"industrial",key:"industrialCrafter",name:"Industrial Crafter",cost:{hqm:3,techTrash:2},powerUse:1,powerUseMax:3,bp:{tier:"Workbench 2"},note:"1-3 Power Draw - edit if extra connections are used"},
-{cat:"industrial",key:"industrialSplitter",name:"Industrial Splitter",cost:{frags:75},bp:{tier:"Workbench 1"}},
-{cat:"industrial",key:"pipeTool",name:"Pipe Tool",cost:{hqm:2},bp:{tier:"Workbench 1"}},
-{cat:"industrial",key:"electricFurnace",name:"Electric Furnace",cost:{hqm:5,frags:200},powerUse:3,bp:{tier:"Workbench 2"}},
-{cat:"farming",key:"fluidCombiner",name:"Fluid Combiner",cost:{frags:75},bp:{tier:"Workbench 1"}},
-{cat:"farming",key:"fluidSplitter",name:"Fluid Splitter",cost:{frags:75},bp:{tier:"Workbench 1"}},
-{cat:"farming",key:"fluidSwitch",name:"Fluid Switch & Pump",cost:{frags:150},powerUse:1,powerUseMax:2,bp:{tier:"Workbench 1"},note:"1-2 Power Draw - 1 input, 2 if toggle input is used"},
-{cat:"farming",key:"hoseTool",name:"Hose Tool",cost:{hqm:2},bp:{tier:"Workbench 1"}},
-{cat:"farming",key:"sprinkler",name:"Sprinkler",cost:{frags:75},bp:{tier:"Workbench 1"}},
-{cat:"farming",key:"poweredWaterPurifier",name:"Powered Water Purifier",cost:{frags:300,cloth:20,wood:100},powerUse:5,bp:{tier:"Workbench 2"}},
-{cat:"farming",key:"waterPump",name:"Water Pump",cost:{wood:250,frags:200,gears:1},powerUse:5,bp:{tier:"Workbench 2"},note:"5 Power Usage"},
-{cat:"dlc",key:"chandelierDlc",name:"Chandelier- DLC",cost:{frags:100},powerUse:4,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"fairyLights",name:"Fairy Lights",cost:{frags:50},powerUse:5,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"bulbStringLights",name:"Bulb String Lights",cost:{frags:50},powerUse:5,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"neonSignSmall",name:"Small Neon Sign",cost:{frags:150},powerUse:2,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"mediumAnimatedNeonSign",name:"Medium Animated Neon Sign",cost:{frags:300,hqm:2},powerUse:5,bp:{tier:"Workbench 2"},note:"DLC item"},
-{cat:"dlc",key:"neonSignMedium",name:"Medium Neon Sign",cost:{frags:200},powerUse:4,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"largeAnimatedNeonSign",name:"Large Animated Neon Sign",cost:{frags:350,hqm:5},powerUse:7,bp:{tier:"Workbench 2"},note:"DLC item"},
-{cat:"dlc",key:"neonSignLarge",name:"Large Neon Sign",cost:{frags:250},powerUse:6,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"deluxeChristmasLights",name:"Deluxe Christmas Lights",cost:{frags:50},powerUse:5,bp:{tier:"None"},note:"Steam Marketplace item"},
-{cat:"dlc",key:"ceilingFluorescentLight",name:"Fluorescent Ceiling Light",cost:{frags:50},powerUse:2,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"electricTableLamp",name:"Electric Table Lamp",cost:{frags:50},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"fluorescentWallLight",name:"Fluorescent Light",cost:{frags:50},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"spotLight",name:"Spot Light",cost:{frags:50},powerUse:5,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"tripodSpotLight",name:"Tripod Spot Light",cost:{frags:50},powerUse:5,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"industrialWallLight",name:"Industrial Wall Light",cost:{frags:30},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"boomBox",name:"Boom Box",cost:{wood:200,frags:100,cloth:20},powerUse:10,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"discoBall",name:"Disco Ball",cost:{frags:50},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"discoFloor",name:"Disco Floor",cost:{frags:75},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"speaker",name:"Connected Speaker",cost:{frags:75},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"laserLight",name:"Laser Light",cost:{frags:100},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"microphoneStand",name:"Microphone Stand",cost:{frags:75},powerUse:5,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"soundLight",name:"Sound Light",cost:{frags:100},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"},
-{cat:"dlc",key:"telephone",name:"Telephone",cost:{wood:50,frags:100,techTrash:1},powerUse:1,bp:{tier:"Workbench 1"},note:"DLC item"}
-];
-
-const BUILD_CATEGORY_IDS=new Set(['structure','doors','windows','core','compound']);
-categories=categories.filter(category=>BUILD_CATEGORY_IDS.has(category.id));
-pieces=pieces.filter(piece=>BUILD_CATEGORY_IDS.has(piece.cat));
+let categories=[];
+let pieces=[];
 const presets={
  '2x1 Starter':{foundation:2,floor:2,wall:6,doorway:2,woodDoor:2,keyLock:2,toolCupboard:1,sleepingBag:1,smallBox:2},
  '2x2 Starter':{foundation:4,floor:4,wall:8,doorway:2,woodDoor:2,keyLock:2,toolCupboard:1,sleepingBag:2,largeBox:2,furnace:1},
@@ -269,6 +109,8 @@ const navGroups=[
   {id:'section_windows',label:'Windows',icon:'🪟'},
   {id:'section_core',label:'Deployables',icon:'📦'},
   {id:'section_compound',label:'Compound',icon:'🧱'},
+  {id:'importSection',label:'Fortify Import',icon:'⬆️'},
+  {id:'shoppingSection',label:'Shopping List',icon:'🛒'},
   {id:'summarySection',label:'Summary',icon:'📌'},
   {id:'workbenchSection',label:'Workbench',icon:'🛠'},
   {id:'exportSection',label:'Export',icon:'📋'}
@@ -348,7 +190,7 @@ function renderSmartStorage(totals){
 const upkeepItemCats=new Set(['doors','windows']);
 function calculate(){const tier=document.getElementById('tier').value;const daysTarget=Math.max(1,Number(document.getElementById('upkeepDays').value||7));let twig=0,upgrade=0,totalPieces=0,structurePieces=0,deployables=0,powerOut=0,powerUse=0;const structureCostByRes={wood:0,stone:0,frags:0,hqm:0};const upkeepCostByRes={wood:0,stone:0,frags:0,hqm:0};const countsByCat={};const totals=Object.fromEntries(resources.map(r=>[r,0]));const breakdown=document.getElementById('breakdown');breakdown.innerHTML='';for(const p of pieces){const qty=qtyOf(p.key);if(qty<=0){const each=document.getElementById(`each_${p.key}`);if(each&&p.cat==='structure')each.textContent=`${p[tier]} ${tierNames[tier]}`;continue;}countsByCat[p.cat]=(countsByCat[p.cat]||0)+qty;totalPieces+=qty;if(p.cat==='structure'){structurePieces+=qty;const each=document.getElementById(`each_${p.key}`);if(each)each.textContent=`${p[tier]} ${tierNames[tier]}`;const twigCost=qty*p.twig, upCost=qty*p[tier];twig+=twigCost;upgrade+=upCost;totals.wood+=twigCost;totals[tierResource[tier]]+=upCost;structureCostByRes[tierResource[tier]]+=upCost;upkeepCostByRes[tierResource[tier]]+=upCost;addBreakdown(qty,p.name,`${fmt(twigCost)} Wood twig<br><span class="cost-mini">${fmt(upCost)} ${tierNames[tier]} upgrade</span>`)}else{deployables+=qty;addTotals(totals,p.cost,qty);if(upkeepItemCats.has(p.cat)){for(const r of ['wood','stone','frags','hqm'])if(p.cost?.[r])upkeepCostByRes[r]+=p.cost[r]*qty;}if(p.cat==='electric_power')powerOut+=qty*outputOf(p.key,p.powerOut||0);if(p.powerUseMax!=null)powerUse+=qty*drawOf(p.key,p.powerUse||0);else if((p.powerUse||0)>0)powerUse+=qty*p.powerUse;addBreakdown(qty,p.name,costText(Object.fromEntries(resources.map(r=>[r,(p.cost?.[r]||0)*qty]).filter(x=>x[1]))))}}
 document.getElementById('twigTotal').textContent=`${fmt(twig)} wood`;const up=document.getElementById('upgradeTotal');up.textContent=`${fmt(upgrade)} ${tierNames[tier]}`;up.className=`value ${tierClass[tier]}`;document.getElementById('upgradeHelp').textContent=tier==='wood'?'Wood upgrade + twig placement both use wood and are included in grand totals.':'Upgrade cost is separate from twig placement cost, but both are included in grand totals.';const grand=document.getElementById('grandTotals');grand.innerHTML='';for(const r of resources){if(totals[r]>0){const div=document.createElement('div');div.className='resource-line';div.innerHTML=`<span>${resourceNames[r]}</span><b class="${resourceClass[r]}">${fmt(totals[r])}</b>`;grand.appendChild(div)}}if(!grand.innerHTML)grand.innerHTML='<div class="small">No resources selected yet.</div>';
-renderSmartStorage(totals);
+window.currentBuildTotals={...totals};renderShoppingList(totals);renderSmartStorage(totals);
 const upkeepRate=autoUpkeepRate(structurePieces);const daily={wood:0,stone:0,frags:0,hqm:0};for(const r of ['wood','stone','frags','hqm'])daily[r]=Math.ceil((upkeepCostByRes[r]||0)*upkeepRate);const upk=document.getElementById('upkeepTotals');upk.innerHTML='';let anyUp=Object.values(daily).some(v=>v>0);if(anyUp){const storageType=document.getElementById('storageBoxType').value;let totalStacks=0;upk.innerHTML+=`<div class="resource-line"><span>Auto upkeep rate</span><b>${Math.round(upkeepRate*100)}%</b></div><div class="resource-line"><span>Upkeep includes</span><b>structures + doors/windows</b></div><div class="resource-line"><span>Target storage time</span><b>${fmt(daysTarget)} day${daysTarget===1?'':'s'}</b></div>`;for(const r of ['wood','stone','frags','hqm']){if(daily[r]>0){const target=daily[r]*daysTarget;const stacks=Math.ceil(target/stackSize[r]);totalStacks+=stacks;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} / 24h</span><b class="${resourceClass[r]}">${fmt(daily[r])}</b></div>`;upk.innerHTML+=`<div class="resource-line"><span>${resourceNames[r]} for ${fmt(daysTarget)}d</span><b class="${resourceClass[r]}">${fmt(target)} <span class="cost-mini">(${fmt(stacks)} stacks)</span></b></div>`;}}
 const boxes=Math.ceil(totalStacks/boxSlots[storageType]);upk.innerHTML+=`<div class="resource-line"><span>Storage needed</span><b>${fmt(boxes)} ${boxNames[storageType]}</b></div>`;const best=bestTcLayout(daily);upk.innerHTML+=`<div class="resource-line"><span>Best TC time</span><b class="good">${best.days?best.days.toFixed(1):0} days</b></div>`;for(const r of ['wood','stone','frags','hqm'])if(best.slots[r]>0)upk.innerHTML+=`<div class="resource-line"><span>TC ${resourceNames[r]}</span><b class="${resourceClass[r]}">${best.slots[r]} slots / ${fmt(best.amounts[r])}</b></div>`;}else upk.innerHTML='<div class="small">Add upgraded structure pieces to estimate TC upkeep.</div>';
 const bal=powerOut-powerUse;const pbal=document.getElementById('powerBalance');pbal.innerHTML=`<div class="resource-line"><span>Total generation</span><b class="good">${fmt(powerOut)} rW</b></div><div class="resource-line"><span>Total draw</span><b class="${powerUse>powerOut?'bad':'scrap'}">${fmt(powerUse)} rW</b></div><div class="resource-line"><span>Power left</span><b class="${bal>=0?'good':'bad'}">${fmt(bal)} rW</b></div>`;document.getElementById('powerMeter').style.width=powerOut?Math.min(100,(powerUse/powerOut)*100)+'%':'0%';document.getElementById('powerMeter').style.background=bal>=0?'linear-gradient(90deg,var(--good),var(--rust2))':'var(--bad)';
@@ -376,7 +218,7 @@ function wireAutoClearInputs(){
     }
   });
 }
-document.getElementById('tier').addEventListener('change',calculate);wireAutoClearInputs();renderAll();calculate();
+async function initializeBuildingCalculator(){try{const response=await fetch('../assets/data/building.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();categories=data.categories||[];pieces=data.pieces||[];document.getElementById('tier').addEventListener('change',calculate);wireAutoClearInputs();renderAll();calculate();}catch(err){document.getElementById('sections').innerHTML=`<section class="card"><h2>Building data could not load</h2><p class="bad">${escapeHtml(err.message||String(err))}</p><p class="small">Serve the project through GitHub Pages or a local web server; browsers block JSON fetches when HTML is opened directly with file://.</p></section>`;}}initializeBuildingCalculator();
 </script>
 </body>
 </html>
