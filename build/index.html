@@ -218,6 +218,130 @@ function wireAutoClearInputs(){
     }
   });
 }
+
+const fortifyPrefabMap={
+  'assets/prefabs/building core/foundation/foundation.prefab':'foundation',
+  'assets/prefabs/building core/foundation.triangle/foundation.triangle.prefab':'triangleFoundation',
+  'assets/prefabs/building core/wall/wall.prefab':'wall',
+  'assets/prefabs/building core/wall.doorway/wall.doorway.prefab':'doorway',
+  'assets/prefabs/building core/wall.window/wall.window.prefab':'windowWall',
+  'assets/prefabs/building core/wall.half/wall.half.prefab':'halfWall',
+  'assets/prefabs/building core/wall.low/wall.low.prefab':'lowWall',
+  'assets/prefabs/building core/floor/floor.prefab':'floor',
+  'assets/prefabs/building core/floor.triangle/floor.triangle.prefab':'triangleFloor',
+  'assets/prefabs/building core/roof/roof.prefab':'roof',
+  'assets/prefabs/building core/ramp/ramp.prefab':'ramp',
+  'assets/prefabs/building core/floor.frame/floor.frame.prefab':'floorFrame',
+  'assets/prefabs/building core/floor.triangle.frame/floor.triangle.frame.prefab':'floorFrame',
+  'assets/prefabs/building core/wall.frame/wall.frame.prefab':'wallFrame',
+  'assets/prefabs/building core/stairs.u/stairs.u.prefab':'stairsU',
+  'assets/prefabs/building core/stairs.l/stairs.l.prefab':'stairsL',
+  'assets/prefabs/building/door.hinged/door.hinged.wood.prefab':'woodDoor',
+  'assets/prefabs/building/door.hinged/door.hinged.metal.prefab':'sheetDoor',
+  'assets/prefabs/building/door.hinged/door.hinged.toptier.prefab':'armoredDoor',
+  'assets/prefabs/building/door.double.hinged/door.double.hinged.wood.prefab':'woodDoubleDoor',
+  'assets/prefabs/building/door.double.hinged/door.double.hinged.metal.prefab':'sheetDoubleDoor',
+  'assets/prefabs/building/door.double.hinged/door.double.hinged.toptier.prefab':'armoredDoubleDoor',
+  'assets/prefabs/building/wall.frame.garagedoor/wall.frame.garagedoor.prefab':'garageDoor',
+  'assets/prefabs/building/floor.grill/floor.grill.prefab':'floorGrill',
+  'assets/prefabs/building/floor.ladder.hatch/floor.ladder.hatch.prefab':'ladderHatch',
+  'assets/prefabs/building/wall.window.bars/wall.window.bars.wood.prefab':'woodBars',
+  'assets/prefabs/building/wall.window.bars/wall.window.bars.metal.prefab':'metalBars',
+  'assets/prefabs/building/wall.window.bars/wall.window.bars.toptier.prefab':'reinforcedBars',
+  'assets/prefabs/building/wall.window.embrasure.horizontal/wall.window.embrasure.horizontal.prefab':'embrasure',
+  'assets/prefabs/building/wall.window.embrasure.vertical/wall.window.embrasure.vertical.prefab':'verticalEmbrasure',
+  'assets/prefabs/building/wall.window.shopfront/wall.window.shopfront.prefab':'shopFront',
+  'assets/prefabs/building/wall.window.shopfront.metal/wall.window.shopfront.metal.prefab':'metalShopFront',
+  'assets/prefabs/building/wall.frame.fence/wall.frame.fence.prefab':'chainlinkFence',
+  'assets/prefabs/building/wall.frame.fence/wall.frame.fence.gate.prefab':'chainlinkFenceGate',
+  'assets/prefabs/deployable/tool cupboard/cupboard.tool.deployed.prefab':'toolCupboard',
+  'assets/prefabs/misc/doorcloser/doorcloser.prefab':'doorCloser',
+  'assets/prefabs/deployable/sleeping bag/sleepingbag_leather_deployed.prefab':'sleepingBag',
+  'assets/prefabs/deployable/bed/bed_deployed.prefab':'bed',
+  'assets/prefabs/deployable/woodenbox/woodbox_deployed.prefab':'smallBox',
+  'assets/prefabs/deployable/large wood storage/box.wooden.large.prefab':'largeBox',
+  'assets/prefabs/deployable/dropbox/dropbox.deployed.prefab':'dropBox',
+  'assets/prefabs/deployable/furnace/furnace.prefab':'furnace',
+  'assets/prefabs/deployable/large furnace/large_furnace.prefab':'largeFurnace',
+  'assets/prefabs/deployable/oil refinery/refinery_small_deployed.prefab':'refinery',
+  'assets/prefabs/deployable/repair bench/repairbench_deployed.prefab':'repairBench',
+  'assets/prefabs/deployable/research table/researchtable_deployed.prefab':'researchTable',
+  'assets/prefabs/deployable/tier 1 workbench/workbench1.deployed.prefab':'workbench1',
+  'assets/prefabs/deployable/tier 2 workbench/workbench2.deployed.prefab':'workbench2',
+  'assets/prefabs/deployable/tier 3 workbench/workbench3.deployed.prefab':'workbench3',
+  'assets/prefabs/deployable/mixingtable/mixingtable.deployed.prefab':'mixingTable'
+};
+const fortifyGradeMap={1:'wood',2:'stone',3:'metal',4:'hqm'};
+function clearImportReport(){
+  document.getElementById('fortifyReport').textContent='No Fortify file imported yet.';
+}
+function summarizeUnmappedPrefabs(unmapped){
+  return [...unmapped.entries()]
+    .sort((a,b)=>b[1]-a[1])
+    .slice(0,12)
+    .map(([name,count])=>`${count} × ${name.split('/').pop().replace('.prefab','')}`)
+    .join(', ');
+}
+async function importFortifyFile(file){
+  const report=document.getElementById('fortifyReport');
+  if(!file){return;}
+  report.textContent='Reading Fortify file…';
+  try{
+    const parsed=JSON.parse(await file.text());
+    if(!parsed || !Array.isArray(parsed.entities)){
+      throw new Error('This JSON does not contain Fortify’s expected entities array.');
+    }
+    const counts={};
+    const grades={};
+    const unmapped=new Map();
+    let matchedEntities=0;
+    for(const entity of parsed.entities){
+      const prefab=String(entity?.prefabname||'').toLowerCase();
+      const key=fortifyPrefabMap[prefab];
+      if(key){
+        counts[key]=(counts[key]||0)+1;
+        matchedEntities++;
+        if(entity.grade!=null && fortifyGradeMap[Number(entity.grade)]){
+          const tier=fortifyGradeMap[Number(entity.grade)];
+          grades[tier]=(grades[tier]||0)+1;
+        }
+      }else if(prefab){
+        unmapped.set(prefab,(unmapped.get(prefab)||0)+1);
+      }
+    }
+    if(!matchedEntities){
+      throw new Error('No supported building entities were recognized in this Fortify save.');
+    }
+    for(const piece of pieces){
+      const qty=counts[piece.key]||0;
+      localStorage.setItem(`tmp_${piece.key}`,qty);
+    }
+    const gradeOrder=['wood','stone','metal','hqm'];
+    const dominantGrade=gradeOrder
+      .map(tier=>[tier,grades[tier]||0])
+      .sort((a,b)=>b[1]-a[1])[0];
+    if(dominantGrade && dominantGrade[1]>0){
+      document.getElementById('tier').value=dominantGrade[0];
+    }
+    renderAll();
+    calculate();
+    const importedKinds=Object.values(counts).filter(Boolean).length;
+    const gradeSummary=gradeOrder.filter(g=>grades[g]).map(g=>`${grades[g]} ${g}`).join(', ');
+    const omitted=parsed.entities.length-matchedEntities;
+    let message=`Imported ${matchedEntities.toLocaleString()} supported entities across ${importedKinds} item types from ${parsed.entities.length.toLocaleString()} total Fortify entities.`;
+    if(gradeSummary)message+=` Structural grades found: ${gradeSummary}. The calculator uses the dominant grade (${document.getElementById('tier').selectedOptions[0].text}) because its structure upgrade selector is global.`;
+    if(omitted>0)message+=` ${omitted.toLocaleString()} non-building or unsupported entities were skipped.`;
+    const unmappedSummary=summarizeUnmappedPrefabs(unmapped);
+    if(unmappedSummary)message+=` Most common skipped prefabs: ${unmappedSummary}.`;
+    report.textContent=message;
+  }catch(err){
+    report.textContent=`Import failed: ${err.message||String(err)}`;
+  }finally{
+    const input=document.getElementById('fortifyFile');
+    if(input)input.value='';
+  }
+}
+
 async function initializeBuildingCalculator(){try{const response=await fetch('../assets/data/building.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();categories=data.categories||[];pieces=data.pieces||[];document.getElementById('tier').addEventListener('change',calculate);wireAutoClearInputs();renderAll();calculate();}catch(err){document.getElementById('sections').innerHTML=`<section class="card"><h2>Building data could not load</h2><p class="bad">${escapeHtml(err.message||String(err))}</p><p class="small">Serve the project through GitHub Pages or a local web server; browsers block JSON fetches when HTML is opened directly with file://.</p></section>`;}}initializeBuildingCalculator();
 </script>
 </body>

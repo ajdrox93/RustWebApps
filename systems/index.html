@@ -40,18 +40,25 @@
 </div>
 </nav>
 <main class="main-col">
-<section class="card sticky-mini" id="topControls">
-<div class="toolbar">
-<div class="tool-group utility-hidden"><label for="tier">Upgrade:</label><select id="tier"><option selected="" value="wood">Wood</option><option value="stone">Stone</option><option value="metal">Sheet Metal</option><option value="hqm">Armored / HQM</option></select></div>
-<div class="tool-group utility-hidden"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
+<section class="card sticky-mini systems-controls" id="topControls">
+<div class="systems-intro">
+  <div>
+    <span class="eyebrow">UTILITY PLANNER</span>
+    <h2>Design the systems that run your base</h2>
+    <p class="small">Choose power sources and consumers, then add industrial automation, farming, water, and powered DLC equipment. Building structures and upkeep remain in the Building Cost Calculator.</p>
+  </div>
+  <div class="power-callout">⚡ Live power balance updates as quantities and editable outputs change.</div>
+</div>
+<div class="toolbar systems-toolbar">
 <div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
-<input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, wind turbine, conveyor, sprinkler, fluorescent..."/>
+<input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, turbine, conveyor, sprinkler, fluorescent..."/>
 <button class="primary" onclick="calculate()">Calculate</button><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
 </div>
 <div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common electrical, farming, and industrial layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
-<div class="quick-row" style="margin-top:10px"><span class="quick-chip">⭐ Star items to pin them in Favorites</span><span class="quick-chip">📦 Storage planner follows Large/Small box choice</span><span class="quick-chip">🧱 Structures and upkeep are in Building Cost</span><span class="quick-chip">📌 Totals stay visible while scrolling</span></div>
+<div class="quick-row" style="margin-top:10px"><span class="quick-chip">⭐ Pin frequently used components</span><span class="quick-chip">📦 Estimate storage for system materials</span><span class="quick-chip">⚡ Edit variable generation and draw</span><span class="quick-chip">📌 Totals remain visible while scrolling</span></div>
 <div class="tabs" id="tabs"></div>
+<input id="tier" type="hidden" value="wood"/><input id="upkeepDays" type="hidden" value="7"/>
 </section>
 <div id="sections"></div>
 <section class="card" id="workbenchSection">
@@ -60,20 +67,17 @@
 <div style="overflow:auto"><table><thead><tr><th>Item</th><th>Workbench</th></tr></thead><tbody id="bpBreakdown"></tbody></table></div>
 </section>
 <section class="card" id="exportSection">
-<h2>📋 Export / Share Build Plan</h2>
+<h2>📋 Export / Share Systems Plan</h2>
 <p class="small">Use this for Discord, notes, or sharing with friends before farming.</p>
 <textarea class="copybox" id="exportText" readonly=""></textarea>
 </section>
 </main>
 <aside class="summary" id="summarySection">
-<section class="total-box"><div class="label">Base summary</div><div class="resource-list small" id="baseSummary"></div></section>
-<section class="total-box utility-hidden"><div class="label">Twig placement cost</div><div class="value wood" id="twigTotal">0 wood</div></section>
-<section class="total-box utility-hidden"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
-<section class="total-box"><div class="label">Grand materials</div><div class="resource-list" id="grandTotals"></div></section>
-<section class="total-box"><div class="label">Smart storage planning</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for the total build materials using your Large/Small box selection.</div></section>
-<section class="total-box utility-hidden"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div></section>
-<section class="total-box"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div><div class="footer">For variable sources, edit the “Output each” field. Wind and solar output depends on placement/time.</div></section>
-<section class="total-box"><div class="label">Selected breakdown</div><table class="breakdown"><tbody id="breakdown"></tbody></table></section>
+<section class="total-box power-summary"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div><div class="footer">Edit variable output and draw values to match the actual circuit.</div></section>
+<section class="total-box"><div class="label">System materials</div><div class="resource-list" id="grandTotals"></div></section>
+<section class="total-box"><div class="label">Material storage</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for all selected system components.</div></section>
+<section class="total-box"><div class="label">Selected components</div><table class="breakdown"><tbody id="breakdown"></tbody></table></section>
+<div hidden><div id="baseSummary"></div><div id="twigTotal"></div><div id="upgradeTotal"></div><div id="upgradeHelp"></div><div id="upkeepTotals"></div></div>
 </aside>
 </div>
 <div class="footer note">Note: Rust item costs, power behavior, and tech-tree paths can change or differ on modded servers. Variable sources and consumers are editable so the plan can match your actual setup.</div>
