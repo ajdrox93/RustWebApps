@@ -1,0 +1,25 @@
+
+/* ===== HOME PAGE RESPONSIVE RULES ===== */
+@media (max-width:850px){body.page-home .grid{grid-template-columns:1fr}body.page-home header{padding:26px}body.page-home .card{min-height:auto}}
+
+/* ===== BUILD PAGE RESPONSIVE RULES ===== */
+@media (max-width:1200px){body.page-build .app-layout{grid-template-columns:1fr}body.page-build .side-nav, body.page-build .summary{position:static}body.page-build .side-nav{order:-2}body.page-build .summary{order:2}body.page-build .side-nav .nav-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:4px}body.page-build .nav-link{margin:0}}
+@media (max-width:980px){body.page-build{padding:12px}body.page-build .toolbar{align-items:stretch}body.page-build .tool-group{width:100%}body.page-build .search{min-width:100%}}
+@media print{body.page-build{background:#fff;color:#111}body.page-build .card, body.page-build header, body.page-build .section-card, body.page-build .side-nav{box-shadow:none}body.page-build .toolbar, body.page-build .tabs button, body.page-build .danger, body.page-build .primary, body.page-build button, body.page-build .side-nav{display:none}body.page-build .app-layout{display:block}body.page-build .summary{position:static}}
+
+/* ===== UPKEEP PAGE RESPONSIVE RULES ===== */
+@media (max-width: 980px){body.page-upkeep .layout{ grid-template-columns: 1fr; }body.page-upkeep .sidebar{
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }body.page-upkeep .nav{ grid-template-columns: repeat(2, minmax(0, 1fr)); }body.page-upkeep .quick-stats{ grid-template-columns: repeat(2, minmax(0, 1fr)); }body.page-upkeep .main{ padding: 16px; }}
+@media (max-width: 560px){body.page-upkeep .nav{ grid-template-columns: 1fr; }body.page-upkeep .quick-stats{ grid-template-columns: 1fr; }body.page-upkeep .hero{ padding: 20px; }body.page-upkeep input[type="text"], body.page-upkeep input[type="number"]{ width: 112px; }}
+
+/* ===== COOKING PAGE RESPONSIVE RULES ===== */
+@media (max-width:1000px){body.page-cooking .layout{grid-template-columns:1fr}body.page-cooking .sidebar{position:static;height:auto}body.page-cooking .nav{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}body.page-cooking .main{padding:14px}body.page-cooking .controls, body.page-cooking .target-row, body.page-cooking .extra-controls{grid-template-columns:1fr}body.page-cooking .quick-stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){body.page-cooking .quick-stats{grid-template-columns:1fr}body.page-cooking .hero{padding:18px}}
+
+/* ===== ERROR PAGE RESPONSIVE RULES ===== */
+@media (max-width:800px){body.page-error .nav-wrap{align-items:flex-start;flex-direction:column}body.page-error .top-links{justify-content:flex-start}body.page-error .page{padding-top:34px}body.page-error .hero-card{padding:28px 18px}body.page-error .actions{grid-template-columns:1fr}body.page-error .campfire{display:none}body.page-error .footer-wrap{grid-template-columns:1fr}}
+@media (max-width:520px){body.page-error .brand-title{font-size:20px}body.page-error .top-links a{padding:8px 9px;font-size:12px}body.page-error .skull{font-size:50px}body.page-error .tip-card{grid-template-columns:1fr;text-align:center}}
