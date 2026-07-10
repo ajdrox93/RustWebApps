@@ -47,7 +47,7 @@
     <h2>Design the systems that run your base</h2>
     <p class="small">Choose power sources and consumers, then add industrial automation, farming, water, and powered DLC equipment. Building structures and upkeep remain in the Building Cost Calculator.</p>
   </div>
-  <div class="power-callout">⚡ Live power balance updates as quantities and editable outputs change.</div>
+  <div><div class="power-callout">⚡ Live power balance updates as quantities and editable outputs change.</div><div class="import-report small" id="fortifySystemsNotice">No Fortify systems import detected in this browser.</div></div>
 </div>
 <div class="toolbar systems-toolbar">
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, turbine, conveyor, sprinkler, fluorescent..."/>
@@ -277,6 +277,18 @@ const navGroups=[
   {id:'workbenchSection',label:'Workbench',icon:'🛠'},
   {id:'exportSection',label:'Export',icon:'📋'}
 ];
+function showFortifySystemsNotice(){
+  const notice=document.getElementById('fortifySystemsNotice');
+  if(!notice)return;
+  try{
+    const data=JSON.parse(localStorage.getItem('rustFortifySystemsImportV1')||'null');
+    if(!data){notice.textContent='No Fortify systems import detected in this browser.';return;}
+    const kinds=Object.values(data.counts||{}).filter(Boolean).length;
+    const when=data.importedAt?new Date(data.importedAt).toLocaleString():'recently';
+    notice.innerHTML=`Fortify import loaded: <strong>${Number(data.matchedEntities||0).toLocaleString()}</strong> systems entities across <strong>${kinds}</strong> component types from <strong>${data.fileName||'Fortify save'}</strong> (${when}).`;
+  }catch(e){notice.textContent='Fortify systems import data could not be read.';}
+}
+
 function fmt(n){return Math.round(n).toLocaleString();}
 function costText(obj){if(!obj||!Object.keys(obj).length)return '<span class="cost-mini">—</span>';return resources.filter(r=>obj[r]).map(r=>`${fmt(obj[r])} ${resourceNames[r]}`).join(' + ');}
 function qtyOf(key){return Math.max(0,Number(localStorage.getItem(`tmp_${key}`)||document.getElementById(`qty_${key}`)?.value||0));}
@@ -296,7 +308,7 @@ function sectionOpen(catId, hasFilter){return hasFilter || ['electric_power','el
 function rowHtml(p,prefix=''){const existing=qtyOf(p.key);let third='—';if(p.cat==='structure')third=`${p.twig} wood`;else if(p.cat==='electric_power')third=`<input class="miniInput" id="${prefix}out_${p.key}" type="number" min="0" step="1" value="${outputOf(p.key,p.powerOut||0)}" oninput="localStorage.setItem('out_${p.key}',this.value);calculate()"> rW`;else if(p.powerUseMax!=null)third=`<input class="miniInput" id="${prefix}draw_${p.key}" type="number" min="${p.powerUse||0}" max="${p.powerUseMax}" step="1" value="${drawOf(p.key,p.powerUse||0)}" oninput="localStorage.setItem('draw_${p.key}',this.value);calculate()"> rW <div class="cost-mini">range ${p.powerUse||0}-${p.powerUseMax} rW</div>`;else if((p.powerUse||0)>0)third=`${p.powerUse} rW`;else third='<span class="cost-mini">—</span>';const each=p.cat==='structure'?`<span id="${prefix}each_${p.key}"></span>`:costText(p.cost);return `<tr><td><button class="fav-btn ${isFav(p.key)?'active':''}" title="Favorite" onclick="toggleFavorite('${p.key}')">★</button></td><td>${p.name}${p.note?`<div class="cost-mini">${p.note}</div>`:''}<div class="cost-mini">${p.bp?`WB: ${p.bp.tier}`:''}</div></td><td><input class="qty" id="${prefix}qty_${p.key}" type="number" min="0" step="1" value="${existing}" oninput="localStorage.setItem('tmp_${p.key}',this.value);calculate()"></td><td>${third}</td><td>${each}</td></tr>`;}
 function renderSection(holder,c,list,forceOpen=false){const details=document.createElement('details');details.className='section-card';details.id=`section_${c.id}`;if(forceOpen||sectionOpen(c.id,!!(document.getElementById('filter')?.value.trim())))details.open=true;details.innerHTML=`<summary><div class="section-title"><span>${c.icon||'▫️'}</span><h2>${c.label}</h2><span class="badge">${list.length} rows</span></div><span class="chev">›</span></summary><div class="section-body"><div style="overflow:auto"><table><thead><tr><th>Fav</th><th>Item</th><th>Qty</th><th>${c.id==='structure'?'Twig Wood Each':c.id==='electric_power'?'Output Each':'Power Draw Each'}</th><th>Cost Each</th></tr></thead><tbody></tbody></table></div></div>`;const tbody=details.querySelector('tbody');tbody.innerHTML=list.length?list.map(p=>rowHtml(p)).join(''):'<tr><td colspan="5"><div class="empty-state">No matching items in this section.</div></td></tr>';holder.appendChild(details);}
 function renderFavorites(holder){const favSet=new Set(favorites());const list=pieces.filter(p=>favSet.has(p.key)&&matchesFilter(p));const details=document.createElement('details');details.className='section-card';details.id='section_favorites';details.open=true;details.innerHTML=`<summary><div class="section-title"><span>⭐</span><h2>Favorites</h2><span class="badge">${list.length} pinned</span></div><span class="chev">›</span></summary><div class="section-body"><div style="overflow:auto"><table><thead><tr><th>Fav</th><th>Item</th><th>Qty</th><th>Power / Twig</th><th>Cost Each</th></tr></thead><tbody></tbody></table></div></div>`;const tbody=details.querySelector('tbody');tbody.innerHTML=list.length?list.map(p=>rowHtml(p,'fav_')).join(''):'<tr><td colspan="5"><div class="empty-state">Star frequently used items and they will show up here.</div></td></tr>';holder.appendChild(details);}
-function renderAll(){renderNav();renderPresets();renderTabs();const holder=document.getElementById('sections');holder.innerHTML='';renderFavorites(holder);for(const c of categories){const list=pieces.filter(p=>p.cat===c.id&&matchesFilter(p));renderSection(holder,c,list);}calculate(false)}
+function renderAll(){showFortifySystemsNotice();renderNav();renderPresets();renderTabs();const holder=document.getElementById('sections');holder.innerHTML='';renderFavorites(holder);for(const c of categories){const list=pieces.filter(p=>p.cat===c.id&&matchesFilter(p));renderSection(holder,c,list);}calculate(false)}
 function addTotals(totals,cost,qty){for(const r of resources) if(cost?.[r]) totals[r]+=cost[r]*qty;}
 function autoUpkeepRate(structurePieces){
   if(structurePieces<=0)return 0;

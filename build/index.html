@@ -320,6 +320,38 @@ const fortifyPrefabMap={
   'assets/prefabs/deployable/tier 3 workbench/workbench3.deployed.prefab':'workbench3',
   'assets/prefabs/deployable/mixingtable/mixingtable.deployed.prefab':'mixingTable'
 };
+
+const fortifySystemsPrefabMap={
+  'assets/prefabs/deployable/playerioents/generators/generator.small.prefab':'smallGenerator',
+  'assets/prefabs/deployable/elevator/elevator.prefab':'elevator',
+  'assets/prefabs/deployable/playerioents/app/storagemonitor/storagemonitor.deployed.prefab':'storageMonitor',
+  'assets/prefabs/deployable/playerioents/button/button.prefab':'button',
+  'assets/prefabs/deployable/playerioents/gates/branch/electrical.branch.deployed.prefab':'electricalBranch',
+  'assets/prefabs/deployable/playerioents/gates/combiner/electrical.combiner.deployed.prefab':'rootCombiner',
+  'assets/prefabs/deployable/playerioents/gates/dflipflop/electrical.memorycell.deployed.prefab':'memoryCell',
+  'assets/prefabs/deployable/ceiling light/ceilinglight.deployed.prefab':'ceilingLight',
+  'assets/prefabs/deployable/computerstation/computerstation.deployed.prefab':'computerStation',
+  'assets/prefabs/deployable/reactive target/reactivetarget_deployed.prefab':'reactiveTarget',
+  'assets/prefabs/deployable/modular car lift/electrical.modularcarlift.deployed.prefab':'modularCarLift',
+  'assets/prefabs/deployable/cctvcamera/cctv_deployed.prefab':'ptzCamera',
+  'assets/prefabs/deployable/playerioents/industrialadaptors/storageadaptor.deployed.prefab':'storageAdapter',
+  'assets/prefabs/deployable/playerioents/industrialconveyor/industrialconveyor.deployed.prefab':'industrialConveyor',
+  'assets/prefabs/deployable/playerioents/industrialsplitter/industrialsplitter.deployed.prefab':'industrialSplitter',
+  'assets/prefabs/deployable/playerioents/electricfurnace/electricfurnace.deployed.prefab':'electricFurnace',
+  'assets/prefabs/deployable/planters/planter.large.deployed.prefab':'largePlanter',
+  'assets/prefabs/deployable/playerioents/sprinkler/electric.sprinkler.deployed.prefab':'sprinkler',
+  'assets/prefabs/deployable/playerioents/poweredwaterpurifier/poweredwaterpurifier.deployed.prefab':'poweredWaterPurifier',
+  'assets/prefabs/deployable/liquidbarrel/waterbarrel.prefab':'waterBarrel',
+  'assets/prefabs/deployable/composter/composter.prefab':'composter',
+  'assets/prefabs/misc/xmas/neon_sign/sign.neon.125x215.prefab':'neonSignSmall',
+  'assets/prefabs/misc/xmas/neon_sign/sign.neon.xl.prefab':'neonSignLarge',
+  'assets/prefabs/misc/permstore/industriallight/industrial.wall.lamp.deployed.prefab':'industrialWallLight',
+  'assets/prefabs/misc/permstore/industriallight/industrial.wall.lamp.red.deployed.prefab':'industrialWallLight',
+  'assets/prefabs/misc/permstore/industriallight/industrial.wall.lamp.green.deployed.prefab':'industrialWallLight',
+  'assets/prefabs/voiceaudio/discoball/discoball.deployed.prefab':'discoBall',
+  'assets/prefabs/voiceaudio/discofloor/discofloor.deployed.prefab':'discoFloor'
+};
+
 const fortifyGradeMap={1:'wood',2:'stone',3:'metal',4:'hqm'};
 function clearImportReport(){
   document.getElementById('fortifyReport').textContent='No Fortify file imported yet.';
@@ -341,12 +373,15 @@ async function importFortifyFile(file){
       throw new Error('This JSON does not contain Fortify’s expected entities array.');
     }
     const counts={};
+    const systemCounts={};
     const grades={};
     const unmapped=new Map();
     let matchedEntities=0;
+    let matchedSystemEntities=0;
     for(const entity of parsed.entities){
       const prefab=String(entity?.prefabname||'').toLowerCase();
       const key=fortifyPrefabMap[prefab];
+      const systemKey=fortifySystemsPrefabMap[prefab];
       if(key){
         counts[key]=(counts[key]||0)+1;
         matchedEntities++;
@@ -354,7 +389,12 @@ async function importFortifyFile(file){
           const tier=fortifyGradeMap[Number(entity.grade)];
           grades[tier]=(grades[tier]||0)+1;
         }
-      }else if(prefab){
+      }
+      if(systemKey){
+        systemCounts[systemKey]=(systemCounts[systemKey]||0)+1;
+        matchedSystemEntities++;
+      }
+      if(!key && !systemKey && prefab){
         unmapped.set(prefab,(unmapped.get(prefab)||0)+1);
       }
     }
@@ -365,6 +405,20 @@ async function importFortifyFile(file){
       const qty=counts[piece.key]||0;
       localStorage.setItem(`tmp_${piece.key}`,qty);
     }
+    const previousSystems=JSON.parse(localStorage.getItem('rustFortifySystemsImportV1')||'{}');
+    const previousKeys=Array.isArray(previousSystems.keys)?previousSystems.keys:[];
+    const currentKeys=Object.keys(systemCounts);
+    for(const key of new Set([...previousKeys,...currentKeys])){
+      localStorage.setItem(`tmp_${key}`,systemCounts[key]||0);
+    }
+    localStorage.setItem('rustFortifySystemsImportV1',JSON.stringify({
+      fileName:file.name,
+      importedAt:new Date().toISOString(),
+      totalEntities:parsed.entities.length,
+      matchedEntities:matchedSystemEntities,
+      counts:systemCounts,
+      keys:currentKeys
+    }));
     const gradeOrder=['wood','stone','metal','hqm'];
     const dominantGrade=gradeOrder
       .map(tier=>[tier,grades[tier]||0])
@@ -377,7 +431,9 @@ async function importFortifyFile(file){
     const importedKinds=Object.values(counts).filter(Boolean).length;
     const gradeSummary=gradeOrder.filter(g=>grades[g]).map(g=>`${grades[g]} ${g}`).join(', ');
     const omitted=parsed.entities.length-matchedEntities;
-    let message=`Imported ${matchedEntities.toLocaleString()} supported entities across ${importedKinds} item types from ${parsed.entities.length.toLocaleString()} total Fortify entities.`;
+    let message=`Imported ${matchedEntities.toLocaleString()} supported building entities across ${importedKinds} item types from ${parsed.entities.length.toLocaleString()} total Fortify entities.`;
+    const systemKinds=Object.values(systemCounts).filter(Boolean).length;
+    if(matchedSystemEntities>0)message+=` Also transferred ${matchedSystemEntities.toLocaleString()} systems entities across ${systemKinds} component types to the Systems Planner.`;
     if(gradeSummary)message+=` Structural grades found: ${gradeSummary}. The calculator uses the dominant grade (${document.getElementById('tier').selectedOptions[0].text}) because its structure upgrade selector is global.`;
     if(omitted>0)message+=` ${omitted.toLocaleString()} non-building or unsupported entities were skipped.`;
     const unmappedSummary=summarizeUnmappedPrefabs(unmapped);
