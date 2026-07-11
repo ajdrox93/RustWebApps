@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Cooking Workbench Calculator</title>
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/cooking.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.1.0"></script></head>
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/cooking.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.2.0"></script><link href="/assets/css/ui-components.css?v=1.2.0" rel="stylesheet"/></head>
 <body class="calculator-page cooking-page" data-page="cooking">
 <div class="layout">
 <aside class="sidebar">
@@ -30,7 +30,7 @@
 <label for="stackMultiplier">Stack multiplier:</label>
 <select id="stackMultiplier"><option>1</option><option>2</option><option>3</option><option>5</option><option>10</option></select>
 <label for="forceStack">Or force stack size:</label>
-<div style="display:flex; gap:8px;"><input id="forceStack" placeholder=""/><button id="applyStacks">Apply Stack Settings</button></div>
+<div style="display:flex; gap:8px;"><input id="forceStack" placeholder=""/><button class="btn btn-primary" id="applyStacks">Apply Stack Settings</button></div>
 <div class="quick-stack-row">
 <span>Quick stacks:</span>
 <button class="small quick-stack" data-mult="1">Vanilla</button>
@@ -44,9 +44,9 @@
 <label for="recipeSearch">Recipe Search:</label>
 <input id="recipeSearch" placeholder="Search recipes..."/>
 <select id="searchResults"><option value="">Search results</option></select>
-<button id="favoriteToggle" type="button">☆ Favorite</button>
+<button class="btn" id="favoriteToggle" type="button">☆ Favorite</button>
 <select id="favoritesList"><option value="">Favorites</option></select>
-<button class="danger" id="clearSavedData" type="button">Clear Saved Data</button>
+<button class="danger btn btn-danger" id="clearSavedData" type="button">Clear Saved Data</button>
 </div>
 <fieldset class="pie" id="piePanel"><legend>Pie Description</legend><div id="pieText"></div></fieldset>
 <div class="info" id="info"></div>
@@ -55,9 +55,9 @@
 <div class="table-wrap"><table id="ingredientsTable"></table></div>
 </fieldset>
 <div class="button-row">
-<button id="calcCanMake">Calculate How Many I Can Make</button>
-<button id="calcNeeded">Calculate Materials Needed</button>
-<button class="danger" id="clearInventory">Clear Inventory</button>
+<button class="btn btn-primary" id="calcCanMake">Calculate How Many I Can Make</button>
+<button class="btn btn-primary" id="calcNeeded">Calculate Materials Needed</button>
+<button class="danger btn btn-danger" id="clearInventory">Clear Inventory</button>
 </div>
 <fieldset>
 <legend>Craftable From Inventory</legend>
@@ -69,7 +69,7 @@
 <div class="target-row">
 <label for="targetAmount">Amount you want to craft:</label>
 <input id="targetAmount" value="1"/>
-<button id="updateNeeded">Update Needed Totals</button>
+<button class="btn btn-primary" id="updateNeeded">Update Needed Totals</button>
 <div class="status">Uses your inventory above to show what you're missing.</div>
 </div>
 <div class="two-col">
@@ -79,7 +79,6 @@
 </fieldset>
 <div class="status" id="status">Select a recipe, enter your inventory, then calculate.</div>
 </div>
-
 </main>
 </div>
 <script>

@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Upkeep Calculator</title>
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/upkeep.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.1.0"></script></head>
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/upkeep.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.2.0"></script><link href="/assets/css/ui-components.css?v=1.2.0" rel="stylesheet"/></head>
 <body class="calculator-page upkeep-page" data-page="upkeep">
 <div class="layout">
 <aside class="sidebar">
@@ -57,7 +57,7 @@
 </table>
 </div>
 <div class="actions">
-<button id="clearMain" type="button">Clear TC Fill</button>
+<button class="btn btn-danger" id="clearMain" type="button">Clear TC Fill</button>
 </div>
 </div>
 </details>
@@ -94,12 +94,11 @@
 <div><b>Tip:</b> Leave large boxes checked for the cleanest storage plan. Enable small boxes too if you want the calculator to use large boxes first, then small boxes, then a partial amount.</div>
 </div>
 <div class="actions">
-<button id="clearReverse" type="button">Clear Reverse Calc</button>
+<button class="btn btn-danger" id="clearReverse" type="button">Clear Reverse Calc</button>
 </div>
 </div>
 </details>
 </div>
-
 </main>
 </div>
 <script>

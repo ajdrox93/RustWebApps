@@ -1,73 +1,71 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="author" content="AJ">
-  <title>General Crafting Calculator | Rust Web Apps</title>
-  <link rel="stylesheet" href="/assets/css/common.css">
-  <link rel="stylesheet" href="/assets/css/rust-theme.css">
-  <link rel="stylesheet" href="/assets/css/planner.css">
-  <link rel="stylesheet" href="/assets/css/mobile.css">
-  <script defer src="/assets/js/site.js?v=1.1.0"></script>
-  <script defer src="/assets/js/planner.js?v=1.0.1"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="AJ" name="author"/>
+<title>General Crafting Calculator | Rust Web Apps</title>
+<link href="/assets/css/common.css" rel="stylesheet"/>
+<link href="/assets/css/rust-theme.css" rel="stylesheet"/>
+<link href="/assets/css/planner.css" rel="stylesheet"/>
+<link href="/assets/css/mobile.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/site.js?v=1.2.0"></script>
+<script defer="" src="/assets/js/planner.js?v=1.0.1"></script>
+<link href="/assets/css/ui-components.css?v=1.2.0" rel="stylesheet"/></head>
 <body data-page="crafting">
-  <div class="planner-shell">
-    <section class="planner-panel planner-hero">
-      <h1>🛠️ General Crafting Calculator</h1>
-      <p>Browse one category at a time, enter quantities for any craftable item, and combine requirements across the entire crafting plan.</p>
-    </section>
-
-    <div class="planner-layout">
-      <aside class="planner-sidebar polished-nav">
-        <div class="nav-brand">
-          <div class="brand-mark">🦀</div>
-          <div>
-            <div class="brand-title">Rust Web Apps</div>
-            <div class="brand-subtitle">Planning &amp; Utilities</div>
-          </div>
-        </div>
-        <div class="nav-section">
-          <div class="section-label">🌐 SITE</div>
-          <nav class="nav-links site-links" data-site-nav="sidebar" aria-label="Site navigation"></nav>
-        </div>
-        <div class="nav-divider"></div>
-        <div class="nav-section planner-section">
-          <div class="section-label">📂 CATEGORIES</div>
-          <div id="categoryList" class="category-list planner-links"></div>
-        </div>
-      </aside>
-
-      <main>
-        <section class="planner-panel">
-          <div class="planner-toolbar">
-            <input id="itemSearch" type="search" placeholder="Search items or materials...">
-            <button id="copyPlan">Copy Plan</button>
-            <button id="clearPlan" class="danger">Clear All</button>
-          </div>
-          <div id="loadError" class="data-warning" hidden>Crafting data could not be loaded. Open the project through GitHub Pages or a local web server instead of directly through file://.</div>
-          <div id="dataWarning" class="data-warning" hidden></div>
-          <div class="planner-toolbar">
-            <h2 id="viewTitle" style="margin:0"></h2>
-            <span id="viewCount" class="count-pill"></span>
-          </div>
-          <div class="item-table-wrap">
-            <table class="item-table">
-              <thead><tr><th>Item</th><th>Recipe</th><th>Workbench</th><th>Quantity</th></tr></thead>
-              <tbody id="itemRows"></tbody>
-            </table>
-          </div>
-        </section>
-      </main>
-
-      <aside class="planner-summary">
-        <section><h2>Plan Summary</h2><div id="planSummary"></div></section>
-        <section><h2>General Crafting Requirements</h2><div id="requirementsList" class="requirements-list"></div></section>
-        <section><h2>Resource Shopping List</h2><p class="small">Enter how much you have gathered. Progress is saved in this browser.</p><div id="shoppingList" class="shopping-list"></div><div class="summary-actions"><button id="copyShopping">Copy List</button><button id="clearOwned">Clear Gathered</button></div></section>
-      </aside>
-    </div>
-    <footer class="site-footer" data-site-footer="standard"></footer>
-  </div>
+<div class="planner-shell">
+<section class="planner-panel planner-hero">
+<h1>🛠️ General Crafting Calculator</h1>
+<p>Browse one category at a time, enter quantities for any craftable item, and combine requirements across the entire crafting plan.</p>
+</section>
+<div class="planner-layout">
+<aside class="planner-sidebar polished-nav">
+<div class="nav-brand">
+<div class="brand-mark">🦀</div>
+<div>
+<div class="brand-title">Rust Web Apps</div>
+<div class="brand-subtitle">Planning &amp; Utilities</div>
+</div>
+</div>
+<div class="nav-section">
+<div class="section-label">🌐 SITE</div>
+<nav aria-label="Site navigation" class="nav-links site-links" data-site-nav="sidebar"></nav>
+</div>
+<div class="nav-divider"></div>
+<div class="nav-section planner-section">
+<div class="section-label">📂 CATEGORIES</div>
+<div class="category-list planner-links" id="categoryList"></div>
+</div>
+</aside>
+<main>
+<section class="planner-panel">
+<div class="planner-toolbar">
+<input id="itemSearch" placeholder="Search items or materials..." type="search"/>
+<button class="btn btn-info" id="copyPlan">Copy Plan</button>
+<button class="danger btn btn-danger" id="clearPlan">Clear All</button>
+</div>
+<div class="data-warning" hidden="" id="loadError">Crafting data could not be loaded. Open the project through GitHub Pages or a local web server instead of directly through file://.</div>
+<div class="data-warning" hidden="" id="dataWarning"></div>
+<div class="planner-toolbar">
+<h2 id="viewTitle" style="margin:0"></h2>
+<span class="count-pill" id="viewCount"></span>
+</div>
+<div class="item-table-wrap">
+<table class="item-table">
+<thead><tr><th>Item</th><th>Recipe</th><th>Workbench</th><th>Quantity</th></tr></thead>
+<tbody id="itemRows"></tbody>
+</table>
+</div>
+</section>
+</main>
+<aside class="planner-summary">
+<section><h2>Plan Summary</h2><div id="planSummary"></div></section>
+<section><h2>General Crafting Requirements</h2><div class="requirements-list" id="requirementsList"></div></section>
+<section><h2>Resource Shopping List</h2><p class="small">Enter how much you have gathered. Progress is saved in this browser.</p><div class="shopping-list" id="shoppingList"></div><div class="summary-actions"><button class="btn btn-info" id="copyShopping">Copy List</button><button class="btn btn-danger" id="clearOwned">Clear Gathered</button></div></section>
+</aside>
+</div>
+<footer class="site-footer" data-site-footer="standard"></footer>
+</div>
 </body>
 </html>

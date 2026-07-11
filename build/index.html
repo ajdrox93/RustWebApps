@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Building Cost Calculator</title>
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.1.0"></script></head>
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.2.0"></script><link href="/assets/css/ui-components.css?v=1.2.0" rel="stylesheet"/></head>
 <body class="build-page" data-page="build">
 <div class="wrap">
 <header>
@@ -39,9 +39,9 @@
 <div class="tool-group"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
 <div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search wall, foundation, garage door, window, TC..."/>
-<button class="primary" onclick="calculate()">Calculate</button><button onclick="document.getElementById('fortifyFile').click()">Import Fortify</button><input accept=".fortify,.json,.xml,.txt" hidden="" id="fortifyFile" onchange="importFortifyFile(this.files[0])" type="file"/><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
+<button class="primary btn btn-primary" onclick="calculate()">Calculate</button><button class="btn btn-import" onclick="document.getElementById('fortifyFile').click()">Import Fortify</button><input accept=".fortify,.json,.xml,.txt" hidden="" id="fortifyFile" onchange="importFortifyFile(this.files[0])" type="file"/><button class="btn btn-success" onclick="saveBuild()">Save</button><button class="btn btn-secondary" onclick="loadBuild()">Load</button><button class="btn btn-info" onclick="copyExport()">Copy Export</button><button class="btn btn-info" onclick="window.print()">Print/PDF</button><button class="danger btn btn-danger" onclick="clearAll()">Clear</button>
 </div>
-<div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common starter and base layouts.</span></div>
+<div class="preset-toggle"><button aria-expanded="false" class="btn btn-secondary" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common starter and base layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
 <div class="quick-row" style="margin-top:10px"><span class="quick-chip">⭐ Star items to pin them in Favorites</span><span class="quick-chip">📦 Storage planner follows Large/Small box choice</span><span class="quick-chip">⚡ Electrical, industrial, and farming are now in Systems Planner</span><span class="quick-chip">📌 Totals stay visible while scrolling</span></div>
 <div class="tabs" id="tabs"></div>
@@ -50,7 +50,7 @@
 <section class="card" id="importSection">
 <h2>🏗️ Import a Fortify Build</h2>
 <p class="small">Upload a Fortify save/export and the planner will fill supported building-piece quantities automatically. Your file stays in your browser and is never uploaded to a server.</p>
-<div class="import-actions"><button class="primary" onclick="document.getElementById('fortifyFile').click()">Choose Fortify File</button><button onclick="clearImportReport()">Clear Report</button></div>
+<div class="import-actions"><button class="primary btn btn-import btn-primary" onclick="document.getElementById('fortifyFile').click()">Choose Fortify File</button><button class="btn btn-danger" onclick="clearImportReport()">Clear Report</button></div>
 <div class="import-report small" id="fortifyReport">No Fortify file imported yet.</div>
 </section>
 <section class="card" id="workbenchSection">
@@ -69,7 +69,7 @@
 <section class="total-box"><div class="label">Twig placement cost</div><div class="value wood" id="twigTotal">0 wood</div></section>
 <section class="total-box"><div class="label">Structure upgrade cost</div><div class="value wood" id="upgradeTotal">0 wood</div><div class="small" id="upgradeHelp"></div></section>
 <section class="total-box"><div class="label">Grand materials</div><div class="resource-list" id="grandTotals"></div></section>
-<section class="total-box" id="shoppingSection"><div class="label">Resource shopping list</div><div class="small">Tracks materials needed to build the selected plan. Enter what you already gathered; remaining amounts update automatically and are saved in this browser. Upkeep reserves are shown separately below.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copyShoppingList()">Copy List</button><button onclick="clearOwnedResources()">Clear Owned</button></div></section>
+<section class="total-box" id="shoppingSection"><div class="label">Resource shopping list</div><div class="small">Tracks materials needed to build the selected plan. Enter what you already gathered; remaining amounts update automatically and are saved in this browser. Upkeep reserves are shown separately below.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button class="btn btn-info" onclick="copyShoppingList()">Copy List</button><button class="btn btn-danger" onclick="clearOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Smart storage planning</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for the total build materials using your Large/Small box selection.</div></section>
 <section class="total-box"><div class="label">Smart upkeep planner</div><div class="resource-list" id="upkeepTotals"></div><div class="footer">Estimates 24h upkeep, target-day storage, and the best 24-slot TC fill layout.</div></section>
 <section class="total-box utility-hidden"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div></section>

@@ -1,0 +1,151 @@
+/*
+ * Rust Web Apps shared interactive UI components
+ * Centralizes buttons, form controls, focus states, and action colors.
+ */
+:root{
+  --ui-control-bg:#211c17;
+  --ui-control-bg-hover:#2d261f;
+  --ui-control-border:#5b4938;
+  --ui-control-border-hover:#846244;
+  --ui-control-text:#f6ecdd;
+  --ui-focus:#f0a15a;
+  --ui-primary:#c45f2d;
+  --ui-primary-hover:#df7438;
+  --ui-primary-border:#ed8b4d;
+  --ui-success:#397c4a;
+  --ui-success-hover:#46975b;
+  --ui-success-border:#5eb573;
+  --ui-info:#326b9d;
+  --ui-info-hover:#3e83bd;
+  --ui-info-border:#65a4d7;
+  --ui-import:#6c4a91;
+  --ui-import-hover:#825cac;
+  --ui-import-border:#a27ac8;
+  --ui-danger:#b93232;
+  --ui-danger-hover:#d54040;
+  --ui-danger-border:#ee6666;
+}
+
+/* Neutral fallback shared by all ordinary buttons. */
+button,
+.button,
+.btn{
+  min-height:40px;
+  padding:9px 14px;
+  border:1px solid var(--ui-control-border);
+  border-radius:10px;
+  background:linear-gradient(180deg,#302921,#211c17);
+  color:var(--ui-control-text);
+  font-weight:800;
+  line-height:1.15;
+  box-shadow:0 4px 12px rgba(0,0,0,.18);
+  cursor:pointer;
+  transition:background .16s ease,border-color .16s ease,box-shadow .16s ease,transform .08s ease,filter .16s ease;
+}
+button:hover,
+.button:hover,
+.btn:hover{
+  background:linear-gradient(180deg,#3a3128,#29221c);
+  border-color:var(--ui-control-border-hover);
+  filter:brightness(1.05);
+}
+button:active,
+.button:active,
+.btn:active{transform:translateY(1px);box-shadow:0 2px 7px rgba(0,0,0,.2)}
+button:focus-visible,
+.button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:3px solid color-mix(in srgb,var(--ui-focus) 45%,transparent);
+  outline-offset:2px;
+}
+button:disabled,
+.button[aria-disabled="true"],
+.btn:disabled{opacity:.48;cursor:not-allowed;filter:none;transform:none}
+
+/* Semantic action buttons. Existing primary/danger classes remain supported. */
+.btn-primary,
+button.primary,
+.button.primary{
+  background:linear-gradient(180deg,var(--ui-primary-hover),var(--ui-primary));
+  border-color:var(--ui-primary-border);
+  color:#fff;
+}
+.btn-primary:hover,
+button.primary:hover,
+.button.primary:hover{background:linear-gradient(180deg,#ed8241,#cd622e);border-color:#ff9b5a}
+
+.btn-success{
+  background:linear-gradient(180deg,var(--ui-success-hover),var(--ui-success));
+  border-color:var(--ui-success-border);
+  color:#fff;
+}
+.btn-success:hover{background:linear-gradient(180deg,#55a96a,#3f8952);border-color:#79ca8c}
+
+.btn-info{
+  background:linear-gradient(180deg,var(--ui-info-hover),var(--ui-info));
+  border-color:var(--ui-info-border);
+  color:#fff;
+}
+.btn-info:hover{background:linear-gradient(180deg,#4b91cc,#3675aa);border-color:#83bbe5}
+
+.btn-import{
+  background:linear-gradient(180deg,var(--ui-import-hover),var(--ui-import));
+  border-color:var(--ui-import-border);
+  color:#fff;
+}
+.btn-import:hover{background:linear-gradient(180deg,#9169bb,#76509d);border-color:#b694d3}
+
+.btn-danger,
+button.danger,
+.button.danger{
+  background:linear-gradient(180deg,var(--ui-danger-hover),var(--ui-danger));
+  border-color:var(--ui-danger-border);
+  color:#fff;
+  text-shadow:0 1px 1px rgba(0,0,0,.28);
+}
+.btn-danger:hover,
+button.danger:hover,
+.button.danger:hover{background:linear-gradient(180deg,#eb4c4c,#c93636);border-color:#ff8585;color:#fff}
+
+.btn-secondary{background:linear-gradient(180deg,#3a322a,#29231d);border-color:#6a5542;color:#f4e9d9}
+.btn-secondary:hover{background:linear-gradient(180deg,#463b31,#322a22);border-color:#927054}
+
+.btn-sm{min-height:34px;padding:7px 10px;font-size:13px}
+.btn-block{width:100%}
+
+/* Specialized compact controls retain their intended footprint. */
+.fav-btn,.tab,.category-btn,.nav-link.planner-link,.quick-stack{min-height:0;box-shadow:none}
+
+/* Form fields share one dark, high-contrast treatment. */
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+select,
+textarea{
+  background:#17130f;
+  color:var(--ui-control-text);
+  border:1px solid var(--ui-control-border);
+  border-radius:10px;
+  transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):hover,
+select:hover,
+textarea:hover{border-color:var(--ui-control-border-hover)}
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+select:focus,
+textarea:focus{
+  border-color:var(--ui-focus);
+  background:#1c1712;
+  box-shadow:0 0 0 3px rgba(240,161,90,.14);
+  outline:none;
+}
+input::placeholder,textarea::placeholder{color:#8f8170;opacity:1}
+
+/* Keep action rows aligned as pages grow. */
+.actions,.summary-actions,.shopping-actions,.import-actions,.toolbar{gap:9px}
+
+@media(max-width:620px){
+  button,.button,.btn{min-height:42px}
+  .toolbar>button,.actions>button{flex:1 1 auto}
+}

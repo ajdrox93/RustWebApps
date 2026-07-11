@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rust Electrical, Industrial &amp; Farming Planner</title>
-<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.1.0"></script></head>
+<link href="../assets/css/common.css" rel="stylesheet"/><link href="../assets/css/rust-theme.css" rel="stylesheet"/><link href="../assets/css/build.css" rel="stylesheet"/><link href="../assets/css/mobile.css" rel="stylesheet"/><meta content="AJ" name="author"/><script defer="" src="/assets/js/site.js?v=1.2.0"></script><link href="/assets/css/ui-components.css?v=1.2.0" rel="stylesheet"/></head>
 <body class="build-page systems-page" data-page="systems">
 <div class="wrap">
 <header>
@@ -44,9 +44,9 @@
 </div>
 <div class="toolbar systems-toolbar">
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search battery, turbine, conveyor, sprinkler, fluorescent..."/>
-<button class="primary" onclick="calculate()">Calculate</button><button onclick="saveBuild()">Save</button><button onclick="loadBuild()">Load</button><button onclick="copyExport()">Copy Export</button><button onclick="window.print()">Print/PDF</button><button class="danger" onclick="clearAll()">Clear</button>
+<button class="primary btn btn-primary" onclick="calculate()">Calculate</button><button class="btn btn-success" onclick="saveBuild()">Save</button><button class="btn btn-secondary" onclick="loadBuild()">Load</button><button class="btn btn-info" onclick="copyExport()">Copy Export</button><button class="btn btn-info" onclick="window.print()">Print/PDF</button><button class="danger btn btn-danger" onclick="clearAll()">Clear</button>
 </div>
-<div class="preset-toggle"><button aria-expanded="false" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common electrical, farming, and industrial layouts.</span></div>
+<div class="preset-toggle"><button aria-expanded="false" class="btn btn-secondary" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common electrical, farming, and industrial layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
 <div class="quick-row" style="margin-top:10px"><span class="quick-chip">⭐ Pin frequently used components</span><span class="quick-chip">📦 Estimate storage for system materials</span><span class="quick-chip">⚡ Edit variable generation and draw</span><span class="quick-chip">📌 Totals remain visible while scrolling</span></div>
 <div class="tabs" id="tabs"></div>
@@ -67,7 +67,7 @@
 <aside class="summary" id="summarySection">
 <section class="total-box power-summary"><div class="label">Electrical power balance</div><div class="resource-list" id="powerBalance"></div><div class="meter"><span id="powerMeter"></span></div><div class="footer">Edit variable output and draw values to match the actual circuit.</div></section>
 <section class="total-box"><div class="label">System materials</div><div class="resource-list" id="grandTotals"></div></section>
-<section class="total-box" id="shoppingSection"><div class="label">System shopping list</div><div class="small">Track the materials gathered for this systems plan. Enter what you already have; remaining amounts update automatically and stay saved in this browser.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button onclick="copySystemsShoppingList()">Copy List</button><button onclick="clearSystemsOwnedResources()">Clear Owned</button></div></section>
+<section class="total-box" id="shoppingSection"><div class="label">System shopping list</div><div class="small">Track the materials gathered for this systems plan. Enter what you already have; remaining amounts update automatically and stay saved in this browser.</div><div class="resource-list shopping-list" id="shoppingList"></div><div class="shopping-actions"><button class="btn btn-info" onclick="copySystemsShoppingList()">Copy List</button><button class="btn btn-danger" onclick="clearSystemsOwnedResources()">Clear Owned</button></div></section>
 <section class="total-box"><div class="label">Material storage</div><div class="resource-list" id="storagePlanning"></div><div class="footer">Estimates stacks and boxes for all selected system components.</div></section>
 <section class="total-box"><div class="label">Selected components</div><table class="breakdown"><tbody id="breakdown"></tbody></table></section>
 <div hidden=""><div id="baseSummary"></div><div id="twigTotal"></div><div id="upgradeTotal"></div><div id="upgradeHelp"></div><div id="upkeepTotals"></div></div>

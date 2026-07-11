@@ -1,40 +1,41 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="author" content="AJ">
-  <title>Quarry Calculator | Rust Web Apps</title>
-  <link rel="stylesheet" href="/assets/css/common.css">
-  <link rel="stylesheet" href="/assets/css/rust-theme.css">
-  <link rel="stylesheet" href="/assets/css/planner.css">
-  <link rel="stylesheet" href="/assets/css/mobile.css">
-  <script defer src="/assets/js/site.js?v=1.1.0"></script>
-  <script defer src="/assets/js/quarry.js?v=1.1.0"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="AJ" name="author"/>
+<title>Quarry Calculator | Rust Web Apps</title>
+<link href="/assets/css/common.css" rel="stylesheet"/>
+<link href="/assets/css/rust-theme.css" rel="stylesheet"/>
+<link href="/assets/css/planner.css" rel="stylesheet"/>
+<link href="/assets/css/mobile.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/site.js?v=1.2.0"></script>
+<script defer="" src="/assets/js/quarry.js?v=1.1.0"></script>
+<link href="/assets/css/ui-components.css?v=1.2.0" rel="stylesheet"/></head>
 <body class="quarry-page" data-page="quarry">
-  <div class="planner-shell">
-    <section class="planner-panel planner-hero">
-      <h1>⛏️ Quarry Calculator</h1>
-      <p>Enter diesel barrels for each quarry or excavator resource mode and see the total resources, diesel usage, and estimated runtime.</p>
-    </section>
-    <div class="planner-layout">
-      <aside class="planner-sidebar polished-nav">
-        <div class="nav-brand"><div class="brand-mark">🦀</div><div><div class="brand-title">Rust Web Apps</div><div class="brand-subtitle">Planning &amp; Utilities</div></div></div>
-        <div class="nav-section"><div class="section-label">🌐 SITE</div><nav class="nav-links site-links" data-site-nav="sidebar" aria-label="Site navigation"></nav></div>
-      </aside>
-      <main>
-        <div id="loadError" class="data-warning" hidden>Quarry data could not be loaded. Open the project through GitHub Pages or a local web server instead of directly through file://.</div>
-        <div id="quarryGroups"></div>
-      </main>
-      <aside class="planner-summary">
-        <section><h2>Run Summary</h2><div class="quarry-stats"><div class="quarry-stat"><strong id="totalDiesel">0</strong><span>Diesel</span></div><div class="quarry-stat"><strong id="activeRuns">0</strong><span>Active Runs</span></div><div class="quarry-stat"><strong id="totalRuntime">0 min</strong><span>Runtime</span></div></div></section>
-        <section><h2>Total Resources Collected</h2><div id="resourceTotals" class="requirements-list"></div></section>
-        <section><h2>Save &amp; Share</h2><div class="summary-actions"><button id="savePlan">Save</button><button id="loadPlan">Load</button><button id="copyPlan">Copy Plan</button><button id="clearPlan" class="danger">Clear</button></div><textarea id="planText" readonly></textarea><div id="statusMessage" class="status-message" hidden></div></section>
-        <section><h2>Vanilla Rates</h2><p class="small">Rates are based on standard vanilla outputs per diesel barrel. Modded servers may use different gather rates.</p></section>
-      </aside>
-    </div>
-    <footer class="site-footer" data-site-footer="standard"></footer>
-  </div>
+<div class="planner-shell">
+<section class="planner-panel planner-hero">
+<h1>⛏️ Quarry Calculator</h1>
+<p>Enter diesel barrels for each quarry or excavator resource mode and see the total resources, diesel usage, and estimated runtime.</p>
+</section>
+<div class="planner-layout">
+<aside class="planner-sidebar polished-nav">
+<div class="nav-brand"><div class="brand-mark">🦀</div><div><div class="brand-title">Rust Web Apps</div><div class="brand-subtitle">Planning &amp; Utilities</div></div></div>
+<div class="nav-section"><div class="section-label">🌐 SITE</div><nav aria-label="Site navigation" class="nav-links site-links" data-site-nav="sidebar"></nav></div>
+</aside>
+<main>
+<div class="data-warning" hidden="" id="loadError">Quarry data could not be loaded. Open the project through GitHub Pages or a local web server instead of directly through file://.</div>
+<div id="quarryGroups"></div>
+</main>
+<aside class="planner-summary">
+<section><h2>Run Summary</h2><div class="quarry-stats"><div class="quarry-stat"><strong id="totalDiesel">0</strong><span>Diesel</span></div><div class="quarry-stat"><strong id="activeRuns">0</strong><span>Active Runs</span></div><div class="quarry-stat"><strong id="totalRuntime">0 min</strong><span>Runtime</span></div></div></section>
+<section><h2>Total Resources Collected</h2><div class="requirements-list" id="resourceTotals"></div></section>
+<section><h2>Save &amp; Share</h2><div class="summary-actions"><button class="btn btn-success" id="savePlan">Save</button><button class="btn btn-secondary" id="loadPlan">Load</button><button class="btn btn-info" id="copyPlan">Copy Plan</button><button class="danger btn btn-danger" id="clearPlan">Clear</button></div><textarea id="planText" readonly=""></textarea><div class="status-message" hidden="" id="statusMessage"></div></section>
+<section><h2>Vanilla Rates</h2><p class="small">Rates are based on standard vanilla outputs per diesel barrel. Modded servers may use different gather rates.</p></section>
+</aside>
+</div>
+<footer class="site-footer" data-site-footer="standard"></footer>
+</div>
 </body>
 </html>
