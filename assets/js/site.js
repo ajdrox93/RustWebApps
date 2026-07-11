@@ -5,7 +5,7 @@
     name: "Rust Web Apps",
     shortName: "Rust Apps",
     creator: "AJ",
-    version: "1.0.1",
+    version: "1.1.0",
     updated: "July 2026",
     repository: "https://github.com/ajdrox93/RustWebApps",
     issues: "https://github.com/ajdrox93/RustWebApps/issues",
@@ -16,6 +16,7 @@
       { id: "systems", label: "Systems Planner", icon: "⚡", href: "/systems/" },
       { id: "crafting", label: "Crafting", icon: "🛠️", href: "/crafting/" },
       { id: "fireworks", label: "Fireworks", icon: "🎆", href: "/fireworks/" },
+      { id: "quarry", label: "Quarry", icon: "⛏️", href: "/quarry/" },
       { id: "cooking", label: "Cooking Bench", icon: "🍳", href: "/cooking/" },
       { id: "upkeep", label: "Upkeep", icon: "📦", href: "/upkeep/" }
     ]

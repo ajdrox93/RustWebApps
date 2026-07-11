@@ -1,0 +1,89 @@
+{
+  "updated": "July 2026",
+  "machines": [
+    {
+      "id": "stone-quarry",
+      "name": "Stone Quarry",
+      "group": "Mining Quarries",
+      "icon": "\ud83e\udea8",
+      "timePerBarrelSeconds": 130,
+      "outputs": {
+        "Stones": 5000,
+        "Metal Ore": 1000
+      },
+      "note": "Produces both stone and metal ore."
+    },
+    {
+      "id": "sulfur-quarry",
+      "name": "Sulfur Quarry",
+      "group": "Mining Quarries",
+      "icon": "\ud83d\udfe1",
+      "timePerBarrelSeconds": 130,
+      "outputs": {
+        "Sulfur Ore": 1000
+      }
+    },
+    {
+      "id": "hqm-quarry",
+      "name": "HQM Quarry",
+      "group": "Mining Quarries",
+      "icon": "\ud83d\udc8e",
+      "timePerBarrelSeconds": 130,
+      "outputs": {
+        "High Quality Metal Ore": 50
+      }
+    },
+    {
+      "id": "excavator-stone",
+      "name": "Giant Excavator \u2014 Stone",
+      "group": "Giant Excavator",
+      "icon": "\ud83c\udfd7\ufe0f",
+      "timePerBarrelSeconds": 120,
+      "outputs": {
+        "Stones": 10000
+      }
+    },
+    {
+      "id": "excavator-metal",
+      "name": "Giant Excavator \u2014 Metal",
+      "group": "Giant Excavator",
+      "icon": "\u2699\ufe0f",
+      "timePerBarrelSeconds": 120,
+      "outputs": {
+        "Metal Fragments": 5000
+      }
+    },
+    {
+      "id": "excavator-sulfur",
+      "name": "Giant Excavator \u2014 Sulfur",
+      "group": "Giant Excavator",
+      "icon": "\ud83d\udca5",
+      "timePerBarrelSeconds": 120,
+      "outputs": {
+        "Sulfur Ore": 2000
+      }
+    },
+    {
+      "id": "excavator-hqm",
+      "name": "Giant Excavator \u2014 HQM",
+      "group": "Giant Excavator",
+      "icon": "\ud83d\udd29",
+      "timePerBarrelSeconds": 120,
+      "outputs": {
+        "High Quality Metal Ore": 100
+      }
+    },
+    {
+      "id": "pump-jack",
+      "name": "Static Pump Jack",
+      "group": "Oil Production",
+      "icon": "\ud83d\udee2\ufe0f",
+      "timePerBarrelSeconds": 130,
+      "outputs": {
+        "Crude Oil": 60,
+        "Low Grade Fuel": 170
+      },
+      "note": "Included because it also consumes diesel fuel."
+    }
+  ]
+}

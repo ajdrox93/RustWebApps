@@ -25,3 +25,37 @@
 .planner-sidebar .category-btn:hover{background:#241d17;border-color:#8d6746;color:#ffd0b9;transform:translateX(2px)}
 .planner-sidebar .category-btn.active{background:linear-gradient(135deg,rgba(183,86,44,.32),rgba(40,35,29,.55));border-color:var(--rust2);color:#ffe0cc}
 @media(max-width:1150px){.planner-sidebar.polished-nav{position:static}.planner-sidebar .site-links,.planner-sidebar .category-list{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px}.planner-sidebar .site-links .site-link,.planner-sidebar .category-btn{margin:0}}
+
+/* Quarry calculator */
+.quarry-page .planner-layout{grid-template-columns:240px minmax(0,1fr) 330px}
+.quarry-page .planner-sidebar{align-self:start}
+.quarry-group{margin-bottom:18px}
+.quarry-group-heading{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:16px}
+.quarry-group-heading h2{margin:0 0 4px}
+.quarry-group-heading p{margin:0;color:var(--muted);font-size:14px}
+.quarry-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px}
+.quarry-card{border:1px solid var(--line);border-radius:15px;padding:16px;background:linear-gradient(180deg,rgba(42,33,27,.96),rgba(25,20,17,.96));box-shadow:0 10px 24px rgba(0,0,0,.22)}
+.quarry-card-head{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid rgba(113,77,56,.45)}
+.quarry-card-head h3{margin:0 0 3px;font-size:17px;color:var(--text)}
+.quarry-card-head span{font-size:12px;color:var(--muted)}
+.quarry-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:rgba(204,91,39,.14);border:1px solid rgba(224,108,52,.35);font-size:22px}
+.yield-label{margin:13px 0 7px;color:var(--rust2);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.yield-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.yield-list li,.machine-total div{display:flex;justify-content:space-between;gap:12px}
+.yield-list li span,.machine-total div span{color:var(--muted)}
+.yield-list li strong,.machine-total div strong{color:#fff}
+.machine-note{margin:9px 0 0;font-size:12px;color:var(--muted);line-height:1.45}
+.diesel-input{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:13px;border-top:1px solid rgba(113,77,56,.45);font-weight:850}
+.diesel-input input{width:92px;text-align:center;font-size:16px;font-weight:900}
+.machine-total{margin-top:12px;padding:10px;border-radius:10px;background:rgba(0,0,0,.18);display:grid;gap:5px;min-height:40px}
+.machine-total-title{color:var(--rust2);font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
+.empty-run,.empty-state{color:var(--muted);font-size:13px;margin:0}
+.quarry-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.quarry-stat{padding:12px 8px;border-radius:12px;background:rgba(0,0,0,.2);border:1px solid var(--line);text-align:center}
+.quarry-stat strong{display:block;font-size:21px;color:#fff}
+.quarry-stat span{display:block;margin-top:3px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+#planText{width:100%;min-height:210px;margin-top:10px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}
+.status-message{margin-top:10px;padding:9px 11px;border-radius:9px;background:rgba(72,147,91,.16);border:1px solid rgba(72,147,91,.45);color:#b9edc5;font-size:13px}
+.status-message.error{background:rgba(190,65,52,.16);border-color:rgba(190,65,52,.5);color:#ffb9b0}
+@media(max-width:1180px){.quarry-page .planner-layout{grid-template-columns:220px minmax(0,1fr)}.quarry-page .planner-summary{grid-column:2;position:static}}
+@media(max-width:820px){.quarry-page .planner-layout{grid-template-columns:1fr}.quarry-page .planner-sidebar,.quarry-page .planner-summary{grid-column:auto}.quarry-stats{grid-template-columns:1fr}}
