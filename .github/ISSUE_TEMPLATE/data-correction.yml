@@ -1,0 +1,103 @@
+name: Game Data Correction
+description: Report an incorrect recipe, power value, quarry rate, upkeep value, or other Rust data.
+title: "[Data Correction]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when a material cost, output amount, power value, workbench level, or other game value is incorrect.
+
+  - type: dropdown
+    id: planner
+    attributes:
+      label: Affected planner
+      options:
+        - Building Planner
+        - Systems Planner
+        - Crafting Planner
+        - Munitions Planner
+        - Fireworks Planner
+        - Quarry Planner
+        - Cooking Planner
+        - Upkeep Planner
+        - Fortify Import
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: item
+    attributes:
+      label: Item, structure, or resource name
+      placeholder: "Example: Cockpit With Engine Vehicle Module"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: value-type
+    attributes:
+      label: Type of correction
+      options:
+        - Crafting requirement
+        - Crafting output quantity
+        - Workbench level
+        - Power generation
+        - Power consumption
+        - Quarry or excavator output
+        - Upkeep value
+        - Fortify prefab matching
+        - Item name or category
+        - Missing item
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current value shown on Rust Web Apps
+      placeholder: "Example: High Quality Metal is missing from the recipe."
+    validations:
+      required: true
+
+  - type: textarea
+    id: corrected
+    attributes:
+      label: Correct value
+      placeholder: "Example: High Quality Metal × 5"
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source or verification method
+      description: Provide a Rust Wiki page, in-game crafting screen, screenshot, patch note, or other source.
+      placeholder: "Example: Verified in the in-game crafting menu on current vanilla Rust."
+    validations:
+      required: true
+
+  - type: upload
+    id: evidence
+    attributes:
+      label: Screenshot or supporting file
+      description: Upload supporting evidence when available.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.gif,.webp,.json,.txt,.zip"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Include server-rate differences, DLC requirements, or anything else relevant.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: This correction is based on current vanilla Rust unless I explained otherwise above.
+          required: true
+        - label: I checked existing issues to avoid submitting a duplicate.
+          required: true

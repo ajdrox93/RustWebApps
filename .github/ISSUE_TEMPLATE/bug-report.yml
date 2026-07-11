@@ -1,0 +1,113 @@
+name: Bug Report
+description: Report something that is broken or behaving unexpectedly.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Rust Web Apps. Please provide enough detail for the issue to be reproduced.
+
+  - type: dropdown
+    id: planner
+    attributes:
+      label: Affected planner or page
+      description: Where did the problem occur?
+      options:
+        - Homepage
+        - Building Planner
+        - Systems Planner
+        - Crafting Planner
+        - Munitions Planner
+        - Fireworks Planner
+        - Quarry Planner
+        - Cooking Planner
+        - Upkeep Planner
+        - Fortify Import
+        - Navigation or shared layout
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the problem clearly.
+      placeholder: Explain what went wrong and what you were doing when it happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps that cause the problem.
+      placeholder: |
+        1. Open ...
+        2. Enter ...
+        3. Click ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What happened instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device type
+      options:
+        - Desktop or laptop
+        - Phone
+        - Tablet
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Include the browser name and version when known.
+      placeholder: "Example: Microsoft Edge 150, Chrome 150, Safari 19"
+    validations:
+      required: true
+
+  - type: upload
+    id: attachments
+    attributes:
+      label: Screenshots or files
+      description: Upload screenshots, Fortify JSON files, or other files that help demonstrate the problem.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.gif,.webp,.json,.txt,.zip"
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      description: Add anything else that may help diagnose the issue.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I refreshed the page and confirmed the problem still occurs.
+          required: true
+        - label: I checked existing issues to avoid submitting a duplicate.
+          required: true

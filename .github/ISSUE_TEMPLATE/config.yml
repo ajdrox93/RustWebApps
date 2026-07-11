@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Rust Web Apps
+    url: https://rust-apps.com
+    about: Open the live Rust Web Apps website.

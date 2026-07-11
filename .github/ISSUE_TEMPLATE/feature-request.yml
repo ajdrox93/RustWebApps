@@ -1,0 +1,95 @@
+name: Feature Request
+description: Suggest a new planner, improvement, or quality-of-life feature.
+title: "[Feature Request]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. Describe the player problem first, then explain the feature you have in mind.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area of the site
+      options:
+        - New planner or calculator
+        - Homepage
+        - Building Planner
+        - Systems Planner
+        - Crafting Planner
+        - Munitions Planner
+        - Fireworks Planner
+        - Quarry Planner
+        - Cooking Planner
+        - Upkeep Planner
+        - Fortify Import
+        - Navigation or shared layout
+        - Mobile experience
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Explain the player workflow, frustration, or missing capability.
+      placeholder: Describe what is difficult or unavailable today.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed feature
+      description: Describe how you think the feature should work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Example workflow
+      description: Walk through how a player would use it.
+      placeholder: |
+        1. The player opens ...
+        2. They select or enter ...
+        3. The planner displays ...
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who would benefit?
+      multiple: true
+      options:
+        - New players
+        - Experienced players
+        - PvE players
+        - PvP players
+        - Solo players
+        - Groups or clans
+        - Server owners or administrators
+        - Mobile users
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Are there other ways this could be handled?
+
+  - type: upload
+    id: mockup
+    attributes:
+      label: Mockups or examples
+      description: Upload sketches, screenshots, or examples from other tools when useful.
+    validations:
+      required: false
+      accept: ".png,.jpg,.jpeg,.gif,.webp,.pdf,.txt,.zip"
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked existing issues to avoid submitting a duplicate.
+          required: true
