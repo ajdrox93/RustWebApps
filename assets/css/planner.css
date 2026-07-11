@@ -3,3 +3,25 @@
 @media(max-width:1150px){.planner-layout{grid-template-columns:1fr}.planner-sidebar,.planner-summary{position:static}.category-list{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}}@media(max-width:680px){.planner-shell{padding:12px}.planner-hero{padding:18px}.item-table th:nth-child(3),.item-table td:nth-child(3){display:none}.shopping-controls{grid-template-columns:1fr}.qty-input{width:76px}}
 
 .planner-site-nav{display:grid;gap:6px}.planner-site-nav .nav-link{display:flex;align-items:center;gap:9px;padding:10px 11px;border:1px solid transparent;border-radius:10px;color:var(--text);text-decoration:none;font-weight:800}.planner-site-nav .nav-link:hover{background:rgba(183,86,44,.12);border-color:var(--line)}.planner-site-nav .nav-link.active{background:linear-gradient(180deg,var(--rust2),var(--rust));color:#21120a;border-color:transparent}.planner-sidebar-section{margin-top:20px!important;padding-top:16px;border-top:1px solid var(--line)}
+
+
+/* Shared polished calculator sidebar */
+.planner-sidebar.polished-nav{padding:14px;overflow:hidden;background:linear-gradient(135deg,#221d17,#15130f);border-radius:18px}
+.planner-sidebar .nav-brand{display:flex;align-items:center;gap:10px;padding:6px 8px 12px;margin-bottom:8px;border-bottom:1px solid rgba(75,60,46,.75)}
+.planner-sidebar .brand-mark{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:12px;background:linear-gradient(135deg,var(--rust),#7e321d);box-shadow:0 8px 18px rgba(0,0,0,.28)}
+.planner-sidebar .brand-title{font-weight:950;color:#ffe0cc;line-height:1.05}
+.planner-sidebar .brand-subtitle{font-size:11px;color:var(--muted);margin-top:3px}
+.planner-sidebar .nav-section{margin:10px 0}
+.planner-sidebar .section-label{font-size:11px;font-weight:950;letter-spacing:.12em;color:#d6b45f;margin:0 8px 8px;text-transform:uppercase}
+.planner-sidebar .nav-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(214,180,95,.45),transparent);margin:14px 4px}
+.planner-sidebar .site-links{display:grid;gap:0}
+.planner-sidebar .site-links .site-link{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:8px 10px;margin:3px 0;border-radius:12px;border:1px solid transparent;text-decoration:none;font-size:14px;font-weight:800;color:#d9c9b8;background:rgba(0,0,0,.08);transition:background .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
+.planner-sidebar .site-links .site-link:hover{background:#241d17;border-color:#8d6746;color:#ffd0b9;transform:translateX(2px)}
+.planner-sidebar .site-links .site-link.active{background:linear-gradient(135deg,rgba(183,86,44,.32),rgba(40,35,29,.55));border-color:var(--rust2);color:#ffe0cc}
+.planner-sidebar .nav-icon{width:22px;text-align:center;flex:0 0 22px}
+.planner-sidebar .planner-section{padding-top:2px}
+.planner-sidebar .category-list{display:grid;gap:0}
+.planner-sidebar .category-btn{padding:10px;margin:5px 0;border-radius:12px;background:transparent;color:var(--text);border:1px solid transparent;font-size:15px;font-weight:800;transition:background .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
+.planner-sidebar .category-btn:hover{background:#241d17;border-color:#8d6746;color:#ffd0b9;transform:translateX(2px)}
+.planner-sidebar .category-btn.active{background:linear-gradient(135deg,rgba(183,86,44,.32),rgba(40,35,29,.55));border-color:var(--rust2);color:#ffe0cc}
+@media(max-width:1150px){.planner-sidebar.polished-nav{position:static}.planner-sidebar .site-links,.planner-sidebar .category-list{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px}.planner-sidebar .site-links .site-link,.planner-sidebar .category-btn{margin:0}}
