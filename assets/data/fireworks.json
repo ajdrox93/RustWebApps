@@ -1,0 +1,257 @@
+{
+  "items": [
+    {
+      "id": "blue-boomer-dlc",
+      "name": "Blue Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "champagne-boomer-dlc",
+      "name": "Champagne Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 75
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "green-boomer-dlc",
+      "name": "Green Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "orange-boomer-dlc",
+      "name": "Orange Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "pattern-boomer-dlc",
+      "name": "Pattern Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "red-boomer-dlc",
+      "name": "Red Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "violet-boomer-dlc",
+      "name": "Violet Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "blue-roman-candle-dlc",
+      "name": "Blue Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "green-roman-candle-dlc",
+      "name": "Green Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "red-roman-candle-dlc",
+      "name": "Red Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "violet-roman-candle-dlc",
+      "name": "Violet Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "white-volcano-firework-dlc",
+      "name": "White Volcano Firework (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "red-volcano-firework-dlc",
+      "name": "Red Volcano Firework (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "violet-volcano-firework-dlc",
+      "name": "Violet Volcano Firework (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

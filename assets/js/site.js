@@ -14,6 +14,8 @@
       { id: "home", label: "Home", icon: "🏠", href: "/" },
       { id: "build", label: "Building Cost", icon: "🧱", href: "/build/" },
       { id: "systems", label: "Systems Planner", icon: "⚡", href: "/systems/" },
+      { id: "crafting", label: "Crafting", icon: "🛠️", href: "/crafting/" },
+      { id: "fireworks", label: "Fireworks", icon: "🎆", href: "/fireworks/" },
       { id: "cooking", label: "Cooking Bench", icon: "🍳", href: "/cooking/" },
       { id: "upkeep", label: "Upkeep", icon: "📦", href: "/upkeep/" }
     ]

@@ -1,0 +1,8115 @@
+{
+  "items": [
+    {
+      "id": "sheet-metal-double-door",
+      "name": "Sheet Metal Double Door",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "wood-double-door",
+      "name": "Wood Double Door",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 350
+        }
+      ]
+    },
+    {
+      "id": "wooden-door",
+      "name": "Wooden Door",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "floor-grill",
+      "name": "Floor Grill",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "armored-ladder-hatch",
+      "name": "Armored Ladder Hatch",
+      "workbench": "3",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wooden Ladder",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 35
+        },
+        {
+          "resource": "Gears",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "id": "armored-triangle-ladder-hatch",
+      "name": "Armored Triangle Ladder Hatch",
+      "workbench": "3",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wooden Ladder",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 35
+        },
+        {
+          "resource": "Gears",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "id": "ladder-hatch",
+      "name": "Ladder Hatch",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wooden Ladder",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 300
+        },
+        {
+          "resource": "Gears",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "floor-triangle-grill",
+      "name": "Floor Triangle Grill",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "triangle-ladder-hatch",
+      "name": "Triangle Ladder Hatch",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wooden Ladder",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 300
+        },
+        {
+          "resource": "Gears",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "legacy-wood-shelter",
+      "name": "Legacy Wood Shelter",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 600
+        }
+      ]
+    },
+    {
+      "id": "chainlink-fence-gate",
+      "name": "Chainlink Fence Gate",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "chainlink-fence",
+      "name": "Chainlink Fence",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "garage-door",
+      "name": "Garage Door",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 300
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "netting",
+      "name": "Netting",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Rope",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "shop-front",
+      "name": "Shop Front",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "metal-shop-front",
+      "name": "Metal Shop Front",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "watch-tower",
+      "name": "Watch Tower",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "wooden-frontier-bar-doors-dlc",
+      "name": "Wooden Frontier Bar Doors (DLC)",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "prison-cell-gate",
+      "name": "Prison Cell Gate",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "prison-cell-wall",
+      "name": "Prison Cell Wall",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "metal-window-bars",
+      "name": "Metal Window Bars",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "wooden-window-bars",
+      "name": "Wooden Window Bars",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "metal-horizontal-embrasure",
+      "name": "Metal Horizontal Embrasure",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "metal-vertical-embrasure",
+      "name": "Metal Vertical Embrasure",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "strengthened-glass-window",
+      "name": "Strengthened Glass Window",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "wood-shutters",
+      "name": "Wood Shutters",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "concrete-barricade",
+      "name": "Concrete Barricade",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "wooden-barricade-cover",
+      "name": "Wooden Barricade Cover",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "sandbag-barricade",
+      "name": "Sandbag Barricade",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 100
+        },
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "stone-barricade",
+      "name": "Stone Barricade",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "wooden-barricade",
+      "name": "Wooden Barricade",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "beehive",
+      "name": "Beehive",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "boat-building-plan",
+      "name": "Boat Building Plan",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "building-plan",
+      "name": "Building Plan",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "sheet-metal-door",
+      "name": "Sheet Metal Door",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "high-external-wooden-gate",
+      "name": "High External Wooden Gate",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 3000
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "high-external-wooden-wall",
+      "name": "High External Wooden Wall",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 4000
+        }
+      ]
+    },
+    {
+      "id": "reinforced-glass-window",
+      "name": "Reinforced Glass Window",
+      "workbench": "3",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "barbed-wooden-barricade",
+      "name": "Barbed Wooden Barricade",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "large-water-catcher",
+      "name": "Large Water Catcher",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Tarp",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "small-water-catcher",
+      "name": "Small Water Catcher",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "key-lock",
+      "name": "Key Lock",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "code-lock",
+      "name": "Code Lock",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "armored-double-door",
+      "name": "Armored Double Door",
+      "workbench": "3",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 25
+        },
+        {
+          "resource": "Gears",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "armored-door",
+      "name": "Armored Door",
+      "workbench": "3",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "Gears",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "metal-barricade",
+      "name": "Metal Barricade",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Blade",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "mortar",
+      "name": "Mortar",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "tool-cupboard",
+      "name": "Tool Cupboard",
+      "workbench": "",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 1000
+        }
+      ]
+    },
+    {
+      "id": "high-external-stone-gate",
+      "name": "High External Stone Gate",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 3000
+        },
+        {
+          "resource": "Gears",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "high-external-stone-wall",
+      "name": "High External Stone Wall",
+      "workbench": "2",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 3000
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "wooden-ladder",
+      "name": "Wooden Ladder",
+      "workbench": "1",
+      "category": "Construction",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Rope",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "discord-trophy-discord-rust-auth",
+      "name": "Discord Trophy (Discord/ Rust Auth)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "barbeque",
+      "name": "Barbeque",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "campfire",
+      "name": "Campfire",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "portable-easel-dlc",
+      "name": "Portable Easel (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "hitch-trough",
+      "name": "Hitch & Trough",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "horizontal-weapon-rack-dlc",
+      "name": "Horizontal Weapon Rack (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "frontier-bolts-single-item-rack-dlc",
+      "name": "Frontier Bolts Single Item Rack (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "frontier-horseshoe-single-item-rack-dlc",
+      "name": "Frontier Horseshoe Single Item Rack (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "weapon-rack-stand-dlc",
+      "name": "Weapon Rack Stand (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "tall-weapon-rack-dlc",
+      "name": "Tall Weapon Rack (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        }
+      ]
+    },
+    {
+      "id": "wide-weapon-rack-dlc",
+      "name": "Wide Weapon Rack (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        }
+      ]
+    },
+    {
+      "id": "light-up-frame-large-dlc",
+      "name": "Light-Up Frame Large (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "light-up-frame-small-dlc",
+      "name": "Light-Up Frame Small (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "light-up-frame-standing-dlc",
+      "name": "Light-Up Frame Standing (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "light-ip-frame-xl-dlc",
+      "name": "Light-Ip Frame XL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "light-up-frame-xxl-dlc",
+      "name": "Light-Up Frame XXL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "ornate-frame-large-dlc",
+      "name": "Ornate Frame Large (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "ornate-frame-small-dlc",
+      "name": "Ornate Frame Small (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "ornate-frame-standing-dlc",
+      "name": "Ornate Frame Standing (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "ornate-frame-xl-dlc",
+      "name": "Ornate Frame XL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "ornate-frame-xxl-dlc",
+      "name": "Ornate Frame XXL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "shutter-frame-large-dlc",
+      "name": "Shutter Frame Large (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "shutter-frame-small-dlc",
+      "name": "Shutter Frame Small (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "shutter-frame-standing-dlc",
+      "name": "Shutter Frame Standing (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "shutter-frame-xl-dlc",
+      "name": "Shutter Frame XL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "shutter-frame-xxl-dlc",
+      "name": "Shutter Frame XXL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "dragon-door-knocker-steam-marketplace",
+      "name": "Dragon Door Knocker (Steam Marketplace)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "landscape-photo-frame-dlc",
+      "name": "Landscape Photo Frame (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "large-photo-frame-dlc",
+      "name": "Large Photo Frame (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "portrait-photo-frame-dlc",
+      "name": "Portrait Photo Frame (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "cooking-workbench",
+      "name": "Cooking Workbench",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Stones",
+          "amount": 200
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "stone-fireplace",
+      "name": "Stone Fireplace",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 500
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "half-height-bamboo-shelves-dlc",
+      "name": "Half Height Bamboo Shelves (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "id": "half-height-industrial-shelves-dlc",
+      "name": "Half Height Industrial Shelves (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "id": "large-wooden-box",
+      "name": "Large Wooden Box",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "abyss-horizontal-storage-tank-dlc",
+      "name": "Abyss Horizontal Storage Tank (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "abyss-vertical-storage-tank-dlc",
+      "name": "Abyss Vertical Storage Tank (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "industrial-storage-horizontal-barrel-dlc",
+      "name": "Industrial Storage Horizontal Barrel (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "industrial-storage-vertical-barrel-dlc",
+      "name": "Industrial Storage Vertical Barrel (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "wicker-barrel-dlc",
+      "name": "Wicker Barrel (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "bamboo-barrel-dlc",
+      "name": "Bamboo Barrel (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "krieg-storage-crates-dlc",
+      "name": "Krieg Storage Crates (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "krieg-storage-barrel",
+      "name": "Krieg Storage Barrel",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "clothing-mannequin-dlc",
+      "name": "Clothing Mannequin (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "mixing-table",
+      "name": "Mixing Table",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Stones",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "single-plant-pot-dlc",
+      "name": "Single Plant Pot (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "repair-bench",
+      "name": "Repair Bench",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "salvaged-shelves",
+      "name": "Salvaged Shelves",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "small-wooden-sign",
+      "name": "Small Wooden Sign",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "wall-cabinet-dlc",
+      "name": "Wall Cabinet (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "industrial-wall-shelves-dlc",
+      "name": "Industrial Wall Shelves (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "bamboo-wall-shelves-dlc",
+      "name": "Bamboo Wall Shelves (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "wood-storage-box",
+      "name": "Wood Storage Box",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "bath-tub-planter-dlc",
+      "name": "Bath Tub Planter (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "minecart-planter",
+      "name": "Minecart Planter",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "rocking-chair-dlc",
+      "name": "Rocking Chair (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 130
+        }
+      ]
+    },
+    {
+      "id": "storage-barrel-vertical-dlc",
+      "name": "Storage Barrel Vertical (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "storage-barrel-horizontal-dlc",
+      "name": "Storage Barrel Horizontal (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "asbestos-armor-insert",
+      "name": "Asbestos Armor Insert",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "lead-armor-insert",
+      "name": "Lead Armor Insert",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "wooden-armor-insert",
+      "name": "Wooden Armor Insert",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "anchor",
+      "name": "Anchor",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "cannon",
+      "name": "Cannon",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "plank",
+      "name": "Plank",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "steering-wheel",
+      "name": "Steering Wheel",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "chair",
+      "name": "Chair",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "clan-table",
+      "name": "Clan Table",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "drop-box",
+      "name": "Drop Box",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "locker",
+      "name": "Locker",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "Wood",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "mail-box",
+      "name": "Mail Box",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "large-wooden-sign",
+      "name": "Large Wooden Sign",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "medium-wooden-sign",
+      "name": "Medium Wooden Sign",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "spinning-wheel",
+      "name": "Spinning Wheel",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "fish-trophy-dlc",
+      "name": "Fish Trophy (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "large-hunting-trophy-dlc",
+      "name": "Large Hunting Trophy (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "small-hunting-trophy-dlc",
+      "name": "Small Hunting Trophy (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "torch-holder-dlc",
+      "name": "Torch Holder (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 40
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "wanted-poster-dlc",
+      "name": "Wanted Poster (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "engineering-workbench",
+      "name": "Engineering Workbench",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "two-sided-town-post-steam-marketplace",
+      "name": "Two Sided Town Post (Steam Marketplace)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "huge-wooden-sign",
+      "name": "Huge Wooden Sign",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "workbench-level-1",
+      "name": "Workbench Level 1",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "cancer-research-uk-2026-plushie-limited-time-purchase",
+      "name": "Cancer Research UK 2026 Plushie (Limited time purchase)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "composter",
+      "name": "Composter",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Tarp",
+          "amount": 2
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "wumpus-plushie-discord-purchase",
+      "name": "Wumpus Plushie (Discord purchase)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "sofa-pattern-dlc",
+      "name": "Sofa - Pattern (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "workbench-level-2",
+      "name": "Workbench Level 2",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 500
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "Basic Blueprint Fragments",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "workbench-level-3",
+      "name": "Workbench Level 3",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 1000
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 100
+        },
+        {
+          "resource": "Advanced Blueprint Fragments",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "vending-machine",
+      "name": "Vending Machine",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "Gears",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "frontier-horns-single-item-rack-dlc",
+      "name": "Frontier Horns Single Item Rack (DLC)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Bone Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "chippy-arcade-game-buy-chippy-game-and-play-to-get",
+      "name": "Chippy Arcade Game (Buy Chippy game and play to get)",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "skull-fire-pit-steam-marketplace",
+      "name": "Skull Fire Pit (Steam Marketplace)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Human Skull",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "christmas-lights-steam-marketplace",
+      "name": "Christmas Lights (Steam Marketplace)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "kayak",
+      "name": "Kayak",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "boat-building-station",
+      "name": "Boat Building Station",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "chicken-coop",
+      "name": "Chicken Coop",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "large-furnace",
+      "name": "Large Furnace",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 500
+        },
+        {
+          "resource": "Wood",
+          "amount": 600
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "large-planter-box",
+      "name": "Large Planter Box",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Tarp",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "small-planter-box",
+      "name": "Small Planter Box",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "triangle-planter-box",
+      "name": "Triangle Planter Box",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "small-stash",
+      "name": "Small Stash",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "survival-fish-trap",
+      "name": "Survival Fish Trap",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Cloth",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "bota-bag",
+      "name": "Bota Bag",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "diver-propulsion-vehicle",
+      "name": "Diver Propulsion Vehicle",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "Bed",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 60
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "sail",
+      "name": "Sail",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "small-ramp",
+      "name": "Small Ramp",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        },
+        {
+          "resource": "Rope",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "drone",
+      "name": "Drone",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "CCTV Camera",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "lantern",
+      "name": "Lantern",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "water-barrel",
+      "name": "Water Barrel",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "small-oil-refinery",
+      "name": "Small Oil Refinery",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 500
+        },
+        {
+          "resource": "Low Grade fuel",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "bear-skin-rug",
+      "name": "Bear Skin Rug",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "rug",
+      "name": "Rug",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "landscape-picture-frame-dlc",
+      "name": "Landscape Picture Frame (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "sleeping-bag",
+      "name": "Sleeping Bag",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "tuna-can-lamp",
+      "name": "Tuna Can Lamp",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Empty Tuna Can",
+          "amount": 1
+        },
+        {
+          "resource": "Wood",
+          "amount": 20
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "water-purifier",
+      "name": "Water Purifier",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Empty Propane Tank",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 15
+        },
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "small-boat-engine",
+      "name": "Small Boat Engine",
+      "workbench": "2",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        },
+        {
+          "resource": "Low Grade fuel",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "research-table",
+      "name": "Research Table",
+      "workbench": "1",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Scrap",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "artist-canvas-standing-dlc",
+      "name": "Artist Canvas Standing (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 175
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "artist-canvas-large-dlc",
+      "name": "Artist Canvas Large (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 175
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "artist-canvas-xl-dlc",
+      "name": "Artist Canvas XL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 175
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "artist-canvas-small-dlc",
+      "name": "Artist Canvas Small (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 175
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "artist-canvas-xxl-dlc",
+      "name": "Artist Canvas XXL (DLC)",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 175
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "furnace",
+      "name": "Furnace",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 200
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "low-grade-fuel",
+      "name": "Low Grade Fuel",
+      "workbench": "",
+      "category": "Resources",
+      "requirements": [
+        {
+          "resource": "Animal Fat",
+          "amount": 3
+        },
+        {
+          "resource": "Cloth",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "explosives",
+      "name": "Explosives",
+      "workbench": "3",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 50
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 3
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 10
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "gun-powder",
+      "name": "Gun Powder",
+      "workbench": "",
+      "category": "Items",
+      "requirements": [
+        {
+          "resource": "Charcoal",
+          "amount": 30
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "basic-horse-shoes",
+      "name": "Basic Horse Shoes",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "sunglasses-dlc",
+      "name": "Sunglasses (DLC)",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "hot-air-balloon-armor",
+      "name": "Hot Air Balloon Armor",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "high-quality-horse-shoes",
+      "name": "High Quality Horse Shoes",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "bucket-helmet",
+      "name": "Bucket Helmet",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 35
+        }
+      ]
+    },
+    {
+      "id": "wooden-horse-armor",
+      "name": "Wooden Horse Armor",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Rope",
+          "amount": 2
+        },
+        {
+          "resource": "Wood",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "saddle-bag",
+      "name": "Saddle Bag",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "bone-helmet",
+      "name": "Bone Helmet",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Bone Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "heavy-plate-helmet",
+      "name": "Heavy Plate Helmet",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Sheet Metal",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "bone-armor",
+      "name": "Bone Armor",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Bone Fragments",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "id": "heavy-plate-jacket",
+      "name": "Heavy Plate Jacket",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Sheet Metal",
+          "amount": 2
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "bandana-mask",
+      "name": "Bandana Mask",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "paintball-overalls-dlc",
+      "name": "Paintball Overalls (DLC)",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 60
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "heavy-plate-pants",
+      "name": "Heavy Plate Pants",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Sheet Metal",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "hazmat-suit",
+      "name": "Hazmat Suit",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Tarp",
+          "amount": 5
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": "t-shirt",
+      "name": "T-Shirt",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "chicken-costume-dlc-steam-marketplace",
+      "name": "Chicken Costume (DLC/ Steam Marketplace)",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 25
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "parachute",
+      "name": "Parachute",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Tarp",
+          "amount": 2
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        },
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "small-backpack",
+      "name": "Small Backpack",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Sewing Kit",
+          "amount": 5
+        },
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "burlap-gloves",
+      "name": "Burlap Gloves",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "leather-gloves",
+      "name": "Leather Gloves",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "burlap-headwrap",
+      "name": "Burlap Headwrap",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "candle-hat",
+      "name": "Candle Hat",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "prisoner-hood",
+      "name": "Prisoner Hood",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "wood-armor-helmet",
+      "name": "Wood Armor Helmet",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "hoodie",
+      "name": "Hoodie",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 40
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "wood-chestplate",
+      "name": "Wood Chestplate",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 20
+        },
+        {
+          "resource": "wood",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "burlap-trousers",
+      "name": "Burlap Trousers",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "wooden-armor-pants",
+      "name": "Wooden Armor Pants",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "pants",
+      "name": "Pants",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 40
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "burlap-shirt",
+      "name": "Burlap Shirt",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "burlap-shoes",
+      "name": "Burlap Shoes",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "hide-skirt",
+      "name": "Hide Skirt",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "longsleeve-t-shirt",
+      "name": "Longsleeve T-Shirt",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "wolf-headdress",
+      "name": "Wolf Headdress",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Wolf Skull",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "road-sign-gloves",
+      "name": "Road Sign Gloves",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 20
+        },
+        {
+          "resource": "Road Signs",
+          "amount": 1
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "wood-armor-gloves",
+      "name": "Wood Armor Gloves",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Cloth",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "hide-halterneck",
+      "name": "Hide Halterneck",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "beenie-hat",
+      "name": "Beenie Hat",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "miners-hat",
+      "name": "Miners Hat",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "jacket",
+      "name": "Jacket",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 50
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "improvised-balaclava",
+      "name": "Improvised Balaclava",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "hide-pants",
+      "name": "Hide Pants",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "shorts",
+      "name": "Shorts",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "hide-poncho",
+      "name": "Hide Poncho",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "shirt",
+      "name": "Shirt",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "hide-vest",
+      "name": "Hide Vest",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "tank-top",
+      "name": "Tank Top",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 20
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 15
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "hide-boots",
+      "name": "Hide Boots",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "metal-shield",
+      "name": "Metal Shield",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 300
+        },
+        {
+          "resource": "Leather",
+          "amount": 10
+        },
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "reinforced-wooden-shield",
+      "name": "Reinforced Wooden Shield",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Road Signs",
+          "amount": 1
+        },
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "wooden-shield",
+      "name": "Wooden Shield",
+      "workbench": "",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        },
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "roadsign-horse-armor",
+      "name": "Roadsign Horse Armor",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Road Signs",
+          "amount": 4
+        },
+        {
+          "resource": "Dewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "coffee-can-helmet",
+      "name": "Coffee Can Helmet",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 60
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "riot-helmet",
+      "name": "Riot Helmet",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "snow-jacket",
+      "name": "Snow Jacket",
+      "workbench": "1",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 60
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "night-vision-goggles",
+      "name": "Night Vision Goggles",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "road-sign-kilt",
+      "name": "Road Sign Kilt",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 10
+        },
+        {
+          "resource": "Road Signs",
+          "amount": 1
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "road-sign-jacket",
+      "name": "Road Sign Jacket",
+      "workbench": "2",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 20
+        },
+        {
+          "resource": "Road Signs",
+          "amount": 2
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "metal-facemask",
+      "name": "Metal Facemask",
+      "workbench": "3",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 50
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 15
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "id": "metal-chest-plate",
+      "name": "Metal Chest Plate",
+      "workbench": "3",
+      "category": "Clothing",
+      "requirements": [
+        {
+          "resource": "Leather",
+          "amount": 50
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 18
+        },
+        {
+          "resource": "Sewing Kit",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": "hammer",
+      "name": "Hammer",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "rf-transmitter",
+      "name": "RF Transmitter",
+      "workbench": "2",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "flashlight",
+      "name": "Flashlight",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "handcuffs",
+      "name": "Handcuffs",
+      "workbench": "2",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "id": "stone-hatchet",
+      "name": "Stone Hatchet",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Stones",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "stone-pickaxe",
+      "name": "Stone Pickaxe",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Stones",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "water-bucket",
+      "name": "Water Bucket",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "binoculars",
+      "name": "Binoculars",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "id": "compass",
+      "name": "Compass",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "spray-can",
+      "name": "Spray Can",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "hatchet",
+      "name": "Hatchet",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "pickaxe",
+      "name": "Pickaxe",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "wallpaper-tool",
+      "name": "Wallpaper Tool",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "handmade-fishing-rod",
+      "name": "Handmade Fishing Rod",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Rope",
+          "amount": 2
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "flare",
+      "name": "Flare",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "metal-detector",
+      "name": "Metal Detector",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Rope",
+          "amount": 2
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "instant-camera-dlc",
+      "name": "Instant Camera (DLC)",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Gears",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "chainsaw",
+      "name": "Chainsaw",
+      "workbench": "2",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        },
+        {
+          "resource": "Metal Blade",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "id": "salvaged-axe",
+      "name": "Salvaged Axe",
+      "workbench": "2",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Blade",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "salvaged-hammer",
+      "name": "Salvaged Hammer",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "torch",
+      "name": "Torch",
+      "workbench": "",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 30
+        },
+        {
+          "resource": "Cloth",
+          "amount": 1
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "smoke-grenade",
+      "name": "Smoke Grenade",
+      "workbench": "2",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 35
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "salvaged-icepick",
+      "name": "Salvaged Icepick",
+      "workbench": "2",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Blades",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "satchel-charge",
+      "name": "Satchel Charge",
+      "workbench": "1",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Beancan Grenade",
+          "amount": 4
+        },
+        {
+          "resource": "Small Stash",
+          "amount": 1
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "timed-explosive-charge",
+      "name": "Timed Explosive Charge",
+      "workbench": "3",
+      "category": "Tools",
+      "requirements": [
+        {
+          "resource": "Explosives",
+          "amount": 20
+        },
+        {
+          "resource": "Cloth",
+          "amount": 5
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "bandage",
+      "name": "Bandage",
+      "workbench": "",
+      "category": "Medical",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "medical-syringe",
+      "name": "Medical Syringe",
+      "workbench": "2",
+      "category": "Medical",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 15
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "large-medkit",
+      "name": "Large Medkit",
+      "workbench": "2",
+      "category": "Medical",
+      "requirements": [
+        {
+          "resource": "Medical Syringe",
+          "amount": 2
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "skinning-knife-dlc",
+      "name": "Skinning Knife (DLC)",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "simple-handmade-sight",
+      "name": "Simple Handmade Sight",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "id": "boomerang",
+      "name": "Boomerang",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "machete",
+      "name": "Machete",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "id": "wooden-spear",
+      "name": "Wooden Spear",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "water-gun-dlc",
+      "name": "Water Gun (DLC)",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "water-pistol-dlc",
+      "name": "Water Pistol (DLC)",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "eoka-pistol",
+      "name": "Eoka Pistol",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 75
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "combat-knife",
+      "name": "Combat Knife",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "gas-compression-overdrive",
+      "name": "Gas Compression Overdrive",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "mace",
+      "name": "Mace",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "waterpipe-shotgun",
+      "name": "Waterpipe Shotgun",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "extended-magazine",
+      "name": "Extended Magazine",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "weapon-flashlight",
+      "name": "Weapon Flashlight",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "muzzle-boost",
+      "name": "Muzzle Boost",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "muzzle-brake",
+      "name": "Muzzle Brake",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": "oil-filter-silencer",
+      "name": "Oil Filter Silencer",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "soda-can-silencer",
+      "name": "Soda Can Silencer",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "id": "8x-zoom-scope",
+      "name": "8X Zoom Scope",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "high-caliber-revolver",
+      "name": "High Caliber Revolver",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 4
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "id": "hmlmg",
+      "name": "HMLMG",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 60
+        },
+        {
+          "resource": "Rifle Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 3
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "mp5a4",
+      "name": "MP5A4",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 15
+        },
+        {
+          "resource": "SMG Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "paintball-gun-dlc",
+      "name": "Paintball Gun (DLC)",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "python-revolver",
+      "name": "Python Revolver",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 3
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "bee-grenade",
+      "name": "Bee Grenade",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Beehive Nucleus",
+          "amount": 1
+        },
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "bone-club",
+      "name": "Bone Club",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Bone Fragments",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "bone-knife",
+      "name": "Bone Knife",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Bone Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "hunting-bow",
+      "name": "Hunting Bow",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Cloth",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "paddle",
+      "name": "Paddle",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 15
+        },
+        {
+          "resource": "Metal Blade",
+          "amount": 1
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "speargun",
+      "name": "Speargun",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Empty Propane Tank",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "stone-spear",
+      "name": "Stone Spear",
+      "workbench": "",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wooden Spear",
+          "amount": 1
+        },
+        {
+          "resource": "Stones",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "salvaged-sword",
+      "name": "Salvaged Sword",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 15
+        },
+        {
+          "resource": "Metal Blade",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "battering-ram",
+      "name": "Battering Ram",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 2
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "siege-tower",
+      "name": "Siege Tower",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 250
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "beancan-grenade",
+      "name": "Beancan Grenade",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 60
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "compound-bow",
+      "name": "Compound Bow",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Rope",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "crossbow",
+      "name": "Crossbow",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Rope",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "mini-crossbow",
+      "name": "Mini Crossbow",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "molotov-cocktail",
+      "name": "Molotov Cocktail",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "nailgun",
+      "name": "Nailgun",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Scrap",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "revolver",
+      "name": "Revolver",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Cloth",
+          "amount": 25
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "sks",
+      "name": "SKS",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Semi Automatic Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 2
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 12
+        }
+      ]
+    },
+    {
+      "id": "handmade-smg",
+      "name": "Handmade SMG",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "mounted-ballista",
+      "name": "Mounted Ballista",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 250
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "ballista",
+      "name": "Ballista",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 250
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "catapult",
+      "name": "Catapult",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "targeting-attachment",
+      "name": "Targeting Attachment",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "salvaged-cleaver",
+      "name": "Salvaged Cleaver",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Road Signs",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "double-barrel-shotgun",
+      "name": "Double Barrel Shotgun",
+      "workbench": "1",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "f1-grenade",
+      "name": "F1 Grenade",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "flame-thrower",
+      "name": "Flame Thrower",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 15
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 6
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 100
+        },
+        {
+          "resource": "Empty Propane Tank",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "flashbang",
+      "name": "Flashbang",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 25
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "pump-shotgun",
+      "name": "Pump Shotgun",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 15
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "semi-automatic-pistol",
+      "name": "Semi-Automatic Pistol",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Semi Automatic Body",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "semi-automatic-rifle",
+      "name": "Semi-Automatic Rifle",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Semi Automatic Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 450
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "longsword",
+      "name": "Longsword",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "Metal Blade",
+          "amount": 2
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "thompson",
+      "name": "Thompson",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "SMG Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "holosight",
+      "name": "Holosight",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 12
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "weapon-laserlight",
+      "name": "Weapon Laserlight",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "assault-rifle",
+      "name": "Assault Rifle",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 50
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Rifle Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "bolt-action-rifle",
+      "name": "Bolt Action Rifle",
+      "workbench": "3",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "rifle Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 3
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "homing-missile-launcher",
+      "name": "Homing Missile Launcher",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 20
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        },
+        {
+          "resource": "CCTV Camera",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "rocket-launcher",
+      "name": "Rocket Launcher",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 40
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 4
+        }
+      ]
+    },
+    {
+      "id": "custom-smg",
+      "name": "Custom SMG",
+      "workbench": "2",
+      "category": "Weapons",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 8
+        },
+        {
+          "resource": "SMG Body",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "wooden-arrow",
+      "name": "Wooden Arrow",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 25
+        },
+        {
+          "resource": "Stones",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "nailgun-nails",
+      "name": "Nailgun Nails",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": "speargun-spear",
+      "name": "Speargun Spear",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "high-velocity-arrow",
+      "name": "High Velocity Arrow",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "hammerhead-bolt",
+      "name": "Hammerhead Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "piercer-bolt",
+      "name": "Piercer Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "pitchfork-bolt",
+      "name": "Pitchfork Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "scattershot",
+      "name": "Scattershot",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "paintball-dlc",
+      "name": "Paintball (DLC)",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Yellow Berry",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "bone-arrow",
+      "name": "Bone Arrow",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 25
+        },
+        {
+          "resource": "Bone Fragments",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "fire-arrow",
+      "name": "Fire Arrow",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        },
+        {
+          "resource": "Cloth",
+          "amount": 2
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "handmade-shell",
+      "name": "Handmade Shell",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 5
+        },
+        {
+          "resource": "gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "pistol-bullet",
+      "name": "Pistol Bullet",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "5-56-rifle-ammo",
+      "name": "5.56 Rifle Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "12-gauge-buckshot",
+      "name": "12 Gauge Buckshot",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "torpedo",
+      "name": "Torpedo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "sam-ammo",
+      "name": "Sam Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "incendiary-bolt",
+      "name": "Incendiary Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "bee-catapult-bomb",
+      "name": "Bee Catapult Bomb",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Bee Grenade",
+          "amount": 2
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "firebomb",
+      "name": "Firebomb",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 50
+        },
+        {
+          "resource": "Rope",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "incendiary-pistol-ammo",
+      "name": "Incendiary Pistol Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "hv-pistol-ammo",
+      "name": "HV Pistol Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "explosive-5-56-rifle-ammo",
+      "name": "Explosive 5.56 Rifle Ammo",
+      "workbench": "3",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 20
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "hv-5-56-rifle-ammo",
+      "name": "HV 5.56 Rifle Ammo",
+      "workbench": "3",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket",
+      "workbench": "3",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        },
+        {
+          "resource": "Explosives",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "incendiary-rocket",
+      "name": "Incendiary Rocket",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "high-velocity-rocket",
+      "name": "High Velocity Rocket",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "homing-missile",
+      "name": "Homing Missile",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 100
+        },
+        {
+          "resource": "tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "12-gauge-incendiary-ammo",
+      "name": "12 Gauge Incendiary Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "12-gauge-slug",
+      "name": "12 Gauge Slug",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "cannonball",
+      "name": "Cannonball",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "mortar-shell",
+      "name": "Mortar Shell",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "fragmentation-mortar-shell",
+      "name": "Fragmentation Mortar Shell",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "propane-explosive-bomb",
+      "name": "Propane Explosive Bomb",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Empty Propane Tank",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 450
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "wooden-floor-spikes",
+      "name": "Wooden Floor Spikes",
+      "workbench": "",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "small-spike-trap",
+      "name": "Small Spike Trap",
+      "workbench": "",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 80
+        }
+      ]
+    },
+    {
+      "id": "tin-can-alarm",
+      "name": "Tin Can Alarm",
+      "workbench": "1",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "snap-trap",
+      "name": "Snap Trap",
+      "workbench": "1",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "homemade-landmine",
+      "name": "Homemade Landmine",
+      "workbench": "2",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "shotgun-trap",
+      "name": "Shotgun Trap",
+      "workbench": "1",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 250
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        },
+        {
+          "resource": "Rope",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "flame-turret",
+      "name": "Flame Turret",
+      "workbench": "1",
+      "category": "Traps",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Empty Propane Tank",
+          "amount": 2
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "audio-alarm",
+      "name": "Audio Alarm",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "small-rechargeable-battery",
+      "name": "Small Rechargeable Battery",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "button",
+      "name": "Button",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "counter",
+      "name": "Counter",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "hbhf-sensor",
+      "name": "HBHF Sensor",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "laser-detector",
+      "name": "Laser Detector",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "digital-clock",
+      "name": "Digital Clock",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "door-controller",
+      "name": "Door Controller",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "fluid-combiner",
+      "name": "Fluid Combiner",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "fluid-splitter",
+      "name": "Fluid Splitter",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "fluid-switch-pump",
+      "name": "Fluid Switch & Pump",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "and-switch",
+      "name": "AND Switch",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "blocker",
+      "name": "Blocker",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "electrical-branch",
+      "name": "Electrical Branch",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "root-combiner",
+      "name": "Root Combiner",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "memory-cell",
+      "name": "Memory Cell",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "or-switch",
+      "name": "OR Switch",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "rand-switch",
+      "name": "RAND Switch",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "xor-switch",
+      "name": "XOR Switch",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "storage-adaptor",
+      "name": "Storage Adaptor",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "industrial-combiner",
+      "name": "Industrial Combiner",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "industrial-conveyor",
+      "name": "Industrial Conveyor",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "industrial-splitter",
+      "name": "Industrial Splitter",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "chandelier-dlc",
+      "name": "Chandelier (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "fairy-lights-dlc",
+      "name": "Fairy Lights (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "bulb-string-lights",
+      "name": "Bulb String Lights",
+      "workbench": "",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "splitter",
+      "name": "Splitter",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "timer",
+      "name": "Timer",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "small-neon-sign-dlc",
+      "name": "Small Neon Sign (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "medium-animated-neon-sign-dlc",
+      "name": "Medium Animated Neon Sign (DLC)",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 300
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "medium-neon-sign-dlc",
+      "name": "Medium Neon Sign (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "large-animated-neon-sign-dlc",
+      "name": "Large Animated Neon Sign (DLC)",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 350
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "large-neon-sign-dlc",
+      "name": "Large Neon Sign (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 250
+        }
+      ]
+    },
+    {
+      "id": "deluxe-christmas-lights-steam-marketplace",
+      "name": "Deluxe Christmas Lights (Steam Marketplace)",
+      "workbench": "",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "hose-tool",
+      "name": "Hose Tool",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "pipe-tool",
+      "name": "Pipe Tool",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "wire-tool",
+      "name": "Wire Tool",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "mini-fridge",
+      "name": "Mini Fridge",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "igniter",
+      "name": "Igniter",
+      "workbench": "",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "flasher-light",
+      "name": "Flasher Light",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "siren-light",
+      "name": "Siren Light",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "sprinkler",
+      "name": "Sprinkler",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "ceiling-light",
+      "name": "Ceiling Light",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "ceiling-fluorescent-light-dlc",
+      "name": "Ceiling Fluorescent Light (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "fridge",
+      "name": "Fridge",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "electric-heater",
+      "name": "Electric Heater",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "rf-broadcaster",
+      "name": "RF Broadcaster",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "rf-receiver",
+      "name": "RF Receiver",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "electric-table-lamp",
+      "name": "electric Table Lamp",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "fluorescent-light-dlc",
+      "name": "Fluorescent Light (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "spot-light-dlc",
+      "name": "Spot Light (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "tripod-spot-light-dlc",
+      "name": "Tripod Spot Light (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "industrial-wall-light-dlc",
+      "name": "Industrial Wall Light (DLC)",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "search-light",
+      "name": "Search Light",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "rf-pager",
+      "name": "RF Pager",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "electric-furnace",
+      "name": "Electric Furnace",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "elevator",
+      "name": "Elevator",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "hopper",
+      "name": "Hopper",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "storage-monitor",
+      "name": "Storage Monitor",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "large-rechargeable-battery",
+      "name": "Large Rechargeable Battery",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "medium-rechargeable-battery",
+      "name": "Medium Rechargeable Battery",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "pressure-pad",
+      "name": "Pressure Pad",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        },
+        {
+          "resource": "Metal Spring",
+          "amount": 1
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "small-generator",
+      "name": "Small Generator",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "large-solar-panel",
+      "name": "Large Solar Panel",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "industrial-crafter",
+      "name": "Industrial Crafter",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "seismic-sensor",
+      "name": "Seismic Sensor",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "ptz-cctv-camera",
+      "name": "PTZ CCTV Camera",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "CCTV Camera",
+          "amount": 1
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "tesla-coil",
+      "name": "Tesla Coil",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "computer-station",
+      "name": "Computer Station",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Targeting Computer",
+          "amount": 1
+        },
+        {
+          "resource": "RF Broadcaster",
+          "amount": 1
+        },
+        {
+          "resource": "RF Receiver",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "smart-alarm",
+      "name": "Smart Alarm",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "smart-switch",
+      "name": "Smart Switch",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "powered-water-purifier",
+      "name": "Powered Water Purifier",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 300
+        },
+        {
+          "resource": "Cloth",
+          "amount": 20
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "water-pump",
+      "name": "Water Pump",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 250
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "reactive-target",
+      "name": "Reactive Target",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "modular-car-lift",
+      "name": "Modular Car Lift",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Gears",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "water-wheel",
+      "name": "Water Wheel",
+      "workbench": "1",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "Gears",
+          "amount": 2
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "wind-turbine",
+      "name": "Wind Turbine",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 500
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        },
+        {
+          "resource": "Gears",
+          "amount": 3
+        },
+        {
+          "resource": "Sheet Metal",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "auto-turret",
+      "name": "Auto Turret",
+      "workbench": "2",
+      "category": "Electrical",
+      "requirements": [
+        {
+          "resource": "Targeting Computer",
+          "amount": 1
+        },
+        {
+          "resource": "CCTV Camera",
+          "amount": 1
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "car-radio",
+      "name": "Car Radio",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "portable-boom-box-dlc",
+      "name": "Portable Boom Box (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "cassette-long-dlc",
+      "name": "Cassette - Long (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "cassette-medium-dlc",
+      "name": "Cassette - Medium (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "cassette-short-dlc",
+      "name": "Cassette - Short (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "cassette-recorder-dlc",
+      "name": "Cassette Recorder (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "disco-ball-dlc",
+      "name": "Disco Ball (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "disco-floor-dlc",
+      "name": "Disco Floor (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "connected-speaker-dlc",
+      "name": "Connected Speaker (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "laser-light-dlc",
+      "name": "Laser Light (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "megaphone-dlc",
+      "name": "Megaphone (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "microphone-stand-dlc",
+      "name": "Microphone Stand (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "mobile-phone-dlc",
+      "name": "Mobile Phone (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "sound-light-dlc",
+      "name": "Sound Light (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "shovel-bass-dlc",
+      "name": "Shovel Bass (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "cowbell-dlc",
+      "name": "Cowbell (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 35
+        }
+      ]
+    },
+    {
+      "id": "junkyard-drum-kit-dlc",
+      "name": "Junkyard Drum Kit (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "jerry-can-guitar-dlc",
+      "name": "Jerry Can Guitar (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 25
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "wheelbarrow-piano-dlc",
+      "name": "Wheelbarrow Piano (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "canbourine-dlc",
+      "name": "Canbourine (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "plumber-s-trumpet-dlc",
+      "name": "Plumber's Trumpet (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "sousaphone-dlc",
+      "name": "Sousaphone (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "beach-chair-dlc",
+      "name": "Beach Chair (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "beach-table-dlc",
+      "name": "beach Table (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "blue-boomer-dlc",
+      "name": "Blue Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "champagne-boomer-dlc",
+      "name": "Champagne Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 30
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 75
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "green-boomer-dlc",
+      "name": "Green Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "orange-boomer-dlc",
+      "name": "Orange Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "pattern-boomer-dlc",
+      "name": "Pattern Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "red-boomer-dlc",
+      "name": "Red Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "violet-boomer-dlc",
+      "name": "Violet Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "blue-roman-candle-dlc",
+      "name": "Blue Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "green-roman-candle-dlc",
+      "name": "Green Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "red-roman-candle-dlc",
+      "name": "Red Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "violet-roman-candle-dlc",
+      "name": "Violet Roman Candle (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "white-volcano-firework-dlc",
+      "name": "White Volcano Firework (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "red-volcano-firework-dlc",
+      "name": "Red Volcano Firework (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "violet-volcano-firework-dlc",
+      "name": "Violet Volcano Firework (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "skull-spikes-steam-marketplace",
+      "name": "Skull Spikes (Steam Marketplace)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 150
+        },
+        {
+          "resource": "human Skull",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "boom-box-dlc",
+      "name": "Boom Box (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 200
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "Cloth",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "above-ground-pool-dlc",
+      "name": "Above Ground Pool (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 200
+        },
+        {
+          "resource": "Tarp",
+          "amount": 3
+        },
+        {
+          "resource": "Wood",
+          "amount": 500
+        }
+      ]
+    },
+    {
+      "id": "paddling-pool-dlc",
+      "name": "Paddling Pool (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 100
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "telephone",
+      "name": "Telephone",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 50
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "pan-flute-dlc",
+      "name": "Pan Flute (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        },
+        {
+          "resource": "Cloth",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "xylobone-dlc",
+      "name": "Xylobone (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Bone Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "beach-parasol-dlc",
+      "name": "Beach Parasol (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 20
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "beach-towel-dlc",
+      "name": "Beach Towel (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "boogie-board-dlc",
+      "name": "Boogie Board (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "inner-tube-dlc",
+      "name": "Inner Tube (DLC)",
+      "workbench": "1",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        },
+        {
+          "resource": "Tarp",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "strobe-light-steam-marketplace",
+      "name": "Strobe Light (Steam Marketplace)",
+      "workbench": "",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "note",
+      "name": "Note",
+      "workbench": "",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "low-quality-carburetor",
+      "name": "Low Quality Carburetor",
+      "workbench": "1",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "id": "low-quality-crankshaft",
+      "name": "Low Quality Crankshaft",
+      "workbench": "1",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "low-quality-pistons",
+      "name": "Low Quality Pistons",
+      "workbench": "",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "low-quality-spark-plugs",
+      "name": "Low Quality Spark Plugs",
+      "workbench": "1",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "low-quality-valves",
+      "name": "Low Quality Valves",
+      "workbench": "1",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "medium-quality-carburetor",
+      "name": "Medium Quality Carburetor",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "medium-quality-crankshaft",
+      "name": "Medium Quality Crankshaft",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "id": "medium-quality-pistons",
+      "name": "Medium Quality Pistons",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "id": "medium-quality-spark-plugs",
+      "name": "Medium Quality Spark Plugs",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "id": "medium-quality-valves",
+      "name": "Medium Quality Valves",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "id": "cockpit-vehicle-module",
+      "name": "Cockpit Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "armored-cockpit-vehicle-module",
+      "name": "Armored Cockpit Vehicle Module",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "cockpit-with-engine-vehicle-module",
+      "name": "Cockpit With Engine Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "engine-vehicle-module",
+      "name": "Engine Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "flatbed-vehicle-module",
+      "name": "Flatbed Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "armored-passenger-vehicle-module",
+      "name": "Armored Passenger Vehicle Module",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "rear-seats-vehicle-module",
+      "name": "Rear Seats Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "storage-vehicle-module",
+      "name": "Storage Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Wood",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "taxi-vehicle-module",
+      "name": "Taxi Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        },
+        {
+          "resource": "Wood",
+          "amount": 125
+        },
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "camper-vehicle-module",
+      "name": "Camper Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        },
+        {
+          "resource": "Wood",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "large-flatbed-vehicle-module",
+      "name": "Large Flatbed Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 150
+        },
+        {
+          "resource": "wood",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "fuel-tank-vehicle-module",
+      "name": "Fuel Tank Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        },
+        {
+          "resource": "Wood",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "passenger-vehicle-module",
+      "name": "Passenger Vehicle Module",
+      "workbench": "2",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 175
+        },
+        {
+          "resource": "Wood",
+          "amount": 125
+        }
+      ]
+    },
+    {
+      "id": "high-quality-carburetor",
+      "name": "High Quality Carburetor",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 170
+        }
+      ]
+    },
+    {
+      "id": "high-quality-crankshaft",
+      "name": "High Quality Crankshaft",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "high-quality-pistons",
+      "name": "High Quality Pistons",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "high-quality-spark-plugs",
+      "name": "High Quality Spark Plugs",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "high-quality-valves",
+      "name": "High Quality Valves",
+      "workbench": "3",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": "fogger-3000-steam-marketplace",
+      "name": "Fogger-3000 (Steam Marketplace)",
+      "workbench": "",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 100
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 30
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "large-candle-set-dlc",
+      "name": "Large Candle Set (DLC)",
+      "workbench": "",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Animal Fat",
+          "amount": 20
+        },
+        {
+          "resource": "Cloth",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "small-candle-set-dlc",
+      "name": "Small Candle Set (DLC)",
+      "workbench": "",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Animal Fat",
+          "amount": 10
+        },
+        {
+          "resource": "Cloth",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "snow-machine-steam-marketplace",
+      "name": "Snow Machine (Steam Marketplace)",
+      "workbench": "1",
+      "category": "Other",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 125
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 30
+        },
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "Cockpit With Engine Vehicle Module: missing amount for High Quality Metal"
+  ]
+}
