@@ -4,7 +4,39 @@
       "id": "12-gauge-buckshot",
       "name": "12 Gauge Buckshot",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Shotgun Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "handmade-shell",
+      "name": "Handmade Shell",
+      "workbench": "",
+      "category": "Shotgun Ammo",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 5
+        },
+        {
+          "resource": "gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "12-gauge-slug",
+      "name": "12 Gauge Slug",
+      "workbench": "2",
+      "category": "Shotgun Ammo",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -20,7 +52,7 @@
       "id": "12-gauge-incendiary-ammo",
       "name": "12 Gauge Incendiary Ammo",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Shotgun Ammo",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -37,18 +69,54 @@
       ]
     },
     {
-      "id": "12-gauge-slug",
-      "name": "12 Gauge Slug",
-      "workbench": "2",
-      "category": "Ammo",
+      "id": "pistol-bullet",
+      "name": "Pistol Bullet",
+      "workbench": "1",
+      "category": "Pistol Ammo",
       "requirements": [
         {
           "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
           "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "hv-pistol-ammo",
+      "name": "HV Pistol Ammo",
+      "workbench": "2",
+      "category": "Pistol Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
         },
         {
           "resource": "Gun Powder",
           "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "incendiary-pistol-ammo",
+      "name": "Incendiary Pistol Ammo",
+      "workbench": "2",
+      "category": "Pistol Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 5
         }
       ]
     },
@@ -56,7 +124,7 @@
       "id": "5-56-rifle-ammo",
       "name": "5.56 Rifle Ammo",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "5.56 Ammo",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -69,10 +137,46 @@
       ]
     },
     {
+      "id": "hv-5-56-rifle-ammo",
+      "name": "HV 5.56 Rifle Ammo",
+      "workbench": "3",
+      "category": "5.56 Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "explosive-5-56-rifle-ammo",
+      "name": "Explosive 5.56 Rifle Ammo",
+      "workbench": "3",
+      "category": "5.56 Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 20
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 10
+        }
+      ]
+    },
+    {
       "id": "bee-catapult-bomb",
       "name": "Bee Catapult Bomb",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Bee Grenade",
@@ -88,7 +192,7 @@
       "id": "bone-arrow",
       "name": "Bone Arrow",
       "workbench": "",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Wood",
@@ -104,7 +208,7 @@
       "id": "cannonball",
       "name": "Cannonball",
       "workbench": "1",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -117,30 +221,10 @@
       ]
     },
     {
-      "id": "explosive-5-56-rifle-ammo",
-      "name": "Explosive 5.56 Rifle Ammo",
-      "workbench": "3",
-      "category": "Ammo",
-      "requirements": [
-        {
-          "resource": "Metal Fragments",
-          "amount": 10
-        },
-        {
-          "resource": "Gun Powder",
-          "amount": 20
-        },
-        {
-          "resource": "Sulfur",
-          "amount": 10
-        }
-      ]
-    },
-    {
       "id": "fire-arrow",
       "name": "Fire Arrow",
       "workbench": "1",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Wood",
@@ -160,7 +244,7 @@
       "id": "fragmentation-mortar-shell",
       "name": "Fragmentation Mortar Shell",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Pipe",
@@ -176,7 +260,7 @@
       "id": "hammerhead-bolt",
       "name": "Hammerhead Bolt",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "High Quality Metal",
@@ -189,26 +273,10 @@
       ]
     },
     {
-      "id": "handmade-shell",
-      "name": "Handmade Shell",
-      "workbench": "",
-      "category": "Ammo",
-      "requirements": [
-        {
-          "resource": "Stones",
-          "amount": 5
-        },
-        {
-          "resource": "gun Powder",
-          "amount": 5
-        }
-      ]
-    },
-    {
       "id": "high-velocity-arrow",
       "name": "High Velocity Arrow",
       "workbench": "1",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Wood",
@@ -221,42 +289,10 @@
       ]
     },
     {
-      "id": "hv-5-56-rifle-ammo",
-      "name": "HV 5.56 Rifle Ammo",
-      "workbench": "3",
-      "category": "Ammo",
-      "requirements": [
-        {
-          "resource": "Metal Fragments",
-          "amount": 10
-        },
-        {
-          "resource": "Gun Powder",
-          "amount": 10
-        }
-      ]
-    },
-    {
-      "id": "hv-pistol-ammo",
-      "name": "HV Pistol Ammo",
-      "workbench": "2",
-      "category": "Ammo",
-      "requirements": [
-        {
-          "resource": "Metal Fragments",
-          "amount": 10
-        },
-        {
-          "resource": "Gun Powder",
-          "amount": 10
-        }
-      ]
-    },
-    {
       "id": "incendiary-bolt",
       "name": "Incendiary Bolt",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -273,30 +309,10 @@
       ]
     },
     {
-      "id": "incendiary-pistol-ammo",
-      "name": "Incendiary Pistol Ammo",
-      "workbench": "2",
-      "category": "Ammo",
-      "requirements": [
-        {
-          "resource": "Metal Fragments",
-          "amount": 10
-        },
-        {
-          "resource": "Gun Powder",
-          "amount": 10
-        },
-        {
-          "resource": "Sulfur",
-          "amount": 5
-        }
-      ]
-    },
-    {
       "id": "mortar-shell",
       "name": "Mortar Shell",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Pipe",
@@ -312,7 +328,7 @@
       "id": "nailgun-nails",
       "name": "Nailgun Nails",
       "workbench": "",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -324,7 +340,7 @@
       "id": "paintball-dlc",
       "name": "Paintball (DLC)",
       "workbench": "",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Cloth",
@@ -340,7 +356,7 @@
       "id": "piercer-bolt",
       "name": "Piercer Bolt",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "High Quality Metal",
@@ -353,26 +369,10 @@
       ]
     },
     {
-      "id": "pistol-bullet",
-      "name": "Pistol Bullet",
-      "workbench": "1",
-      "category": "Ammo",
-      "requirements": [
-        {
-          "resource": "Metal Fragments",
-          "amount": 10
-        },
-        {
-          "resource": "Gun Powder",
-          "amount": 5
-        }
-      ]
-    },
-    {
       "id": "pitchfork-bolt",
       "name": "Pitchfork Bolt",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Wood",
@@ -388,7 +388,7 @@
       "id": "sam-ammo",
       "name": "Sam Ammo",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Pipe",
@@ -404,7 +404,7 @@
       "id": "scattershot",
       "name": "Scattershot",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Stones",
@@ -416,7 +416,7 @@
       "id": "speargun-spear",
       "name": "Speargun Spear",
       "workbench": "1",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Fragments",
@@ -428,7 +428,7 @@
       "id": "torpedo",
       "name": "Torpedo",
       "workbench": "2",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Metal Pipe",
@@ -444,7 +444,7 @@
       "id": "wooden-arrow",
       "name": "Wooden Arrow",
       "workbench": "",
-      "category": "Ammo",
+      "category": "Other",
       "requirements": [
         {
           "resource": "Wood",
@@ -702,5 +702,5 @@
     }
   ],
   "warnings": [],
-  "source": "Derived from assets/data/crafting.json"
+  "source": "Rust Crafting Items.txt — organized for Munitions Planner with ammo subcategories"
 }

@@ -1,13 +1,13 @@
 (() => {
 "use strict";
 const page=document.body.dataset.page;
-const configs={fireworks:{title:'Fireworks Planner',data:'/assets/data/fireworks.json',storage:'rustFireworksPlannerV1',owned:'rustFireworksOwnedV1'},munitions:{title:'Munitions Planner',data:'/assets/data/munitions.json',storage:'rustMunitionsPlannerV1',owned:'rustMunitionsOwnedV1'},crafting:{title:'Crafting Planner',data:'/assets/data/crafting.json',storage:'rustCraftingPlannerV1',owned:'rustCraftingOwnedV1'}};const cfg=configs[page]||configs.crafting;
+const configs={fireworks:{title:'Fireworks Planner',data:'/assets/data/fireworks.json',storage:'rustFireworksPlannerV1',owned:'rustFireworksOwnedV1'},munitions:{title:'Munitions Planner',data:'/assets/data/munitions.json?v=1.3.1',storage:'rustMunitionsPlannerV1',owned:'rustMunitionsOwnedV1'},crafting:{title:'Crafting Planner',data:'/assets/data/crafting.json',storage:'rustCraftingPlannerV1',owned:'rustCraftingOwnedV1'}};const cfg=configs[page]||configs.crafting;
 let items=[],warnings=[],activeCategory='All',quantities={},owned={};
 const fmt=n=>Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function readStore(key,fallback={}){try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch{return fallback}}
 function save(){localStorage.setItem(cfg.storage,JSON.stringify(quantities));localStorage.setItem(cfg.owned,JSON.stringify(owned));}
-function categories(){return ['All',...new Set(items.map(i=>i.category))]}
+function categories(){const found=[...new Set(items.map(i=>i.category))];if(page==='munitions'){const preferred=['Shotgun Ammo','Pistol Ammo','5.56 Ammo','Other','Rockets','Explosives','Gun Powder'];return ['All',...preferred.filter(c=>found.includes(c)),...found.filter(c=>!preferred.includes(c))]}return ['All',...found]}
 function selectedItems(){return items.filter(i=>(quantities[i.id]||0)>0)}
 function totals(){const t={};for(const item of selectedItems()){const q=Number(quantities[item.id]||0);for(const r of item.requirements){if(r.amount==null)continue;t[r.resource]=(t[r.resource]||0)+r.amount*q}}return t}
 function renderCategories(){const target=document.getElementById('categoryList');if(!target)return;const counts={};for(const i of items)counts[i.category]=(counts[i.category]||0)+1;target.innerHTML=categories().map(c=>`<button class="category-btn${c===activeCategory?' active':''}" data-cat="${esc(c)}"><span>${esc(c)}</span><span>${c==='All'?items.length:counts[c]}</span></button>`).join('');}
