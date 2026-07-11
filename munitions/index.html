@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="AJ" name="author"/>
-<title>Crafting Planner | Rust Web Apps</title>
+<title>Munitions Planner | Rust Web Apps</title>
 <link href="/assets/css/common.css" rel="stylesheet"/>
 <link href="/assets/css/rust-theme.css" rel="stylesheet"/>
 <link href="/assets/css/planner.css" rel="stylesheet"/>
@@ -13,11 +13,11 @@
 <script defer="" src="/assets/js/site.js?v=1.3.0"></script>
 <script defer="" src="/assets/js/planner.js?v=1.1.0"></script>
 <link href="/assets/css/ui-components.css?v=1.3.0" rel="stylesheet"/></head>
-<body data-page="crafting">
+<body data-page="munitions">
 <div class="planner-shell">
 <section class="planner-panel planner-hero">
-<h1>🛠️ Crafting Planner</h1>
-<p>Browse one category at a time, enter quantities for any craftable item, and combine requirements across the entire crafting plan.</p>
+<h1>💥 Munitions Planner</h1>
+<p>Plan ammunition, rockets, explosive supplies, and gun powder while combining all required materials into one organized list.</p>
 </section>
 <div class="planner-layout">
 <aside class="planner-sidebar polished-nav">
@@ -45,7 +45,7 @@
 <button class="btn btn-info" id="copyPlan">Copy Plan</button>
 <button class="danger btn btn-danger" id="clearPlan">Clear All</button>
 </div>
-<div class="data-warning" hidden="" id="loadError">Crafting data could not be loaded. Open the project through GitHub Pages or a local web server instead of directly through file://.</div>
+<div class="data-warning" hidden="" id="loadError">Munitions data could not be loaded. Open the project through GitHub Pages or a local web server instead of directly through file://.</div>
 <div class="data-warning" hidden="" id="dataWarning"></div>
 <div class="planner-toolbar">
 <h2 id="viewTitle" style="margin:0"></h2>
@@ -61,7 +61,7 @@
 </main>
 <aside class="planner-summary">
 <section><h2>Plan Summary</h2><div id="planSummary"></div></section>
-<section><h2>Total Crafting Requirements</h2><div class="requirements-list" id="requirementsList"></div></section>
+<section><h2>Total Munitions Requirements</h2><div class="requirements-list" id="requirementsList"></div></section>
 <section><h2>Resource Shopping List</h2><p class="small">Enter how much you have gathered. Progress is saved in this browser.</p><div class="shopping-list" id="shoppingList"></div><div class="summary-actions"><button class="btn btn-info" id="copyShopping">Copy List</button><button class="btn btn-danger" id="clearOwned">Clear Gathered</button></div></section>
 </aside>
 </div>

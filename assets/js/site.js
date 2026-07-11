@@ -5,20 +5,21 @@
     name: "Rust Web Apps",
     shortName: "Rust Apps",
     creator: "AJ",
-    version: "1.2.0",
+    version: "1.3.0",
     updated: "July 2026",
     repository: "https://github.com/ajdrox93/RustWebApps",
     issues: "https://github.com/ajdrox93/RustWebApps/issues",
     copyrightYear: 2026,
     navigation: [
       { id: "home", label: "Home", icon: "🏠", href: "/" },
-      { id: "build", label: "Building Cost", icon: "🧱", href: "/build/" },
+      { id: "build", label: "Building Planner", icon: "🧱", href: "/build/" },
       { id: "systems", label: "Systems Planner", icon: "⚡", href: "/systems/" },
-      { id: "crafting", label: "Crafting", icon: "🛠️", href: "/crafting/" },
-      { id: "fireworks", label: "Fireworks", icon: "🎆", href: "/fireworks/" },
-      { id: "quarry", label: "Quarry", icon: "⛏️", href: "/quarry/" },
-      { id: "cooking", label: "Cooking Bench", icon: "🍳", href: "/cooking/" },
-      { id: "upkeep", label: "Upkeep", icon: "📦", href: "/upkeep/" }
+      { id: "crafting", label: "Crafting Planner", icon: "🛠️", href: "/crafting/" },
+      { id: "munitions", label: "Munitions Planner", icon: "💥", href: "/munitions/" },
+      { id: "fireworks", label: "Fireworks Planner", icon: "🎆", href: "/fireworks/" },
+      { id: "quarry", label: "Quarry Planner", icon: "⛏️", href: "/quarry/" },
+      { id: "cooking", label: "Cooking Planner", icon: "🍳", href: "/cooking/" },
+      { id: "upkeep", label: "Upkeep Planner", icon: "📦", href: "/upkeep/" }
     ]
   });
 

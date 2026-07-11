@@ -1,0 +1,706 @@
+{
+  "items": [
+    {
+      "id": "12-gauge-buckshot",
+      "name": "12 Gauge Buckshot",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "12-gauge-incendiary-ammo",
+      "name": "12 Gauge Incendiary Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "12-gauge-slug",
+      "name": "12 Gauge Slug",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "5-56-rifle-ammo",
+      "name": "5.56 Rifle Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "bee-catapult-bomb",
+      "name": "Bee Catapult Bomb",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Bee Grenade",
+          "amount": 2
+        },
+        {
+          "resource": "Wood",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "bone-arrow",
+      "name": "Bone Arrow",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 25
+        },
+        {
+          "resource": "Bone Fragments",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "cannonball",
+      "name": "Cannonball",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "id": "explosive-5-56-rifle-ammo",
+      "name": "Explosive 5.56 Rifle Ammo",
+      "workbench": "3",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 20
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "fire-arrow",
+      "name": "Fire Arrow",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        },
+        {
+          "resource": "Cloth",
+          "amount": 2
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "fragmentation-mortar-shell",
+      "name": "Fragmentation Mortar Shell",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "id": "hammerhead-bolt",
+      "name": "Hammerhead Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "handmade-shell",
+      "name": "Handmade Shell",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 5
+        },
+        {
+          "resource": "gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "high-velocity-arrow",
+      "name": "High Velocity Arrow",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 20
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "hv-5-56-rifle-ammo",
+      "name": "HV 5.56 Rifle Ammo",
+      "workbench": "3",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "hv-pistol-ammo",
+      "name": "HV Pistol Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "incendiary-bolt",
+      "name": "Incendiary Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        },
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "incendiary-pistol-ammo",
+      "name": "Incendiary Pistol Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 10
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "mortar-shell",
+      "name": "Mortar Shell",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": "nailgun-nails",
+      "name": "Nailgun Nails",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "id": "paintball-dlc",
+      "name": "Paintball (DLC)",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Cloth",
+          "amount": 10
+        },
+        {
+          "resource": "Yellow Berry",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "piercer-bolt",
+      "name": "Piercer Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "High Quality Metal",
+          "amount": 5
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "pistol-bullet",
+      "name": "Pistol Bullet",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "id": "pitchfork-bolt",
+      "name": "Pitchfork Bolt",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 100
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "sam-ammo",
+      "name": "Sam Ammo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "scattershot",
+      "name": "Scattershot",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Stones",
+          "amount": 200
+        }
+      ]
+    },
+    {
+      "id": "speargun-spear",
+      "name": "Speargun Spear",
+      "workbench": "1",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "torpedo",
+      "name": "Torpedo",
+      "workbench": "2",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "id": "wooden-arrow",
+      "name": "Wooden Arrow",
+      "workbench": "",
+      "category": "Ammo",
+      "requirements": [
+        {
+          "resource": "Wood",
+          "amount": 25
+        },
+        {
+          "resource": "Stones",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "high-velocity-rocket",
+      "name": "High Velocity Rocket",
+      "workbench": "2",
+      "category": "Rockets",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": "homing-missile",
+      "name": "Homing Missile",
+      "workbench": "2",
+      "category": "Rockets",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 100
+        },
+        {
+          "resource": "tech Trash",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "incendiary-rocket",
+      "name": "Incendiary Rocket",
+      "workbench": "2",
+      "category": "Rockets",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 75
+        }
+      ]
+    },
+    {
+      "id": "rocket",
+      "name": "Rocket",
+      "workbench": "3",
+      "category": "Rockets",
+      "requirements": [
+        {
+          "resource": "Metal Pipe",
+          "amount": 2
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        },
+        {
+          "resource": "Explosives",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "beancan-grenade",
+      "name": "Beancan Grenade",
+      "workbench": "1",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 60
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "explosives",
+      "name": "Explosives",
+      "workbench": "3",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 50
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 3
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 10
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "f1-grenade",
+      "name": "F1 Grenade",
+      "workbench": "2",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "id": "firebomb",
+      "name": "Firebomb",
+      "workbench": "2",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 150
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 50
+        },
+        {
+          "resource": "Rope",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "propane-explosive-bomb",
+      "name": "Propane Explosive Bomb",
+      "workbench": "2",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Empty Propane Tank",
+          "amount": 1
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 450
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "id": "satchel-charge",
+      "name": "Satchel Charge",
+      "workbench": "1",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Beancan Grenade",
+          "amount": 4
+        },
+        {
+          "resource": "Small Stash",
+          "amount": 1
+        },
+        {
+          "resource": "Rope",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "smoke-grenade",
+      "name": "Smoke Grenade",
+      "workbench": "2",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Gun Powder",
+          "amount": 35
+        },
+        {
+          "resource": "Metal Fragments",
+          "amount": 50
+        }
+      ]
+    },
+    {
+      "id": "timed-explosive-charge",
+      "name": "Timed Explosive Charge",
+      "workbench": "3",
+      "category": "Explosives",
+      "requirements": [
+        {
+          "resource": "Explosives",
+          "amount": 20
+        },
+        {
+          "resource": "Cloth",
+          "amount": 5
+        },
+        {
+          "resource": "Tech Trash",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "gun-powder",
+      "name": "Gun Powder",
+      "workbench": "",
+      "category": "Gun Powder",
+      "requirements": [
+        {
+          "resource": "Charcoal",
+          "amount": 30
+        },
+        {
+          "resource": "Sulfur",
+          "amount": 20
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "source": "Derived from assets/data/crafting.json"
+}
