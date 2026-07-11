@@ -38,7 +38,19 @@
         }).join("")}</div>
       </section>`;
     }).join("");
-    host.querySelectorAll("[data-machine]").forEach(input => input.addEventListener("input", calculate));
+    host.querySelectorAll("[data-machine]").forEach(input => {
+      input.addEventListener("input", calculate);
+      input.addEventListener("focus", () => {
+        if (input.value === "0") input.select();
+      });
+      input.addEventListener("click", () => {
+        if (input.value === "0") input.select();
+      });
+      input.addEventListener("blur", () => {
+        if (input.value.trim() === "") input.value = "0";
+        calculate();
+      });
+    });
   }
 
   function calculate() {
@@ -57,7 +69,10 @@
         totals[resource] = (totals[resource] || 0) + amount;
         if (barrels > 0) lines.push(`<div><span>${esc(resource)}</span><strong>${fmt(amount)}</strong></div>`);
       });
-      document.getElementById(`total-${machine.id}`).innerHTML = barrels > 0 ? `<span class="machine-total-title">Run total</span>${lines.join("")}` : `<span class="empty-run">Enter diesel to calculate.</span>`;
+      const runtime = barrels * machine.timePerBarrelSeconds;
+      document.getElementById(`total-${machine.id}`).innerHTML = barrels > 0
+        ? `<span class="machine-total-title">Run total</span>${lines.join("")}<div class="machine-runtime"><span>Estimated runtime</span><strong>${durationText(runtime)}</strong></div>`
+        : `<span class="empty-run">Enter diesel to calculate.</span>`;
     });
 
     document.getElementById("totalDiesel").textContent = fmt(totalDiesel);

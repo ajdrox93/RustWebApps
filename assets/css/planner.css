@@ -50,6 +50,9 @@
 .machine-total{margin-top:12px;padding:10px;border-radius:10px;background:rgba(0,0,0,.18);display:grid;gap:5px;min-height:40px}
 .machine-total-title{color:var(--rust2);font-size:11px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
 .empty-run,.empty-state{color:var(--muted);font-size:13px;margin:0}
+.machine-runtime{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid rgba(113,77,56,.45)}
+.machine-runtime span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.machine-runtime strong{color:var(--rust2);white-space:nowrap}
 .quarry-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .quarry-stat{padding:12px 8px;border-radius:12px;background:rgba(0,0,0,.2);border:1px solid var(--line);text-align:center}
 .quarry-stat strong{display:block;font-size:21px;color:#fff}
