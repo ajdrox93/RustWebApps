@@ -5,7 +5,7 @@
     name: "Rust Web Apps",
     shortName: "Rust Apps",
     creator: "AJ",
-    version: "1.0.0",
+    version: "1.0.1",
     updated: "July 2026",
     repository: "https://github.com/ajdrox93/RustWebApps",
     issues: "https://github.com/ajdrox93/RustWebApps/issues",
