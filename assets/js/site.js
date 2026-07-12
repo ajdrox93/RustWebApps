@@ -5,10 +5,10 @@
     name: "Rust Web Apps",
     shortName: "Rust Apps",
     creator: "AJ",
-    version: "1.3.0",
+    version: "1.4.0",
     updated: "July 2026",
     repository: "https://github.com/ajdrox93/RustWebApps",
-    issues: "https://github.com/ajdrox93/RustWebApps/issues",
+    issues: "/feedback/",
     copyrightYear: 2026,
     navigation: [
       { id: "home", label: "Home", icon: "🏠", href: "/" },
@@ -19,7 +19,8 @@
       { id: "fireworks", label: "Fireworks Planner", icon: "🎆", href: "/fireworks/" },
       { id: "quarry", label: "Quarry Planner", icon: "⛏️", href: "/quarry/" },
       { id: "cooking", label: "Cooking Planner", icon: "🍳", href: "/cooking/" },
-      { id: "upkeep", label: "Upkeep Planner", icon: "📦", href: "/upkeep/" }
+      { id: "upkeep", label: "Upkeep Planner", icon: "📦", href: "/upkeep/" },
+      { id: "feedback", label: "Feedback", icon: "💬", href: "/feedback/" }
     ]
   });
 
@@ -60,7 +61,7 @@
         </div>
         <nav class="site-footer-links" aria-label="Footer navigation">
           ${SITE.navigation.map(item => `<a href="${item.href}">${item.label}</a>`).join("")}
-          <a href="${SITE.issues}">Report an Issue</a>
+          <a href="${SITE.issues}">Send Feedback</a>
           <a href="${SITE.repository}">GitHub</a>
         </nav>
         <div class="site-footer-meta">
@@ -76,7 +77,7 @@
       <div class="footer-wrap">
         <div><h3>${SITE.shortName}</h3><p>Community-built planning tools made to remove guesswork from Rust building, upkeep, cooking, electricity, and more.</p></div>
         <div><h3>Quick Links</h3><div class="footer-links">${SITE.navigation.map(item => `<a href="${item.href}">${item.label}</a>`).join("")}</div></div>
-        <div><h3>Help Improve ${SITE.shortName}</h3><p>Found a bug, incorrect cost, or feature idea?</p><div class="footer-links"><a href="${SITE.issues}">Open a GitHub Issue</a><a href="${SITE.repository}">View Source on GitHub</a></div></div>
+        <div><h3>Help Improve ${SITE.shortName}</h3><p>Found a bug, incorrect cost, or feature idea?</p><div class="footer-links"><a href="${SITE.issues}">Send Feedback</a><a href="${SITE.repository}">View Source on GitHub</a></div></div>
       </div>
       <div class="copyright">© ${SITE.copyrightYear} ${SITE.shortName} • Created by ${SITE.creator} • v${SITE.version} • Not affiliated with Facepunch Studios</div>`;
   }

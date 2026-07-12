@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="AJ">
+<title>Feedback | Rust Web Apps</title>
+<link rel="stylesheet" href="/assets/css/common.css">
+<link rel="stylesheet" href="/assets/css/rust-theme.css">
+<link rel="stylesheet" href="/assets/css/planner.css">
+<link rel="stylesheet" href="/assets/css/feedback.css?v=1.0.0">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+<link rel="stylesheet" href="/assets/css/ui-components.css?v=1.3.0">
+<script defer src="/assets/js/site.js?v=1.4.0"></script>
+<script defer src="/assets/js/feedback-config.js?v=1.0.0"></script>
+<script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+<script defer src="/assets/js/feedback.js?v=1.0.0"></script>
+</head>
+<body class="feedback-page" data-page="feedback">
+<div class="planner-shell">
+<section class="planner-panel planner-hero">
+<h1>💬 Feedback</h1>
+<p>Report a problem, correct inaccurate Rust data, or suggest an improvement without leaving Rust Web Apps.</p>
+</section>
+<div class="planner-layout">
+<aside class="planner-sidebar polished-nav">
+<div class="nav-brand"><div class="brand-mark">🦀</div><div><div class="brand-title">Rust Web Apps</div><div class="brand-subtitle">Planning &amp; Utilities</div></div></div>
+<div class="nav-section"><div class="section-label">🌐 SITE</div><nav class="nav-links site-links" data-site-nav="sidebar" aria-label="Site navigation"></nav></div>
+</aside>
+<main>
+<section class="planner-panel">
+<h2>What would you like to send?</h2>
+<div class="feedback-type-grid" role="group" aria-label="Feedback type">
+<button type="button" class="feedback-type" data-feedback-type="bug" aria-pressed="false"><span class="feedback-type-icon">🐞</span><strong>Report a Bug</strong><span>Something is broken, confusing, or not calculating correctly.</span></button>
+<button type="button" class="feedback-type" data-feedback-type="data" aria-pressed="false"><span class="feedback-type-icon">📊</span><strong>Correct Game Data</strong><span>A recipe, power value, quarry rate, or other Rust value is inaccurate.</span></button>
+<button type="button" class="feedback-type" data-feedback-type="feedback" aria-pressed="false"><span class="feedback-type-icon">💡</span><strong>Share Feedback</strong><span>Suggest a feature, workflow improvement, or new planner idea.</span></button>
+</div>
+<form class="feedback-form" id="feedbackForm" novalidate>
+<input type="hidden" id="reportType" name="reportType">
+<div class="feedback-fields">
+<div class="feedback-field"><label for="title">Short title</label><input id="title" name="title" maxlength="160" required placeholder="Summarize the report"></div>
+<div class="feedback-field"><label for="planner">Affected planner</label><select id="planner" name="planner" required><option value="">Choose a planner</option><option>Site-wide / Homepage</option><option>Building Planner</option><option>Systems Planner</option><option>Crafting Planner</option><option>Munitions Planner</option><option>Fireworks Planner</option><option>Quarry Planner</option><option>Cooking Planner</option><option>Upkeep Planner</option><option>Feedback Page</option><option>Other</option></select></div>
+<div class="feedback-field full"><label for="details">Additional details</label><span class="hint">Include anything else that would help reproduce, verify, or understand the request.</span><textarea id="details" name="details" maxlength="5000"></textarea></div>
+<div id="typeSpecificFields" class="feedback-fields feedback-field full"></div>
+<div class="feedback-field"><label for="contact">Contact name or email <span class="text-muted">(optional)</span></label><input id="contact" name="contact" maxlength="200" autocomplete="email" placeholder="Only if you want a reply"></div>
+<div class="feedback-field"><label for="attachmentLink">Screenshot or file link <span class="text-muted">(optional)</span></label><input id="attachmentLink" name="attachmentLink" maxlength="500" type="url" placeholder="Google Drive, Imgur, etc."></div>
+<div class="feedback-honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+</div>
+<div id="configWarning" class="config-warning" hidden>Cloudflare Turnstile still needs to be configured before this form can publish reports.</div>
+<div class="turnstile-wrap"><div id="turnstileWidget"></div></div>
+<div class="feedback-submit-row"><button class="btn btn-primary" id="submitFeedback" type="submit">Submit Feedback</button><span class="small">Submitting creates a public GitHub issue immediately.</span></div>
+<div id="feedbackStatus" class="feedback-status" hidden role="status" aria-live="polite"></div>
+</form>
+</section>
+</main>
+<aside class="planner-summary">
+<section><h2>What happens next?</h2><ol class="feedback-info-list"><li>Your report is checked by Cloudflare Turnstile.</li><li>The Worker validates and formats the submission.</li><li>A public issue is created in the Rust Web Apps repository.</li><li>You stay on this page and receive a confirmation.</li></ol></section>
+<section><h2>Before submitting</h2><p class="feedback-note">Please avoid including passwords, private server details, personal information, or anything you do not want visible publicly.</p></section>
+<section><h2>Prefer GitHub?</h2><p class="small">GitHub users can still browse existing reports or use the repository directly.</p><a class="btn btn-info" href="https://github.com/ajdrox93/RustWebApps/issues" target="_blank" rel="noopener">View GitHub Issues</a></section>
+</aside>
+</div>
+<footer class="site-footer" data-site-footer="standard"></footer>
+</div>
+</body>
+</html>

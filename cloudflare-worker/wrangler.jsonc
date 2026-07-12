@@ -1,0 +1,22 @@
+/**
+ * Rust Web Apps feedback API
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "rust-web-apps-api",
+	"main": "src/index.js",
+	"compatibility_date": "2026-07-11",
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true,
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	
+	"vars": {
+    "GITHUB_OWNER": "ajdrox93",
+    "GITHUB_REPO": "RustWebApps",
+    "ALLOWED_ORIGINS": "https://rust-apps.com,https://www.rust-apps.com"
+  }
+}
