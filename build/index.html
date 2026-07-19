@@ -382,7 +382,7 @@ const fortifyTextBuildMap={
   stairs_u:'stairsU',stairs_l:'stairsL',ramp:'ramp'
 };
 const fortifyTextSystemsMap={
-  generator_small:'smallGenerator',small_generator:'smallGenerator',branch:'electricalBranch',electrical_branch:'electricalBranch',
+  generator_small:'testGenerator',small_generator:'testGenerator',branch:'electricalBranch',electrical_branch:'electricalBranch',
   root_combiner:'rootCombiner',electrical_combiner:'rootCombiner',memory_cell:'memoryCell',button:'button',
   ceiling_light:'ceilingLight',industrial_wall_light:'industrialWallLight',powered_water_purifier:'poweredWaterPurifier',
   fluid_switch_pump:'fluidSwitch',fluid_switch:'fluidSwitch',water_pump:'waterPump',sprinkler:'sprinkler',
@@ -392,7 +392,7 @@ const fortifyTextSystemsMap={
   modular_car_lift:'modularCarLift',cctv_camera:'ptzCamera',storage_monitor:'storageMonitor',elevator:'elevator',
   solar_panel:'solarPanel',wind_turbine:'windTurbine',battery_small:'smallBattery',battery_medium:'mediumBattery',battery_large:'largeBattery'
 };
-function splitFortifySections(text){return text.split(/(?<!\\);/).map(x=>x.replace(/\\;/g,';').trim()).filter(Boolean);}
+function splitFortifySections(text){return text.split(/\\?;/).map(x=>x.trim()).filter(Boolean);}
 function parseFortifyText(text){
   const buildCounts={},systemCounts={},unknown=new Map();let total=0;
   for(const section of splitFortifySections(text)){
