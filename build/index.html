@@ -39,12 +39,12 @@
 <div class="tool-group"><label>Upkeep days:</label><input class="miniInput" id="upkeepDays" min="1" oninput="calculate()" step="1" type="number" value="7"/></div>
 <div class="tool-group"><label>Storage:</label><select id="storageBoxType" onchange="calculate()"><option selected="" value="large">Large Boxes</option><option value="small">Small Boxes</option></select></div>
 <input class="search" id="filter" oninput="renderAll()" placeholder="Search wall, foundation, garage door, window, TC..."/>
-<button class="primary btn btn-primary" onclick="calculate()">Calculate</button><button class="btn btn-import" onclick="document.getElementById('fortifyFile').click()">Import Fortify</button><input accept=".fortify,.json,.xml,.txt" hidden="" id="fortifyFile" onchange="importFortifyFile(this.files[0])" type="file"/><button class="btn btn-success" onclick="saveBuild()">Save</button><button class="btn btn-secondary" onclick="loadBuild()">Load</button><button class="btn btn-info" onclick="copyExport()">Copy Export</button><button class="btn btn-info" onclick="window.print()">Print/PDF</button><button class="danger btn btn-danger" onclick="clearAll()">Clear</button>
+<button class="primary btn btn-primary" onclick="calculate()">Calculate</button><button class="btn btn-import" onclick="document.getElementById('fortifyFile').click()">Import Building File</button><input accept=".fortify,.json,.txt" hidden="" id="fortifyFile" onchange="importBuildingFile(this.files[0])" type="file"/><button class="btn btn-success" onclick="saveBuild()">Save</button><button class="btn btn-secondary" onclick="loadBuild()">Load</button><button class="btn btn-info" onclick="copyExport()">Copy Export</button><button class="btn btn-info" onclick="window.print()">Print/PDF</button><button class="danger btn btn-danger" onclick="clearAll()">Clear</button>
 </div>
 <div class="preset-toggle"><button aria-expanded="false" class="btn btn-secondary" id="presetToggle" onclick="togglePresets()">▸ Show Presets</button><span class="small">Quick-fill common starter and base layouts.</span></div>
 <div class="preset-panel" id="presetPanel"><div class="preset-buttons" id="presetButtons"></div></div>
 <div class="rectangle-toggle"><button aria-expanded="false" class="btn btn-secondary" id="rectangleToggle" onclick="toggleRectangleQuickFill()">▸ Rectangle Quick Fill</button><span class="small">Auto-fill square foundations, exterior walls, and floor/ceiling pieces.</span></div>
-<div class="rectangle-panel" id="rectanglePanel">
+<div class="rectangle-panel" id="rectanglePanel" hidden style="display:none">
 <div class="rectangle-fields">
 <label>Length <input class="miniInput" id="rectangleLength" min="1" step="1" type="number" value="2" oninput="updateRectanglePreview()"/></label>
 <label>Width <input class="miniInput" id="rectangleWidth" min="1" step="1" type="number" value="2" oninput="updateRectanglePreview()"/></label>
@@ -59,10 +59,16 @@
 </section>
 <div id="sections"></div>
 <section class="card" id="importSection">
-<h2>🏗️ Import a Fortify Build</h2>
-<p class="small">Upload a Fortify save/export and the planner will fill supported building-piece quantities automatically. Your file stays in your browser and is never uploaded to a server.</p>
-<div class="import-actions"><button class="primary btn btn-import btn-primary" onclick="document.getElementById('fortifyFile').click()">Choose Fortify File</button><button class="btn btn-danger" onclick="clearImportReport()">Clear Report</button></div>
-<div class="import-report small" id="fortifyReport">No Fortify file imported yet.</div>
+<h2>⬆️ Import a Building File</h2>
+<p class="small">Upload a Fortify <code>.txt</code> export or CopyPaste <code>.json</code> file. The format is detected automatically and supported items can fill both planners. Your file stays in your browser.</p>
+<div class="import-options">
+<label><input id="importBuildPlanner" type="checkbox" checked/> Build Planner</label>
+<label><input id="importSystemsPlanner" type="checkbox" checked/> Systems Planner</label>
+<label><input name="importMode" type="radio" value="replace" checked/> Replace existing quantities</label>
+<label><input name="importMode" type="radio" value="add"/> Add to existing quantities</label>
+</div>
+<div class="import-actions"><button class="primary btn btn-import btn-primary" onclick="document.getElementById('fortifyFile').click()">Choose Building File</button><button class="btn btn-danger" onclick="clearImportReport()">Clear Report</button></div>
+<div class="import-report small" id="fortifyReport">No building file imported yet.</div>
 </section>
 <section class="card" id="workbenchSection">
 <h2>🛠 Workbench Tiers</h2>
@@ -111,7 +117,7 @@ const navGroups=[
   {id:'section_windows',label:'Windows',icon:'🪟'},
   {id:'section_core',label:'Deployables',icon:'📦'},
   {id:'section_compound',label:'Compound',icon:'🧱'},
-  {id:'importSection',label:'Fortify Import',icon:'⬆️'},
+  {id:'importSection',label:'Building Import',icon:'⬆️'},
   {id:'shoppingSection',label:'Shopping List',icon:'🛒'},
   {id:'summarySection',label:'Summary',icon:'📌'},
   {id:'workbenchSection',label:'Workbench',icon:'🛠'},
@@ -131,7 +137,7 @@ function scrollToSection(id){const el=document.getElementById(id);if(el)el.scrol
 function renderNav(){const nav=document.getElementById('navLinks');if(!nav)return;nav.innerHTML='';navGroups.forEach(g=>{const a=document.createElement('button');a.className='nav-link planner-link';a.innerHTML=`<span class="nav-icon">${g.icon}</span><span>${g.label}</span>`;a.onclick=()=>scrollToSection(g.id);nav.appendChild(a);});}
 function togglePresets(){const panel=document.getElementById('presetPanel');const btn=document.getElementById('presetToggle');if(!panel||!btn)return;const open=!panel.classList.contains('open');panel.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'▾ Hide Presets':'▸ Show Presets';}
 function renderPresets(){const holder=document.getElementById('presetButtons');if(!holder)return;holder.innerHTML='';Object.keys(presets).forEach(name=>{const b=document.createElement('button');b.textContent=name;b.onclick=()=>addPreset(name);holder.appendChild(b);});}
-function toggleRectangleQuickFill(){const panel=document.getElementById('rectanglePanel');const btn=document.getElementById('rectangleToggle');if(!panel||!btn)return;const open=!panel.classList.contains('open');panel.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'▾ Hide Rectangle Quick Fill':'▸ Rectangle Quick Fill';if(open)updateRectanglePreview();}
+function toggleRectangleQuickFill(){const panel=document.getElementById('rectanglePanel');const btn=document.getElementById('rectangleToggle');if(!panel||!btn)return;const open=panel.hidden;panel.hidden=!open;panel.classList.toggle('open',open);panel.style.display=open?'block':'none';btn.setAttribute('aria-expanded',open?'true':'false');btn.textContent=open?'▾ Hide Rectangle Quick Fill':'▸ Rectangle Quick Fill';if(open)updateRectanglePreview();}
 function rectangleDimensions(){const length=Number(document.getElementById('rectangleLength')?.value);const width=Number(document.getElementById('rectangleWidth')?.value);const height=Number(document.getElementById('rectangleHeight')?.value);if(!Number.isInteger(length)||!Number.isInteger(width)||!Number.isInteger(height)||length<1||width<1||height<1)return null;return {length,width,height};}
 function rectangleCounts(dim){const footprint=dim.length*dim.width;return {foundation:footprint,wall:2*(dim.length+dim.width)*dim.height,floor:footprint*dim.height};}
 function updateRectanglePreview(){const holder=document.getElementById('rectanglePreview');if(!holder)return;const dim=rectangleDimensions();if(!dim){holder.innerHTML='<span class="bad">Enter whole numbers of 1 or greater for length, width, and height.</span>';return;}const counts=rectangleCounts(dim);holder.innerHTML=`Preview: <b>${fmt(counts.foundation)}</b> foundations • <b>${fmt(counts.wall)}</b> exterior walls • <b>${fmt(counts.floor)}</b> floor/ceiling pieces`; }
@@ -362,98 +368,104 @@ const fortifySystemsPrefabMap={
 
 const fortifyGradeMap={1:'wood',2:'stone',3:'metal',4:'hqm'};
 function clearImportReport(){
-  document.getElementById('fortifyReport').textContent='No Fortify file imported yet.';
+  document.getElementById('fortifyReport').textContent='No building file imported yet.';
 }
 function summarizeUnmappedPrefabs(unmapped){
-  return [...unmapped.entries()]
-    .sort((a,b)=>b[1]-a[1])
-    .slice(0,12)
-    .map(([name,count])=>`${count} × ${name.split('/').pop().replace('.prefab','')}`)
-    .join(', ');
+  return [...unmapped.entries()].sort((a,b)=>b[1]-a[1]).slice(0,12)
+    .map(([name,count])=>`${count} × ${name.split('/').pop().replace('.prefab','')}`).join(', ');
 }
-async function importFortifyFile(file){
-  const report=document.getElementById('fortifyReport');
-  if(!file){return;}
-  report.textContent='Reading Fortify file…';
-  try{
-    const parsed=JSON.parse(await file.text());
-    if(!parsed || !Array.isArray(parsed.entities)){
-      throw new Error('This JSON does not contain Fortify’s expected entities array.');
-    }
-    const counts={};
-    const systemCounts={};
-    const grades={};
-    const unmapped=new Map();
-    let matchedEntities=0;
-    let matchedSystemEntities=0;
-    for(const entity of parsed.entities){
-      const prefab=String(entity?.prefabname||'').toLowerCase();
-      const key=fortifyPrefabMap[prefab];
-      const systemKey=fortifySystemsPrefabMap[prefab];
-      if(key){
-        counts[key]=(counts[key]||0)+1;
-        matchedEntities++;
-        if(entity.grade!=null && fortifyGradeMap[Number(entity.grade)]){
-          const tier=fortifyGradeMap[Number(entity.grade)];
-          grades[tier]=(grades[tier]||0)+1;
-        }
-      }
-      if(systemKey){
-        systemCounts[systemKey]=(systemCounts[systemKey]||0)+1;
-        matchedSystemEntities++;
-      }
-      if(!key && !systemKey && prefab){
-        unmapped.set(prefab,(unmapped.get(prefab)||0)+1);
-      }
-    }
-    if(!matchedEntities){
-      throw new Error('No supported building entities were recognized in this Fortify save.');
-    }
-    for(const piece of pieces){
-      const qty=counts[piece.key]||0;
-      localStorage.setItem(`tmp_${piece.key}`,qty);
-    }
-    const previousSystems=JSON.parse(localStorage.getItem('rustFortifySystemsImportV1')||'{}');
-    const previousKeys=Array.isArray(previousSystems.keys)?previousSystems.keys:[];
-    const currentKeys=Object.keys(systemCounts);
-    for(const key of new Set([...previousKeys,...currentKeys])){
-      localStorage.setItem(`tmp_${key}`,systemCounts[key]||0);
-    }
-    localStorage.setItem('rustFortifySystemsImportV1',JSON.stringify({
-      fileName:file.name,
-      importedAt:new Date().toISOString(),
-      totalEntities:parsed.entities.length,
-      matchedEntities:matchedSystemEntities,
-      counts:systemCounts,
-      keys:currentKeys
-    }));
-    const gradeOrder=['wood','stone','metal','hqm'];
-    const dominantGrade=gradeOrder
-      .map(tier=>[tier,grades[tier]||0])
-      .sort((a,b)=>b[1]-a[1])[0];
-    if(dominantGrade && dominantGrade[1]>0){
-      document.getElementById('tier').value=dominantGrade[0];
-    }
-    renderAll();
-    calculate();
-    const importedKinds=Object.values(counts).filter(Boolean).length;
-    const gradeSummary=gradeOrder.filter(g=>grades[g]).map(g=>`${grades[g]} ${g}`).join(', ');
-    const omitted=parsed.entities.length-matchedEntities;
-    let message=`Imported ${matchedEntities.toLocaleString()} supported building entities across ${importedKinds} item types from ${parsed.entities.length.toLocaleString()} total Fortify entities.`;
-    const systemKinds=Object.values(systemCounts).filter(Boolean).length;
-    if(matchedSystemEntities>0)message+=` Also transferred ${matchedSystemEntities.toLocaleString()} systems entities across ${systemKinds} component types to the Systems Planner.`;
-    if(gradeSummary)message+=` Structural grades found: ${gradeSummary}. The calculator uses the dominant grade (${document.getElementById('tier').selectedOptions[0].text}) because its structure upgrade selector is global.`;
-    if(omitted>0)message+=` ${omitted.toLocaleString()} non-building or unsupported entities were skipped.`;
-    const unmappedSummary=summarizeUnmappedPrefabs(unmapped);
-    if(unmappedSummary)message+=` Most common skipped prefabs: ${unmappedSummary}.`;
-    report.textContent=message;
-  }catch(err){
-    report.textContent=`Import failed: ${err.message||String(err)}`;
-  }finally{
-    const input=document.getElementById('fortifyFile');
-    if(input)input.value='';
+const fortifyTextBuildMap={
+  foundation:'foundation',foundation_triangle:'triangleFoundation',triangle_foundation:'triangleFoundation',
+  floor:'floor',floor_triangle:'triangleFloor',triangle_floor:'triangleFloor',roof:'roof',
+  wall:'wall',wall_half:'halfWall',wall_low:'lowWall',wall_window:'windowWall',
+  wall_doorway:'doorway',wall_frame:'wallFrame',floor_frame:'floorFrame',
+  stairs_u:'stairsU',stairs_l:'stairsL',ramp:'ramp'
+};
+const fortifyTextSystemsMap={
+  generator_small:'smallGenerator',small_generator:'smallGenerator',branch:'electricalBranch',electrical_branch:'electricalBranch',
+  root_combiner:'rootCombiner',electrical_combiner:'rootCombiner',memory_cell:'memoryCell',button:'button',
+  ceiling_light:'ceilingLight',industrial_wall_light:'industrialWallLight',powered_water_purifier:'poweredWaterPurifier',
+  fluid_switch_pump:'fluidSwitch',fluid_switch:'fluidSwitch',water_pump:'waterPump',sprinkler:'sprinkler',
+  planter_large:'largePlanter',large_planter:'largePlanter',composter:'composter',water_barrel:'waterBarrel',
+  industrial_conveyor:'industrialConveyor',industrial_splitter:'industrialSplitter',industrial_combiner:'industrialCombiner',
+  storage_adaptor:'storageAdapter',storage_adapter:'storageAdapter',electric_furnace:'electricFurnace',
+  modular_car_lift:'modularCarLift',cctv_camera:'ptzCamera',storage_monitor:'storageMonitor',elevator:'elevator',
+  solar_panel:'solarPanel',wind_turbine:'windTurbine',battery_small:'smallBattery',battery_medium:'mediumBattery',battery_large:'largeBattery'
+};
+function splitFortifySections(text){return text.split(/(?<!\\);/).map(x=>x.replace(/\\;/g,';').trim()).filter(Boolean);}
+function parseFortifyText(text){
+  const buildCounts={},systemCounts={},unknown=new Map();let total=0;
+  for(const section of splitFortifySections(text)){
+    const comma=section.indexOf(',');
+    if(comma<0)continue;
+    const name=section.slice(0,comma).trim().toLowerCase();
+    const entries=section.slice(comma+1).split(',').filter(Boolean);
+    const count=entries.length; if(!count)continue; total+=count;
+    const b=fortifyTextBuildMap[name], sy=fortifyTextSystemsMap[name];
+    if(b)buildCounts[b]=(buildCounts[b]||0)+count;
+    else if(sy)systemCounts[sy]=(systemCounts[sy]||0)+count;
+    else unknown.set(name,(unknown.get(name)||0)+count);
+  }
+  return {format:'Fortify text',buildCounts,systemCounts,total,unknown,grades:{}};
+}
+function parseCopyPasteJson(parsed){
+  if(!parsed||!Array.isArray(parsed.entities))throw new Error('The JSON file does not contain an entities array.');
+  const buildCounts={},systemCounts={},grades={},unknown=new Map();let buildMatched=0,systemMatched=0;
+  for(const entity of parsed.entities){
+    const prefab=String(entity?.prefabname||'').toLowerCase();
+    const b=fortifyPrefabMap[prefab], sy=fortifySystemsPrefabMap[prefab];
+    if(b){buildCounts[b]=(buildCounts[b]||0)+1;buildMatched++;if(entity.grade!=null&&fortifyGradeMap[Number(entity.grade)]){const g=fortifyGradeMap[Number(entity.grade)];grades[g]=(grades[g]||0)+1;}}
+    if(sy){systemCounts[sy]=(systemCounts[sy]||0)+1;systemMatched++;}
+    if(!b&&!sy&&prefab)unknown.set(prefab,(unknown.get(prefab)||0)+1);
+  }
+  return {format:'CopyPaste JSON',buildCounts,systemCounts,total:parsed.entities.length,unknown,grades,buildMatched,systemMatched};
+}
+function importMode(){return document.querySelector('input[name="importMode"]:checked')?.value||'replace';}
+function applyImportedCounts(counts,availableKeys,mode){
+  const keys=new Set(availableKeys);
+  if(mode==='replace')for(const key of keys)localStorage.setItem(`tmp_${key}`,'0');
+  for(const [key,value] of Object.entries(counts)){
+    const next=mode==='add'?qtyOf(key)+value:value;
+    localStorage.setItem(`tmp_${key}`,String(next));
   }
 }
+function summaryLines(title,counts){
+  const rows=Object.entries(counts).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]);
+  return rows.length?[title,...rows.slice(0,18).map(([k,n])=>`  • ${n.toLocaleString()} × ${pieces.find(p=>p.key===k)?.name||k}`)]:[`${title}: none recognized`];
+}
+async function importBuildingFile(file){
+  const report=document.getElementById('fortifyReport');if(!file)return;report.textContent='Reading building file…';
+  try{
+    const text=await file.text();const trimmed=text.trim();
+    const result=trimmed.startsWith('{')||trimmed.startsWith('[')?parseCopyPasteJson(JSON.parse(trimmed)):parseFortifyText(trimmed);
+    const buildTotal=Object.values(result.buildCounts).reduce((a,b)=>a+b,0);
+    const systemsTotal=Object.values(result.systemCounts).reduce((a,b)=>a+b,0);
+    if(!buildTotal&&!systemsTotal)throw new Error('No supported Build Planner or Systems Planner items were recognized.');
+    const doBuild=document.getElementById('importBuildPlanner').checked;
+    const doSystems=document.getElementById('importSystemsPlanner').checked;
+    if(!doBuild&&!doSystems)throw new Error('Select at least one import destination.');
+    const preview=[`${result.format} detected: ${file.name}`,'',...(doBuild?summaryLines('Build Planner',result.buildCounts):['Build Planner: skipped by option']),'',...(doSystems?summaryLines('Systems Planner',result.systemCounts):['Systems Planner: skipped by option']),'',`Mode: ${importMode()==='add'?'add to existing':'replace existing'}`,`Unrecognized/skipped: ${Math.max(0,result.total-buildTotal-systemsTotal).toLocaleString()}`].join('\n');
+    if(!confirm(`${preview}\n\nApply this import?`))throw new Error('Import cancelled.');
+    if(doBuild){applyImportedCounts(result.buildCounts,pieces.map(p=>p.key),importMode());const order=['wood','stone','metal','hqm'];const dominant=order.map(g=>[g,result.grades[g]||0]).sort((a,b)=>b[1]-a[1])[0];if(dominant?.[1])document.getElementById('tier').value=dominant[0];}
+    if(doSystems){
+      let previous={};try{previous=JSON.parse(localStorage.getItem('rustFortifySystemsImportV1')||'{}')}catch(e){}
+      const keys=[...new Set([...(Array.isArray(previous.keys)?previous.keys:[]),...Object.keys(result.systemCounts)])];
+      if(importMode()==='replace')for(const key of keys)localStorage.setItem(`tmp_${key}`,'0');
+      for(const [key,value] of Object.entries(result.systemCounts)){const old=Math.max(0,Number(localStorage.getItem(`tmp_${key}`)||0));localStorage.setItem(`tmp_${key}`,String(importMode()==='add'?old+value:value));}
+      localStorage.setItem('rustFortifySystemsImportV1',JSON.stringify({fileName:file.name,format:result.format,importedAt:new Date().toISOString(),totalEntities:result.total,matchedEntities:systemsTotal,counts:result.systemCounts,keys:Object.keys(result.systemCounts)}));
+    }
+    renderAll();calculate();
+    const skipped=Math.max(0,result.total-buildTotal-systemsTotal);let msg=`${result.format} detected. `;
+    if(doBuild)msg+=`Imported ${buildTotal.toLocaleString()} building pieces across ${Object.keys(result.buildCounts).length} types. `;
+    if(doSystems)msg+=`Transferred ${systemsTotal.toLocaleString()} systems items across ${Object.keys(result.systemCounts).length} types to Systems Planner. `;
+    if(skipped)msg+=`${skipped.toLocaleString()} unsupported or unrelated entities were skipped. `;
+    const unmapped=summarizeUnmappedPrefabs(result.unknown);if(unmapped)msg+=`Common skipped items: ${unmapped}.`;
+    report.textContent=msg;
+  }catch(err){report.textContent=err.message==='Import cancelled.'?'Import cancelled.':`Import failed: ${err.message||String(err)}`;}
+  finally{const input=document.getElementById('fortifyFile');if(input)input.value='';}
+}
+// Backward-compatible name for older cached buttons.
+const importFortifyFile=importBuildingFile;
 
 async function initializeBuildingCalculator(){try{const response=await fetch('../assets/data/building.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);const data=await response.json();categories=data.categories||[];pieces=data.pieces||[];document.getElementById('tier').addEventListener('change',calculate);wireAutoClearInputs();renderAll();updateRectanglePreview();calculate();}catch(err){document.getElementById('sections').innerHTML=`<section class="card"><h2>Building data could not load</h2><p class="bad">${escapeHtml(err.message||String(err))}</p><p class="small">Serve the project through GitHub Pages or a local web server; browsers block JSON fetches when HTML is opened directly with file://.</p></section>`;}}initializeBuildingCalculator();
 </script>
