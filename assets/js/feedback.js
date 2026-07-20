@@ -70,7 +70,7 @@
   form.addEventListener("submit", async event => {
     event.preventDefault();
     status.hidden = true;
-    if (!config.endpoint || config.endpoint.includes("REPLACE_WITH")) return showStatus("The feedback endpoint has not been configured yet.", true);
+    if (!config.endpoint || config.endpoint.includes("REPLACE_WITH")) return showStatus("The feedback form is temporarily unavailable. Please use GitHub Issues instead.", true);
     if (!form.reportValidity()) return;
 
     const data = Object.fromEntries(new FormData(form).entries());

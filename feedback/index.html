@@ -46,7 +46,7 @@
 <div class="feedback-field"><label for="attachmentLink">Screenshot or file link <span class="text-muted">(optional)</span></label><input id="attachmentLink" name="attachmentLink" maxlength="500" type="url" placeholder="Google Drive, Imgur, etc."></div>
 <div class="feedback-honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
 </div>
-<div id="configWarning" class="config-warning" hidden>Cloudflare Turnstile still needs to be configured before this form can publish reports.</div>
+<div id="configWarning" class="config-warning" hidden>The feedback form is temporarily unavailable. Please use GitHub Issues instead.</div>
 <div class="turnstile-wrap"><div id="turnstileWidget"></div></div>
 <div class="feedback-submit-row"><button class="btn btn-primary" id="submitFeedback" type="submit">Submit Feedback</button><span class="small">Submitting creates a public GitHub issue immediately.</span></div>
 <div id="feedbackStatus" class="feedback-status" hidden role="status" aria-live="polite"></div>
@@ -54,7 +54,7 @@
 </section>
 </main>
 <aside class="planner-summary">
-<section><h2>What happens next?</h2><ol class="feedback-info-list"><li>Your report is checked by Cloudflare Turnstile.</li><li>The Worker validates and formats the submission.</li><li>A public issue is created in the Rust Web Apps repository.</li><li>You stay on this page and receive a confirmation.</li></ol></section>
+<section><h2>What happens next?</h2><ol class="feedback-info-list"><li>Your submission is reviewed for completeness.</li><li>A public issue is created in the Rust Web Apps repository.</li><li>You receive a confirmation when the report is submitted.</li></ol></section>
 <section><h2>Before submitting</h2><p class="feedback-note">Please avoid including passwords, private server details, personal information, or anything you do not want visible publicly.</p></section>
 <section><h2>Prefer GitHub?</h2><p class="small">GitHub users can still browse existing reports or use the repository directly.</p><a class="btn btn-info" href="https://github.com/ajdrox93/RustWebApps/issues" target="_blank" rel="noopener">View GitHub Issues</a></section>
 </aside>
