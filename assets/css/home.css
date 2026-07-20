@@ -211,3 +211,8 @@ body{
   .home-page .card{min-height:0;padding:16px}
   .home-page .card p{font-size:14px}
 }
+
+/* Latest release summary populated from changelog.json */
+.latest-release-panel{margin-top:28px;padding:22px 24px;border:1px solid #70442e;border-radius:18px;background:linear-gradient(135deg,rgba(61,39,27,.98),rgba(25,20,17,.98));box-shadow:0 14px 34px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:space-between;gap:22px}
+.latest-release-copy{min-width:0}.latest-release-kicker{display:inline-block;margin-bottom:7px;color:#f0a161;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.latest-release-panel h2{margin:0 0 8px;color:#ffe1bd;font-size:clamp(22px,3vw,30px)}.latest-release-panel p{margin:0;color:#c7ad92;line-height:1.55}.latest-release-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px;color:#b99d7f;font-size:13px}.latest-release-meta strong{color:#f4ba82}.latest-release-link{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 16px;border:1px solid #d56b3d;border-radius:11px;background:linear-gradient(135deg,#b7562c,#81361f);color:#fff4e6;font-weight:850;text-decoration:none}.latest-release-link:hover{filter:brightness(1.08)}
+@media(max-width:720px){.latest-release-panel{align-items:stretch;flex-direction:column}.latest-release-link{width:100%}}

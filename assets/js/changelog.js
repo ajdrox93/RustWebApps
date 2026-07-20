@@ -12,7 +12,12 @@
     const date = new Date(`${value}T00:00:00`);
     return Number.isNaN(date.getTime()) ? text(value) : new Intl.DateTimeFormat(undefined,{year:"numeric",month:"long",day:"numeric"}).format(date);
   };
-  const byNewest = (a,b) => text(b.date).localeCompare(text(a.date)) || text(b.version).localeCompare(text(a.version),undefined,{numeric:true});
+  const versionParts = value => text(value).replace(/^v/i, "").split(/[.+-]/).slice(0,3).map(part => Number(part) || 0);
+  const byNewest = (a,b) => {
+    const av=versionParts(a.version), bv=versionParts(b.version);
+    for(let i=0;i<3;i+=1) if(av[i]!==bv[i]) return bv[i]-av[i];
+    return text(b.date).localeCompare(text(a.date));
+  };
   const published = item => text(item.status).toLowerCase() === "published";
 
   function groupedChanges(release, selected) {
@@ -35,7 +40,7 @@
 
     const head = document.createElement("div"); head.className = "release-head";
     const main = document.createElement("div");
-    const version = document.createElement("span"); version.className = "release-version"; version.textContent = `Version ${text(release.version)}`;
+    const version = document.createElement("span"); version.className = "release-version"; version.textContent = `Version ${text(release.version)}${release.featured === true ? " • Featured" : ""}`;
     const title = document.createElement("h2"); title.textContent = text(release.title) || `Version ${text(release.version)}`;
     main.append(version,title);
     if (text(release.summary).trim()) { const summary = document.createElement("p"); summary.className="release-summary"; summary.textContent=text(release.summary); main.append(summary); }

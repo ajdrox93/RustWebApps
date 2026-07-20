@@ -21,3 +21,7 @@
 .empty-state,.error-state{padding:26px;border:1px dashed var(--border2);border-radius:15px;background:rgba(0,0,0,.16);color:var(--muted);text-align:center;line-height:1.6}.error-state{border-color:#7b382a;color:#ffd3c6}
 .info-note{margin-top:18px;padding:14px 16px;border:1px dashed var(--border);border-radius:13px;background:rgba(0,0,0,.14);color:var(--muted);font-size:13px;line-height:1.55}
 @media(max-width:720px){.info-shell{width:min(100% - 24px,1120px);padding-top:14px}.info-grid{grid-template-columns:1fr}.info-card.full{grid-column:auto}.info-title{padding:22px 19px}.release-head{display:grid;gap:10px}.release-date{white-space:normal}.info-topbar{align-items:flex-start}.changelog-filter{width:100%}}
+
+/* Current release details populated from changelog.json */
+.current-release-card{display:flex;align-items:center;justify-content:space-between;gap:22px;border-color:rgba(224,122,63,.55);background:linear-gradient(135deg,rgba(66,41,27,.97),rgba(25,20,16,.97))}.current-release-label{display:block;margin-bottom:7px;color:var(--rust2);font-size:12px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}.current-release-card h2{margin:0 0 5px;font-size:27px}.current-release-card p{margin:0}.current-release-date{flex:0 0 auto;padding:10px 13px;border:1px solid var(--border2);border-radius:11px;background:rgba(0,0,0,.18);color:var(--muted);font-size:13px}
+@media(max-width:720px){.current-release-card{align-items:flex-start;flex-direction:column}.current-release-date{width:100%}}
