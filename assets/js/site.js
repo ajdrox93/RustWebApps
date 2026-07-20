@@ -20,7 +20,9 @@
       { id: "quarry", label: "Quarry Planner", icon: "⛏️", href: "/quarry/" },
       { id: "cooking", label: "Cooking Planner", icon: "🍳", href: "/cooking/" },
       { id: "upkeep", label: "Upkeep Planner", icon: "📦", href: "/upkeep/" },
-      { id: "feedback", label: "Feedback", icon: "💬", href: "/feedback/" }
+      { id: "feedback", label: "Feedback", icon: "💬", href: "/feedback/" },
+      { id: "changelog", label: "Changelog", icon: "📋", href: "/changelog/" },
+      { id: "about", label: "About", icon: "ℹ️", href: "/about/" }
     ]
   });
 

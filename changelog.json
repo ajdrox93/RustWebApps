@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "site_name": "Rust Web Apps",
+  "updated_at": "2026-07-19T23:59:00Z",
+  "releases": [
+    {
+      "id": "1.4.0",
+      "version": "1.4.0",
+      "date": "2026-07-19",
+      "title": "Building Import and Site Information",
+      "summary": "A faster workflow for importing complete builds and two new information pages.",
+      "status": "Published",
+      "created_at": "2026-07-19T23:59:00Z",
+      "updated_at": "2026-07-19T23:59:00Z",
+      "changes": [
+        {
+          "category": "Added",
+          "text": "Added automatic Fortify text and CopyPaste JSON format detection to the Building Planner importer."
+        },
+        {
+          "category": "Added",
+          "text": "Added combined importing that routes structures to Building Planner and recognized electrical, industrial, farming, water, and lighting items to Systems Planner."
+        },
+        {
+          "category": "Added",
+          "text": "Added an import preview with planner destinations and add-or-replace options."
+        },
+        {
+          "category": "Added",
+          "text": "Added Rectangle Quick Fill for quickly estimating rectangular structures."
+        },
+        {
+          "category": "Added",
+          "text": "Added About and Changelog pages."
+        },
+        {
+          "category": "Fixed",
+          "text": "Fixed Fortify system sections being combined and incorrectly counted as Electrical Branches."
+        },
+        {
+          "category": "Fixed",
+          "text": "Fixed the Rectangle Quick Fill show and hide control."
+        }
+      ]
+    }
+  ]
+}

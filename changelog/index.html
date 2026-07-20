@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Changelog | Rust Web Apps</title>
+<meta name="description" content="See additions, improvements, fixes, and data updates made to Rust Web Apps."/>
+<link href="/assets/css/common.css" rel="stylesheet"/>
+<link href="/assets/css/rust-theme.css" rel="stylesheet"/>
+<link href="/assets/css/info-pages.css?v=1.0.0" rel="stylesheet"/>
+<link href="/assets/css/mobile.css" rel="stylesheet"/>
+<script defer src="/assets/js/site.js?v=1.4.0"></script>
+<script defer src="/assets/js/changelog.js?v=1.0.0"></script>
+</head>
+<body class="info-page" data-page="changelog">
+<main class="info-shell">
+<div class="info-topbar"><a class="info-home" href="/">← Back to Rust Apps</a></div>
+<header class="info-title">
+<span class="badge">📋 Project updates</span>
+<h1>Changelog</h1>
+<p>New tools, workflow improvements, fixes, and Rust data corrections. This page reads directly from the <code>changelog.json</code> file maintained by Rust Web Apps Manager.</p>
+</header>
+<div class="changelog-toolbar">
+<div id="changelogStatus" class="changelog-status" role="status" aria-live="polite">Loading updates…</div>
+<label><span class="sr-only">Filter changelog by category</span><select id="changelogFilter" class="changelog-filter"><option value="all">All categories</option></select></label>
+</div>
+<section id="releaseList" class="release-list" aria-label="Published releases"></section>
+<noscript><div class="error-state">JavaScript is required to load the changelog.</div></noscript>
+<div class="info-note">Only entries marked <strong>Published</strong> in Rust Web Apps Manager appear here. Draft and archived entries stay hidden from visitors.</div>
+<footer class="site-footer" data-site-footer="standard"></footer>
+</main>
+</body>
+</html>
