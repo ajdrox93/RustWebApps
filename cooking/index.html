@@ -130,6 +130,16 @@ function getStackSize(item) {
   const mult = readFloat($('stackMultiplier').value, 1) || 1;
   return Math.max(1, Math.round((DEFAULT_STACKS[item] || 20) * mult));
 }
+function exactStackBreakdown(amount, stackSize) {
+  const total = Math.max(0, readInt(amount));
+  const size = Math.max(1, readInt(stackSize, 1));
+  if (!total) return '0';
+  const fullStacks = Math.floor(total / size);
+  const extra = total % size;
+  if (fullStacks && extra) return `${fmt(fullStacks)} @ ${fmt(size)} + ${fmt(extra)} extra`;
+  if (fullStacks) return `${fmt(fullStacks)} @ ${fmt(size)}`;
+  return `${fmt(extra)} extra`;
+}
 function setStatus(text) { $('status').textContent = text; }
 function categoryNames() { return Object.keys(RECIPES); }
 function selectedRecipe() { return $('recipe').value; }
@@ -224,8 +234,8 @@ function updateNeededPanel(writeLog=true) {
   const planItems=steps.length ? steps : [[recipeName, actualOutput]];
   planItems.forEach(([n,q])=>{ const tr=document.createElement('tr'); tr.appendChild(cell(n)); tr.appendChild(cell(fmt(q),'num')); plan.appendChild(tr); });
   if(actualOutput!==target) { const tr=document.createElement('tr'); const td=cell(`Actual output: ${fmt(actualOutput)}`); td.colSpan=2; tr.appendChild(td); plan.appendChild(tr); }
-  needed.appendChild(headerRow(['Item','Need','Have','Missing','Stacks Needed'], [1,2,3,4]));
-  Object.entries(req).forEach(([item,totalNeeded])=>{ const have=inv[item]||0; const missing=Math.max(0,totalNeeded-have); const stackSize=getStackSize(item); const stacksNeeded=missing?Math.ceil(missing/stackSize):0; const tr=document.createElement('tr'); [item,fmt(totalNeeded),fmt(have),fmt(missing),`${fmt(stacksNeeded)} @ ${fmt(stackSize)}`].forEach((v,i)=>tr.appendChild(cell(v,i?'num':''))); needed.appendChild(tr); });
+  needed.appendChild(headerRow(['Item','Need','Have','Missing','Exact Stack Breakdown'], [1,2,3,4]));
+  Object.entries(req).forEach(([item,totalNeeded])=>{ const have=inv[item]||0; const missing=Math.max(0,totalNeeded-have); const stackSize=getStackSize(item); const stackBreakdown=exactStackBreakdown(missing,stackSize); const tr=document.createElement('tr'); [item,fmt(totalNeeded),fmt(have),fmt(missing),stackBreakdown].forEach((v,i)=>tr.appendChild(cell(v,i?'num':''))); needed.appendChild(tr); });
   saveState();
   if(writeLog) setStatus(`Visual requirements updated for ${fmt(target)} x ${recipeName}.`);
 }
