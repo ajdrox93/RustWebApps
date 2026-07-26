@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "site_name": "Rust Web Apps",
-  "updated_at": "2026-07-19T23:59:00Z",
-  "releases": [
+  "updated_at": "2026-07-26T23:57:26.479123Z",
+  "entries": [
     {
       "id": "1.5.0",
       "version": "1.5.0",
@@ -10,8 +10,14 @@
       "title": "Building Import, Changelog, and About",
       "summary": "Unified Fortify and CopyPaste imports, new site information pages, automatic version display, and assorted fixes.",
       "status": "Published",
+      "featured": true,
       "created_at": "2026-07-19T23:59:00Z",
       "updated_at": "2026-07-19T23:59:00Z",
+      "categories": [
+        "Added",
+        "Fixed",
+        "Changed"
+      ],
       "changes": [
         {
           "category": "Added",
@@ -45,8 +51,7 @@
           "category": "Changed",
           "text": "Website version and latest-release details now update automatically from the newest published changelog entry."
         }
-      ],
-      "featured": true
+      ]
     }
   ]
 }
