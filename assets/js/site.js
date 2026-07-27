@@ -171,8 +171,9 @@
       const response = await fetch("/changelog.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
-      if (!Array.isArray(data.releases)) throw new Error("Unsupported changelog format");
-      const releases = sortReleases(data.releases.filter(published));
+      const items = Array.isArray(data.entries) ? data.entries : data.releases;
+      if (!Array.isArray(items)) throw new Error("Unsupported changelog format");
+      const releases = sortReleases(items.filter(published));
       SITE.latestRelease = releases[0] || null;
       SITE.featuredRelease = releases.find(release => release.featured === true) || SITE.latestRelease;
       if (SITE.latestRelease) {

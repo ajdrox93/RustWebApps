@@ -75,8 +75,9 @@
       const response=await fetch("/changelog.json",{cache:"no-store"});
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data=await response.json();
-      if (Number(data.schema_version)!==1 || !Array.isArray(data.releases)) throw new Error("Unsupported changelog format");
-      releases=data.releases.filter(published).sort(byNewest);
+      const items = Array.isArray(data.entries) ? data.entries : data.releases;
+      if (Number(data.schema_version)!==1 || !Array.isArray(items)) throw new Error("Unsupported changelog format");
+      releases=items.filter(published).sort(byNewest);
       const categories=[...new Set(releases.flatMap(r=>(Array.isArray(r.changes)?r.changes:[]).map(c=>text(c.category).trim()).filter(Boolean)))].sort();
       categories.forEach(category=>{const option=document.createElement("option");option.value=category;option.textContent=category;filter.append(option);});
       filter.addEventListener("change",render); render();
