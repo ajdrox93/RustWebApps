@@ -1,8 +1,28 @@
 {
   "schema_version": 1,
   "site_name": "Rust Web Apps",
-  "updated_at": "2026-07-26T23:57:26.479123Z",
+  "updated_at": "2026-07-27T00:03:57.101807Z",
   "entries": [
+    {
+      "id": "draft-20260726200122602338",
+      "version": "1.5.1",
+      "date": "2026-07-26",
+      "title": "Cooking Bench Update",
+      "summary": "Updated Cooking Bench Planner to give exact berry amounts for tea's. Previously used stacks which gave extra Basic/ Advance tea's when crafting Pure tea's.",
+      "status": "Published",
+      "featured": false,
+      "created_at": "2026-07-27T00:01:22.602338Z",
+      "updated_at": "2026-07-27T00:03:57.100807Z",
+      "categories": [
+        "Changed"
+      ],
+      "changes": [
+        {
+          "category": "Changed",
+          "text": "Berry quantities for tea's now give exact amount's instead of full stacks."
+        }
+      ]
+    },
     {
       "id": "1.5.0",
       "version": "1.5.0",
