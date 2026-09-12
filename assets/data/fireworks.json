@@ -61,6 +61,26 @@
       ]
     },
     {
+      "id": "white-boomer-dlc",
+      "name": "Green Boomer (DLC)",
+      "workbench": "",
+      "category": "Fun",
+      "requirements": [
+        {
+          "resource": "Metal Fragments",
+          "amount": 25
+        },
+        {
+          "resource": "Gun Powder",
+          "amount": 30
+        },
+        {
+          "resource": "Low Grade Fuel",
+          "amount": 15
+        }
+      ]
+    },
+    {
       "id": "orange-boomer-dlc",
       "name": "Orange Boomer (DLC)",
       "workbench": "",
